@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- //////////////////////////스타일////////////////////////// -->
+
+<style type="text/css">
+* {margin: 0; padding: 0; }
+li {list-style: none; }
+body {font-family: 'Nanum Gothic', sans-serif; width: 1200px; margin: 0 auto; }
+a{text-decoration:none; color:#000;}
+        
+.logo {margin: 50px 0; font-size: 30px; text-align: center;}
+               
+.topMenu {width: 100%; margin-bottom: 20px; text-align: center; height: 40px; }
+.topMenu:after {content: ""; display: block; clear: both; }
+
+.floatingMenu > li{float:left; width:15%;}
+.menu01 span {font-size: 15px; font-weight: bold; cursor:pointer;}
+
+.menu01 > li > ul > li{padding:10px 0; cursor:pointer;}
+.menu01 > li > .dept01{display:none;}
+</style>
+<!-- //////////////////////////스타일////////////////////////// -->
+
+
+<!-- //////////////////////////제이쿼리////////////////////////// -->
+<script type="text/javascript" src="jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(document).on('mouseover', '.topMenu > ul > li', function() {
+    $('.dmenu').slideDown(400);
+});
+
+$(document).on('mouseleave', 'div', function () {
+    if (!$(this).hasClass('topMenu')) {
+        $('.dmenu').slideUp(400);
+    }
+});
+</script>
+<!-- //////////////////////////제이쿼리////////////////////////// -->
+</head>
+<body>
+
+<!-- //////////////////////////상단 고정 메뉴////////////////////////// -->
+<div class="logo">
+    <span class="logo">플로팅 메뉴 테스트</span>
+</div>
+
+
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">CHACA<span>CHACA</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+			<div class="topMenu" id="ftco-nav">
+				<ul class="floatingMenu">
+					<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="about.html" class="nav-link"><span>이용안내</span></a>
+						<ul class="dmenu">
+							<li><a href="#a">아래메뉴1</a></li>
+						</ul></li>
+					<li class="nav-item"><a href="services.html" class="nav-link"><span>요금안내</span></a>
+						<ul class="dmenu">
+							<li><a href="#a">아래메뉴1</a></li>
+						</ul></li>
+					<li class="nav-item"><a href="pricing.html" class="nav-link"><span>예약하기</span></a>
+						<ul class="dmenu">
+							<li><a href="#a">아래메뉴1</a></li>
+						</ul></li>
+					<li class="nav-item"><a href="car.html" class="nav-link"><span>고객센터</span></a>
+						<ul class="dmenu">
+							<li><a href="#a">이용후기</a></li>
+							<li><a href="#a">문의하기</a></li>
+						</ul></li>
+					<li class="nav-item active"><a href="login.html" class="nav-link"><span>마이페이지</span></a>
+						<ul class="dmenu">
+							<li><a href="#a">회원정보수정</a></li>
+							<li><a href="#a">예약내역확인</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+<!-- //////////////////////////상단 고정 메뉴////////////////////////// -->
+
+</body>
+</html>

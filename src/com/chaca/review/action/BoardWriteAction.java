@@ -22,7 +22,7 @@ public class BoardWriteAction implements Action {
 		dto.setPassword(request.getParameter("password"));
 		dto.setContent(request.getParameter("content"));
 		// rate 우짜지~~~????
-//		dto.setRate(Integer.parseInt(request.getParameter("rate")));
+		dto.setRate(Integer.parseInt(request.getParameter("rate")));
 //		dto.setRate(request.getParameter("rate"));
 		dto.setIp(request.getRemoteAddr()); // ip주소 추가
 

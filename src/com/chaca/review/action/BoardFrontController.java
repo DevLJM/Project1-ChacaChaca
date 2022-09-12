@@ -38,7 +38,7 @@ public class BoardFrontController extends HttpServlet {
 			System.out.println("(from BoardFrontController_doProcess) C: DB 정보 필요 X -> view 페이지(writeForm.jsp)로 이동시킬거");
 			
 			forward = new ActionForward();
-			forward.setPath("./review/writeForm.jsp");
+			forward.setPath("./reviewWriteForm.jsp");
 			forward.setRedirect(false); // forward 방식으로 이동
 			
 		}// if --- 패턴1 끝 --- /BoardWrite.bo

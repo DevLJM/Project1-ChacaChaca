@@ -42,7 +42,7 @@
 	</table>
 	
 	
-<%-- 	<!-- EL표현식, JSTL로 이전,, 1 2 3 ,,, 다음 구현 -->
+	<!-- EL표현식, JSTL로 이전,, 1 2 3 ,,, 다음 구현 -->
 	<c:if test="${cnt != 0 }">
 		<c:if test="${startPage > pageBlock }">
 			<a href="./BoardList.bo?pageNum=${startPage-pageBlock}">[이전]</a>
@@ -55,7 +55,7 @@
 		<c:if test="${endPage < pageCount }">
 			<a href="./BoardList.bo?pageNum=${startPage+pageBlock }">[다음]</a>
 		</c:if>
-	</c:if> --%>
+	</c:if>
 	
 	
 </body>

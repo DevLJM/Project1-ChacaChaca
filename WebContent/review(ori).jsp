@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -70,7 +72,7 @@
 	          <li class="nav-item"><a href="info.html" class="nav-link">이용안내</a></li>
 	          <li class="nav-item"><a href="services.html" class="nav-link">요금안내</a></li>
 	          <li class="nav-item"><a href="pricing.html" class="nav-link">예약하기</a></li>
-	          <li class="nav-item active"><a href="review.html" class="nav-link">고객센터</a></li>
+	          <li class="nav-item active"><a href="review.jsp" class="nav-link">고객센터</a></li>
 	          <li class="nav-item"><a href="joinUpdate.html" class="nav-link">마이페이지</a></li>
 	        </ul>
 	      </div>
@@ -109,7 +111,7 @@
 
 			<nav id="nav">
 				<ul>
-					<li><a href="#" onclick="location.href='review.html'">이용후기</a></li>
+					<li><a href="#" onclick="location.href='review.jsp'">이용후기</a></li>
 					<li><a href="#" onclick="location.href='contact.html'">문의하기</a></li>
 				</ul>
 			</nav>
@@ -150,6 +152,11 @@
 										<p>원래 다른 카쉐어링 서비스를 이용했엇는데 차카차카가 한 번 써보고 완전 여기에 정착했어요!! 서비스
 											사용 가능한 지점도 여러 곳에 있고 쿠폰이랑 포인트 적립 제도도 잘 되어 있어서 타 서비스 대비 훨씬 더
 											저렴하게 이용가능해서 만족스러워요 +) 차카차카 이름도 귀여워요❤</p>
+										<span class="text-right">
+											<input type="button" value="수정" onclick="#">
+											<input type="button" value="삭제" onclick="#">
+											<input type="button" value="답글" onclick="#">
+										</span>
 									</div>
 								</div>
 								<div class="review d-flex">
@@ -169,6 +176,11 @@
 										</p>
 										<p>신규회원 쿠폰 이벤트가 있어서 이번에 처음 이용해봤는데 사이트가 사용하기 편리해서 첫 방문이었지만
 											수월하게 예약과 결제를 할 수 있었습니다. 추천합니다~</p>
+										<span class="text-right">
+											<a href="#" class="">수정</a>
+											<a href="#" class="">삭제</a>
+											<a href="#" class="">답글</a>
+										</span>
 									</div>
 								</div>
 								<div class="review d-flex">

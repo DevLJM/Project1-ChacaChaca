@@ -92,7 +92,7 @@ public class BoardListAction implements Action {
 		
 		// 페이지 이동(화면 전환)하기 위해 ActionForward 객체 생성
 		ActionForward forward = new ActionForward();
-		forward.setPath("./review/boardList.jsp");
+		forward.setPath("./review.jsp");
 		forward.setRedirect(false); // 화면만 바뀌는 forward 방식으로 갈거니까 false
 		
 		return forward;
