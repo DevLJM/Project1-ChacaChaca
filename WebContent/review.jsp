@@ -123,6 +123,8 @@
 
 			<!-- ---------------------- 본문 -------------------------------- -->
 
+						<hr>
+						<br> <br>
 
 			<div class="row">
 				<div class="col-md-12 pills">
@@ -130,8 +132,6 @@
 						<div class="d-flex justify-content-center"></div>
 
 
-						<hr>
-						<br> <br>
 						<div class="row">
 							<div class="col-md-7">
 								<h3 class="head">최근 작성된 이용후기</h3>
@@ -206,69 +206,31 @@
 								</div>
 								</c:forEach>
 								
-						</div> <!-- 여까지 col 7 -->
+						</div>
 
 
-							<!-- -------------- 후기 통계 ---------------- -->
-							<div class="col-md-5">
-								<div class="rating-wrap">
-									<h3 class="head">이용후기 총 40건</h3>
-									<div class="wrap">
-										<p class="star">
-											<span> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												(98%)
-											</span> <span>후기 38건</span>
-										</p>
-										<p class="star">
-											<span>
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												(02%)
-											</span> <span>후기 02건</span>
-										</p>
-										<p class="star">
-											<span>
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											</span> <span>후기 00건</span>
-										</p>
-										<p class="star">
-											<span>
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											</span> <span>후기 00건</span>
-										</p>
-										<p class="star">
-											<span>
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											</span> <span>후기 00건</span>
-										</p>
+							
+						<!-- ------------- 페이징 처리---------------- -->
+							<div class="row mt-5">
+								<div class="col text-center">
+									<div class="block-27">
+										<ul>
+											<li><a href="#">&lt;</a></li>
+											<li class="active"><span>1</span></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">4</a></li>
+											<li><a href="#">5</a></li>
+											<li><a href="#">&gt;</a></li>
+										</ul>
 									</div>
 								</div>
-							</div> <!-- 여까지 col 5 -->
-							<!-- ------------- 후기 통계 -------------- -->
-							
-							
-							<!-- ------------- 페이징 처리---------------- -->
-							<div>
+							</div>
+
+
+
+							<div class="row">
+							<div class="col-md-12">
 								<c:if test="${cnt != 0 }">
 									<c:if test="${startPage > pageBlock }">
 										<a href="./BoardList.bo?pageNum=${startPage-pageBlock}">[이전]</a>
@@ -283,6 +245,7 @@
 									</c:if>
 								</c:if>
 							</div>
+						</div>
 							<input class="justify-content-center" type="button" value="나도 리뷰 작성^^" onclick="location.href='reviewIndex.jsp'">
 							<!-------------- 페이징 처리 -------------- -->
 							

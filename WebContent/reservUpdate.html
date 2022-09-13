@@ -75,15 +75,34 @@
 <!-- 플로팅메뉴 jQuery -->
 <script type="text/javascript" src="jquery-3.6.0.js"></script>
 <script type="text/javascript">
-	$(document).on('mouseover', '.floatingMenu', function() {
-		$('.dmenu').slideDown(600);
-	});
+//	$(document).ready(function() {
+//	$('.dmenu').slideUp(600);
+//});
 
-	$(document).on('mouseleave', '.floatingMenu', function() {
-		if (!$(this).hasClass('dmenu')) {
-			$('.dmenu').slideUp(800);
-		}
-	});
+$('.nav-item').ready('mouseover', '.floatingMenu', function() {
+	$('.dmenu').slideDown(600);
+});
+
+$('.nav-item').on('mouseout', '.floatingMenu', function() {
+	if (!$(this).hasClass('dmenu')) {
+		$('.dmenu').slideUp(800);
+}
+});
+
+//dfd
+//$(document).on('mousover', '.floatingMenu', function() {
+//		$('.dmenu').slideDown(800);
+//	}
+//});
+//$(document).on('mousover', '.floatingMenu', function() {
+//	if (!$(this).hasClass('dmenu')) {
+//		$('.dmenu').slideUp(800);
+//	}
+//});
+
+$(document).on('mouseover', '', function(){
+	$('.dmenu').slidDown(400);
+});
 	
 </script>
 <!-- 플로팅메뉴 jQuery -->
