@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>로그인</title>
+    <title>마이페이지> 예약정보</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+   
     <!-- 메뉴바 css  -->
 	<style>
 	#nav ul {
@@ -53,10 +54,47 @@
   </style>
     
     <!-- 메뉴바 css  -->
-  </head>
+    
+<!-- 플로팅메뉴 CSS -->
+    <style type="text/css">
+	.dmenu li {
+	    list-style-type: none;
+	    font-size: 90%;
+	}
+	.dmenu li a {
+	    display: block;
+	    color: #FCF8E8;
+	}
+	.dmenu li a:hover:not(.active) {
+	    color: #91bd95;
+	}
+    </style>
+<!-- 플로팅메뉴 CSS -->
+
+
+<!-- 플로팅메뉴 jQuery -->
+<script type="text/javascript" src="jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(document).on('mouseover', '.floatingMenu', function() {
+		$('.dmenu').slideDown(600);
+	});
+
+	$(document).on('mouseleave', '.floatingMenu', function() {
+		if (!$(this).hasClass('dmenu')) {
+			$('.dmenu').slideUp(800);
+		}
+	});
+	
+</script>
+<!-- 플로팅메뉴 jQuery -->
+
+
+</head>
   <body>
     
 <!-- ---------------------- 최상단 메뉴바 -------------------------------- -->
+<!-- ---------------////// 플로팅 메뉴 적용 //////------------------------ -->
+
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.html">CHACA<span>CHACA</span></a>
@@ -64,18 +102,36 @@
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">이용안내</a></li>
-	          <li class="nav-item"><a href="services.html" class="nav-link">요금안내</a></li>
-	          <li class="nav-item"><a href="pricing.html" class="nav-link">예약하기</a></li>
-	          <li class="nav-item"><a href="review.html" class="nav-link">고객센터</a></li>
-	          <li class="nav-item active"><a href="login.html" class="nav-link">마이페이지</a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
+			<div class="topMenu navbar-collapse" id="ftco-nav">
+				<ul class="floatingMenu navbar-nav ml-auto">
+					<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="about.html" class="nav-link">이용안내</a>
+						<ul class="dmenu">
+							<li><a href="#a" class="nav-dlink">아래메뉴1</a></li>
+						</ul></li>
+					<li class="nav-item"><a href="services.html" class="nav-link">요금안내</a>
+						<ul class="dmenu">
+							<li><a href="#a" class="nav-dlink">아래메뉴1</a></li>
+						</ul></li>
+					<li class="nav-item"><a href="pricing.html" class="nav-link">예약하기</a>
+						<ul class="dmenu">
+							<li><a href="#a" class="nav-dlink">아래메뉴1</a></li>
+						</ul></li>
+					<li class="nav-item"><a href="car.html" class="nav-link">고객센터</a>
+						<ul class="dmenu">
+							<li><a href="review.jsp" class="nav-dlink">이용후기</a></li>
+							<li><a href="contact.html" class="nav-dlink">문의하기</a></li>
+						</ul></li>
+					<li class="nav-item active"><a href="login.html" class="nav-link">마이페이지</a>
+						<ul class="dmenu">
+							<li><a href="joinUpdate.html" class="nav-dlink">회원정보수정</a></li>
+							<li><a href="reservUpdate.html" class="nav-dlink">예약내역확인</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+<!-- ---------------////// 플로팅 메뉴 적용 //////------------------------ -->
 
 <!-- ---------------------- 경로 -------------------------------- -->
     <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/autocar2.jpg');" data-stellar-background-ratio="0.5">
@@ -165,6 +221,7 @@
 						        <th class="bg-primary heading">No.</th>
 						        <th class="bg-primary heading">예약번호</th>
 						        <th class="bg-primary heading">상태</th>
+						        <th class="bg-primary heading">이용후기</th>
 						        
 						      </tr>
 						    </thead>
@@ -173,12 +230,14 @@
 						        <td class="bg-primary">1</td>
 						        <td><a href="reservUpdate.html">이전 내역1</a></td>
 						        <td>사용 완료</td>
+						        <td><a href="reviewIndex.jsp">이용후기 쓰기</a></td>
 						        
 						      </tr>
 						      <tr class="text-center">
 						        <td class="bg-primary">2</td>
 						        <td><a href="reservUpdate.html">이전 내역2</a></td>
 						        <td>사용 완료</td>
+						        <td><a href="reviewIndex.jsp">이용후기 쓰기</a></td>
 						   
 						      </tr>
 						    </tbody>
