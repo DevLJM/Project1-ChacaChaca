@@ -497,8 +497,8 @@ pre {
 .col-xl-auto {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px; }
+  padding-right: 40px;
+  padding-left: 40px; }
 
 .col {
   -ms-flex-preferred-size: 0;
@@ -927,7 +927,8 @@ pre {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
-    max-width: 100%; }
+    max-width: 100%;
+     }
   .order-md-first {
     -webkit-box-ordinal-group: 0;
     -ms-flex-order: -1;
@@ -8330,15 +8331,13 @@ h1, h2, h3, h4, h5,
       color: #000000 !important; }
       .ftco-navbar-light.scrolled .nav-link.active {
         color: #0c3b17 !important; }
-/*         테스트 */
+/*         슬라이드 바 테스트 */
     .ftco-navbar-light.scrolled .nav-dlink {
       padding-top: 0.9rem !important;
       padding-bottom: 0.9rem !important;
       color: #000000 !important; }
       .ftco-navbar-light.scrolled .nav-dlink.active {
         color: #0c3b17 !important; }
-
-
 /*         테스트 */
         
         
@@ -9584,11 +9583,21 @@ textarea.form-control {
       height: 40px;
       line-height: 40px;
       border-radius: 50%;
-      border: 1px solid #e6e6e6; }
+      border: 1px solid #e6e6e6;
+      
+       }
+      .block-27 a:hover {
+       background-color: red;
+      
+      }
+       
+/*        테스트 */
     .block-27 ul li.active a, .block-27 ul li.active span {
       background: #1089ff;
       color: #fff;
-      border: 1px solid transparent; }
+      border: 1px solid transparent; 
+      color: #000000 !important;
+      }
 
 .contact-section .contact-info p {
   font-weight: 600;

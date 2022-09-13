@@ -123,6 +123,8 @@
 
 			<!-- ---------------------- 본문 -------------------------------- -->
 
+						<hr>
+						<br> <br>
 
 			<div class="row">
 				<div class="col-md-12 pills">
@@ -130,15 +132,14 @@
 						<div class="d-flex justify-content-center"></div>
 
 
-						<hr>
-						<br> <br>
 						<div class="row">
-							<div class="col-md-7">
+							<div class="col-md-12" style="padding-left: 70px;">
 								<h3 class="head">최근 작성된 이용후기</h3>
 								
 								
 								<c:forEach var="dto" items="${requestScope.boardList }">
-								<div class="review d-flex">
+								<br>
+								<div class="review d-flex" style="width: 95%;">
 									<div class="user-img"
 										style="background-image: url(images/person_1.jpg)"></div>
 									<div class="desc">
@@ -204,86 +205,76 @@
 										
 									</div>
 								</div>
+								<br>
 								</c:forEach>
 								
-						</div> <!-- 여까지 col 7 -->
+						</div>
 
 
-							<!-- -------------- 후기 통계 ---------------- -->
-							<div class="col-md-5">
-								<div class="rating-wrap">
-									<h3 class="head">이용후기 총 40건</h3>
-									<div class="wrap">
-										<p class="star">
-											<span> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												(98%)
-											</span> <span>후기 38건</span>
-										</p>
-										<p class="star">
-											<span>
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												(02%)
-											</span> <span>후기 02건</span>
-										</p>
-										<p class="star">
-											<span>
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											</span> <span>후기 00건</span>
-										</p>
-										<p class="star">
-											<span>
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											</span> <span>후기 00건</span>
-										</p>
-										<p class="star">
-											<span>
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											</span> <span>후기 00건</span>
-										</p>
+						
+						<!-- ------------- 페이징 처리---------------- -->
+						<br>
+							<div class="row" style="width: 100%">
+								<div class="col-md-12">
+									<div class="row mt-5">
+										<div class="col text-center" style="width: 1000px">
+											<div class="block-27">
+												<c:if test="${cnt != 0 }">
+													<ul>
+														<li><c:if test="${startPage > pageBlock }">
+																<a href="./BoardList.bo?pageNum=${startPage-pageBlock}">&lt;</a>
+															</c:if></li>
+
+														<li class=""><c:forEach var="i" begin="${startPage }"
+																end="${endPage }" step="1">
+																<a href="./BoardList.bo?pageNum=${i }">${i }</a>
+															</c:forEach></li>
+
+														<li><c:if test="${endPage < pageCount }">
+																<a href="./BoardList.bo?pageNum=${startPage+pageBlock }">&gt;</a>
+															</c:if></li>
+													</ul>
+												</c:if>
+												<input type="button" value="나도 리뷰 작성^^"
+													onclick="location.href='reviewIndex.jsp'">
+											</div>
+										</div>
 									</div>
 								</div>
-							</div> <!-- 여까지 col 5 -->
-							<!-- ------------- 후기 통계 -------------- -->
-							
-							
-							<!-- ------------- 페이징 처리---------------- -->
-							<div>
+							</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+							<%-- 			원본				<div class="row" >
+							<div class="col-md-12">
 								<c:if test="${cnt != 0 }">
 									<c:if test="${startPage > pageBlock }">
-										<a href="./BoardList.bo?pageNum=${startPage-pageBlock}">[이전]</a>
+										<a href="./BoardList.bo?pageNum=${startPage-pageBlock}" style="text-align: center;">[이전]</a>
 									</c:if>
 									
 									<c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-										<a href="./BoardList.bo?pageNum=${i }">[${i }]</a>
+										<a href="./BoardList.bo?pageNum=${i }" style="text-align: center;">[${i }]</a>
 									</c:forEach>
 									
 									<c:if test="${endPage < pageCount }">
-										<a href="./BoardList.bo?pageNum=${startPage+pageBlock }">[다음]</a>
+										<a href="./BoardList.bo?pageNum=${startPage+pageBlock }" style="text-align: center;">[다음]</a>
 									</c:if>
 								</c:if>
-							</div>
 							<input class="justify-content-center" type="button" value="나도 리뷰 작성^^" onclick="location.href='reviewIndex.jsp'">
+							</div>
+						</div> --%>
 							<!-------------- 페이징 처리 -------------- -->
 							
 							
