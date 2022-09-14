@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>이용후기</title>
+    <title>이용후기 수정</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -54,11 +53,43 @@
 	    color: #CEE5D0;
 	}
   </style>
-    
     <!-- 메뉴바 css  -->
+
+
+    <!-- 별표 css  -->
+
+<style type="text/css">
+.star{
+    display: inline-block;
+    direction: rtl;
+    border:0;
+}
+.star input[type=radio]{
+    display: none;
+}
+.star label{
+    font-size: 3em;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
+}
+.star label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.star label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.star input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+</style>
+
+    <!-- 별표 css  -->
+
+
+
   </head>
   <body>
-    
+
 <!-- ---------------------- 최상단 메뉴바 -------------------------------- -->
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
@@ -112,7 +143,7 @@
 
 			<nav id="nav">
 				<ul>
-					<li><a href="./BoardList.bo" onclick="location.href='review.jsp'">이용후기</a></li>
+					<li><a href="#" onclick="location.href='review.jsp'">이용후기</a></li>
 					<li><a href="#" onclick="location.href='contact.html'">문의하기</a></li>
 				</ul>
 			</nav>
@@ -123,155 +154,66 @@
 
 			<!-- ---------------------- 본문 -------------------------------- -->
 
-						<hr>
-						<br> <br>
+			<hr>
+			<!-- 소제목+본문 섹션2 시작 -->
+			<section class="ftco-section">
+				<div class="container">
+					<!------------------ 	이용후기 쓰기 -------------------------------->
+					<div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated justify-content-center">
+						<div class="col-md-30 ">
+							<fieldset>
+								<legend style="text-align: center; ">후기 수정하기</legend><br>
+								<form action="./BoardUpdate.bo" class="bg-light p-5 contact-form" method="post">
+										<input type="hidden" value="${dto.bno }">
+									<div class="form-group">
+										<span style="width: 80%;">아이디</span> 
+										<input type="email" class="form-control" name="id" placeholder="아이디(이메일)" style="width:50%">
+									</div>
+									<div class="form-group">
+										<span style="width: 80%;">이름</span>
+										<input type="text" class="form-control" name="name" placeholder="예약자 성함" style="width:50%">
+									</div>
+									<div class="form-group">
+										<span style="width: 80%;">비밀번호</span> 
+										<input type="password" class="form-control" name="password" placeholder="비밀번호" style="width:50%">
+									</div>
+									<div class="form-group">
+										<span style="width: 80%;">내용</span>
+										<textarea rows="10" cols="80" class="form-control" name="content" placeholder="내용입력"></textarea>
+									</div>
+									<div class="form-group">
+										<span style="width: 60%;">별표</span> 
+										
+								<!-- ////////////////별표////////////// -->
 
-			<div class="row">
-				<div class="col-md-12 pills">
-					<div class="bd-example bd-example-tabs">
-						<div class="d-flex justify-content-center"></div>
-
-
-						<div class="row">
-							<div class="col-md-12" style="padding-left: 70px;">
-								<h3 class="head">최근 작성된 이용후기</h3>
-								
-								
-								<c:forEach var="dto" items="${requestScope.boardList }">
-								<br>
-								<div class="review d-flex" style="width: 95%;">
-									<div class="user-img"
-										style="background-image: url(images/person_1.jpg)"></div>
-									<div class="desc">
-										<h4>
-											<span class="text-left">${dto.name }</span> 
-											<span class="text-right">${dto.date }</span>
-										</h4>
-										
-										
-										<p class="star"> 
-										<span> 
-										<c:choose>
-											<c:when test="${dto.rate eq 1 }">
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											</c:when>
-											<c:when test="${dto.rate eq 2 }">
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											</c:when>
-											<c:when test="${dto.rate eq 3 }">
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											</c:when>
-											<c:when test="${dto.rate eq 4 }">
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star"></i> 
-												<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i> 
-											</c:when>
-											<c:when test="${dto.rate eq 5}">
-												<i class="ion-ios-star"></i>
-												<i class="ion-ios-star"></i>
-												<i class="ion-ios-star"></i>
-												<i class="ion-ios-star"></i>
-												<i class="ion-ios-star"></i>
-											</c:when>
-										</c:choose>
-										</span>
-											<!-- .table tbody tr td.product-name .rated span {
-											      color: #01d28e; }
-											      .table tbody tr td.product-name .rated span:nth-child(1) {
-											        color: #000000; }
-											      .table tbody tr td.product-name .rated span:last-child {
-											        color: rgba(0, 0, 0, 0.1); } -->
-										
-										
-											<span class="text-right"><a href="./BoardContent.bo?bno=${dto.bno }&pageNum=${requestScope.pageNum}"> 상세보기</a></span>
-<!-- 										<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span> -->
-										</p>
-										
-										<p> ${dto.content } </p>
+							<div class="star">
+								<span class="text-bold"></span>
+								<input type="radio" name="rate" value="5" id="rate1"><label for="rate1">★</label>
+								<input type="radio" name="rate" value="4" id="rate2"><label for="rate2">★</label>
+								<input type="radio" name="rate" value="3" id="rate3"><label for="rate3">★</label>
+								<input type="radio" name="rate" value="2" id="rate4"><label for="rate4">★</label>
+								<input type="radio" name="rate" value="1" id="rate5"><label for="rate5">★</label>
+							</div>
+								<!-- ///////////////별표/////////////// -->
 										
 									</div>
-								</div>
-								<br>
-								</c:forEach>
-								
+									
+									
+									<input type="submit" value="제출하기" >
+									<div class="form-group"></div>
+								</form>
+							</fieldset>
 						</div>
-
-
-						
-						<!-- ------------- 페이징 처리---------------- -->
-						<br>
-							<div class="row" style="width: 100%">
-								<div class="col-md-12">
-									<div class="row mt-5">
-										<div class="col text-center" style="width: 1000px">
-											<div class="block-27">
-												<c:if test="${cnt != 0 }">
-													<ul>
-														<li><c:if test="${startPage > pageBlock }">
-																<a href="./BoardList.bo?pageNum=${startPage-pageBlock}">&lt;</a>
-															</c:if></li>
-
-														<li class=""><c:forEach var="i" begin="${startPage }"
-																end="${endPage }" step="1">
-																<a href="./BoardList.bo?pageNum=${i }">${i }</a>
-															</c:forEach></li>
-
-														<li><c:if test="${endPage < pageCount }">
-																<a href="./BoardList.bo?pageNum=${startPage+pageBlock }">&gt;</a>
-															</c:if></li>
-													</ul>
-												</c:if>
-												<input type="button" value="나도 리뷰 작성^^"
-													onclick="location.href='reviewIndex.jsp'">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+					</div>
+					<div>
 
 
 
-							<%-- 			원본				<div class="row" >
-							<div class="col-md-12">
-								<c:if test="${cnt != 0 }">
-									<c:if test="${startPage > pageBlock }">
-										<a href="./BoardList.bo?pageNum=${startPage-pageBlock}" style="text-align: center;">[이전]</a>
-									</c:if>
-									
-									<c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-										<a href="./BoardList.bo?pageNum=${i }" style="text-align: center;">[${i }]</a>
-									</c:forEach>
-									
-									<c:if test="${endPage < pageCount }">
-										<a href="./BoardList.bo?pageNum=${startPage+pageBlock }" style="text-align: center;">[다음]</a>
-									</c:if>
-								</c:if>
-							<input class="justify-content-center" type="button" value="나도 리뷰 작성^^" onclick="location.href='reviewIndex.jsp'">
-							</div>
-						</div> --%>
-							<!-------------- 페이징 처리 -------------- -->
-							
-							
-							
-							
-					</div> <!-- class="row" -->
+						<!-- 소제목+본문 섹션 끝 -->
+					</div>
 				</div>
-			</div>
-		</div> <!-- class="row" -->
+			</section>
+		</div>
 	</section>
 
 

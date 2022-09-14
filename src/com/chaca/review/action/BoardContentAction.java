@@ -19,13 +19,13 @@ public class BoardContentAction implements Action{
 		System.out.println("(from BoardContentAction) M: 조회수 +1 완");
 		
 		// 게시판 글 1개의 정보를 가져와서 출력 == 멤버 1명 정보 출력했었던 거랑 똑같음!!
-		BoardDTO dto = dao.getBoard(bno); // 5. 특정 글 1개 정보 조회 메서드
+//		BoardDTO dto = dao.getBoard(bno); // 5. 특정 글 1개 정보 조회 메서드
 		
 		// (Model에서 정보 출력 X) View에서 정보 출력해서 보여주기 위해서~~
 		// 지금,, 여기,, action 페이지,,=Model에 있는 정보를  --> view로 이동시키자!!!!!!!
 		// 用 request 영역!!
-		request.setAttribute("dto", dto);
-//		request.setAttribute("dto", dao.getBoard(bno)); 위에 두 과정 합쳐서 이렇게 더 많이 쓴다!!
+//		request.setAttribute("dto", dto);
+		request.setAttribute("dto", dao.getBoard(bno)); // 위에 두 과정 합쳐서 이렇게 더 많이 쓴다!!
 		request.setAttribute("pageNum", pageNum); // 출력할 때 사용
 		
 		// 정보 출력할 view 페이지로 이동~ 통행권 만들고

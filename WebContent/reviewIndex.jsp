@@ -11,8 +11,8 @@
 		// ★★MVC 프로젝트에서는 index.jsp페이지 외에는 절대!! jsp 페이지 실행 금지!!!★★
 		
 		// MVC 프로젝트 실행 시작페이지^^
-		response.sendRedirect("./BoardWrite.bo");
-// 		response.sendRedirect("./BoardList.bo");
+// 		response.sendRedirect("./BoardWrite.bo");
+		response.sendRedirect("./BoardList.bo");
 		
 	%>
 

@@ -177,7 +177,7 @@
 			              	<a href="#" class="block-20 img" style="background-image: url('images/image_1.jpg');">${dto.file }</a>
 <!-- 			                <p><a href="blog-single.html" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p> -->
 			              	<br>
-			              	<input type="button" value="수정">
+			              	<input type="button" value="수정" onclick="location.href='./BoardUpdate.bo';">
 							<input type="button" value="삭제">
 							<input type="button" value="답글">
 							<input type="button" value="목록" onclick="location.href='./BoardList.bo?pageNum=${pageNum}';">
