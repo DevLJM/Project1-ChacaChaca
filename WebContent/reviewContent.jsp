@@ -181,7 +181,8 @@
 							<input type="button" value="삭제">
 							<input type="button" value="답글">
 							<input type="button" value="목록" onclick="location.href='./BoardList.bo?pageNum=${pageNum}';">
-			              
+
+
 			              </div>
 			            </div>
 			          </div>
