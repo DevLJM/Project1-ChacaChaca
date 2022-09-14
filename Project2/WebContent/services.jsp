@@ -48,7 +48,7 @@
 				<li class="nav-item"><a href="info.jsp" class="nav-link">이용안내</a></li>
 				<li class="nav-item active"><a href="services.jsp" class="nav-link">요금안내</a></li>
 				<li class="nav-item"><a href="pricing.jsp" class="nav-link">예약하기</a></li>
-				<li class="nav-item"><a href="review.jsp" class="nav-link">고객센터</a></li>
+				<li class="nav-item"><a href="reviewIndex.jsp" class="nav-link">고객센터</a></li>
 				<li class="nav-item"><a href="joinUpdate.jsp" class="nav-link">마이페이지</a></li>
 			</ul>
 		</div>

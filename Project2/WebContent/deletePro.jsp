@@ -38,7 +38,8 @@
 		// 4. SQL 실행
 		pstmt.executeUpdate();
 		
-		session.invalidate();
+		try{session.invalidate();}
+		catch(Exception e){e.printStackTrace();}
 		response.sendRedirect("index.jsp");
 	%>
 </body>

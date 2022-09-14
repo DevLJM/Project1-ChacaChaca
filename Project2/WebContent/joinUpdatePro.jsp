@@ -21,10 +21,15 @@
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
 		Date birth = Date.valueOf(request.getParameter("birth"));
-		String gender = request.getParameter("gender");
 		String phone = request.getParameter("phone");
 		String address = request.getParameter("address");
 		
+		session.setAttribute("id_email", id_email);
+		session.setAttribute("password", password);
+		session.setAttribute("name", name);
+		session.setAttribute("birth", birth);
+		session.setAttribute("phone", phone);
+		session.setAttribute("address", address);
 		
 		// 디비 연결 - 정보 저장
 		// 1. 드라이버 로드
@@ -56,8 +61,10 @@
 		// 5. SQL 실행
 		pstmt.executeUpdate();
 		System.out.println("회원정보 수정완료!");
-		
-		response.sendRedirect("joinUpdate.jsp");
 	%>
+	<script type="text/javascript">
+		alert("회원정보가 수정되었습니다.")
+		location.href="joinUpdate.jsp";
+	</script>
 </body>
 </html>

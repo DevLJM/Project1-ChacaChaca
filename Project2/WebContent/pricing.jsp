@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -19,104 +19,58 @@
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
+    
+<script type="text/javascript" src="jquery-3.6.0.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dfca5b3863564f021175c274a0079e2a"></script>
+<script type="text/javascript">
+	$(function(){
+		// 질문유형을 선택한다.
+		chnQnaType('small' , '11');
+	});
 
-<title>로그인</title>
+	function chnQnaType(type, select) {
+    
+		$('#schQnaType').empty();
+    
+		if(type == 'small') { // 소형
+			$('#schQnaType').append("<option value='11'>차1</option>'");
+			$('#schQnaType').append("<option value='12'>차2</option>'");
+			$('#schQnaType').append("<option value='13'>차3</option>'");
+		} else if (type == 'medium') {  // 중형
+			$('#schQnaType').append("<option value='21'>차4</option>'");
+			$('#schQnaType').append("<option value='22'>차5</option>'");
+			$('#schQnaType').append("<option value='23'>차6</option>'");
+		} else if ( type == 'large') {  // 대형
+			$('#schQnaType').append("<option value='31'>차7</option>'");
+			$('#schQnaType').append("<option value='32'>차8</option>'");
+			$('#schQnaType').append("<option value='33'>차9</option>'");
+		}
+		
+		document.getElementById("schQnaType").style.display = "";
+    
+		if ($.trim(select) != "") {
+			$('#select1').val(type);
+			$('#schQnaType').val(select);
+		}
+	}
 
-<!-- 메뉴바 css  -->
-<style type="text/css">
-#nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #94B49F;
-    text-align: center;
-}
+</script>
 
-#nav li a {
-    display: block;
-    color: #FCF8E8;
-    padding: 8px 16px;
-    text-decoration: none;
-    border-bottom: 1px solid #FCF8E8;
-}
-	
-#nav li a.active {
-    background-color: #94B49F;
-    color: white;
-}
-	
-#nav li a:hover:not(.active) {
-    background-color: #FCF8E8;
-    color: #CEE5D0;
-}
-</style>
-<!-- 메뉴바 css  -->
-
+<title>예약하기</title>
 </head>
 <body>
-<%
-	// 세션 영역에 있는 로그인 아이디 정보를 가져오기
-	String id = (String)session.getAttribute("loginID");
-	
-	if(id == null) {
-		// 로그인 안함
-		response.sendRedirect("login.jsp");
-	}
-	
-	%>
-<script type="text/javascript">
-
-	function join() {
-		var password = document.form.password.value;
-		var password_check = document.form.password_check.value;
-		var name = document.form.name.value;
-		var birth = document.form.birth.value;
-		var phone = document.form.phone.value;
-		var address = document.form.address.value;
-		
-		if(password == "") {
-			alert("비밀번호를 입력하세요.");
-			return false;
-		} else if(password.length < 8) {
-			alert("비밀번호는 8자 이상입니다.");
-			return false;
-		}
-		
-		if(password_check != password) {
-			alert("비밀번호를 확인하세요.");
-			return false;
-		}
-		
-		if (name == "") {
-			alert("이름을 입력하세요.");
-			return false;
-		}
-		
-		if(birth == "") {
-			alert("생년월일을 입력하세요.");
-			return false;
-		}
-		
-		if (phone == "") {
-			alert("전화번호를 입력하세요.");
-			return false;
-		}
-		if (address == "") {
-			alert("주소를 입력하세요.");
-			return false;
-		}
-	}
-	
-	function del() {
-		location.href="delete.jsp";
-	}
-</script>
 <!-- ----------------------------------------------- 최상단 메뉴바 시작 ----------------------------------------------- -->
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	<div class="container">
 		<a class="navbar-brand" href="index.jsp">CHACA<span>CHACA</span></a>
 		<%
+		String id = (String)session.getAttribute("loginID");
+		
+		if(id == null) {
+			// 로그인 안함
+			response.sendRedirect("login.jsp");
+		}
+		
 		if(id == null) {
 			%>
 			<a class="navbar-brand" href="join.jsp">회원가입</a>
@@ -133,96 +87,116 @@
 				<li class="nav-item"><a href="index.jsp" class="nav-link">Home</a></li>
 				<li class="nav-item"><a href="info.jsp" class="nav-link">이용안내</a></li>
 				<li class="nav-item"><a href="services.jsp" class="nav-link">요금안내</a></li>
-				<li class="nav-item"><a href="pricing.jsp" class="nav-link">예약하기</a></li>
+				<li class="nav-item active"><a href="pricing.jsp" class="nav-link">예약하기</a></li>
 				<li class="nav-item"><a href="reviewIndex.jsp" class="nav-link">고객센터</a></li>
-				<li class="nav-item active"><a href="joinUpdate.jsp" class="nav-link">마이페이지</a></li>
-				<!-- <li class="nav-item"><a href="joinUpdate.jsp" class="nav-link"><img src="images/mypage.png" width="20%" height="20%"></a></li> -->
+				<li class="nav-item"><a href="joinUpdate.jsp" class="nav-link">마이페이지</a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
 <!-- ------------------------------------------------ 최상단 메뉴바 끝 ------------------------------------------------ -->
 
-<!-- ---------------------- 경로 -------------------------------- -->
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/autocar2.jpg');" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-          							<span>마이페이지 <i class="ion-ios-arrow-forward"></i></span></p>
-            						<h1 class="mb-3 bread">회원정보</h1>
-          </div>
-        </div>
-      </div>
-    </section>
-
+<!-- ------------------------------------------ 경로 시작 -------------------------------------------- -->
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/autocar2.jpg');" data-stellar-background-ratio="0.5">
+	<div class="container">
+		<div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+			<div class="col-md-9 ftco-animate pb-5">
+				<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a> > </span><span>예약하기 ></span></p>
+           		<h1 class="mb-3 bread">예약하기</h1>
+			</div>
+       	</div>
+	</div>
+</section>
+<!-- -------------------------------------------- 경로 끝 -------------------------------------------- -->
 
 <!-- 소제목+본문 섹션 시작 -->
     <section class="ftco-section">
 		<div class="container">
-<!-- ---------------------- 소제목 -------------------------------- -->
-			<div class="row justify-content-center mb-3">
-     			<div class="col-md-7 text-center heading-section ftco-animate">
-          			<span class="subheading">차카차카</span>
-           				<h2 class="mb-3">회원정보</h2>
-          		</div>
-       		</div>
-
-<!--좌측 메뉴바  -->
-
-<nav id="nav">
-            <ul>
-                <li><a href="#" onclick="location.href='joinUpdate.html'">회원정보</a></li>
-                <li><a href="#" onclick="location.href='reservUpdate.html'">예약내역</a></li>
-            </ul>
-    </nav>
-
-
-<!--좌측 메뉴바 -->
-
+<!-- ------------------------------------------- 소제목 시작 ----------------------------------------- -->
+<section class="ftco-section">
+	<div class="container">
+		<div class="row justify-content-center mb-3">
+     		<div class="col-md-7 text-center heading-section ftco-animate">
+				<span class="subheading">차카차카</span>
+           		<h2 class="mb-3">예약하기</h2>
+          	</div>
+		</div>
+	</div>
+</section>     		
+<!-- -------------------------------------------- 소제목 끝 ------------------------------------------ -->
+       		
        		
 <!-- ---------------------- 본문 -------------------------------- -->
-       		<div class="row d-flex justify-content-center">
-       			<div class="col-md-5 ">
-            		<form action="joinUpdatePro.jsp" method="post" class="p-2 contact-form" name="form" onsubmit="return join();">
-	              		<div class="form-group">
-	                		아이디(이메일): <input type="email" class="form-control" value="${sessionScope.loginID }" name="id_email" readonly>
-	              		</div>
-	              		<div class="form-group">
-	                		비밀번호: <input type="password" class="form-control" name="password">
-	              		</div>
-	              		<div class="form-group">
-	                		비밀번호 확인: <input type="password" class="form-control" name="password_check">
-	              		</div>
-	              		<div class="form-group">
-	                		이 름: <input type="text" class="form-control" value="${sessionScope.name }"name="name">
-	              		</div>
-	              		<div class="form-group">
-	                		생년월일: <input type="date" class="form-control" value="${sessionScope.birth }" name="birth" readonly>
-	              		</div>
-	              		<div class="form-group">
-	                		전화번호: <input type="tel" class="form-control" value="${sessionScope.phone }" name="phone">
-	              		</div>
-	              		<div class="form-group">
-	                		주 소: <input type="text" class="form-control" value="${sessionScope.address }" name="address">
-	              		</div>
-	              		<div class="form-group">
-	             			<p class="d-flex justify-content-center mt-5 mb-0 d-block">
-	                			<input type="submit" value="수정" class="btn btn-primary py-3 px-5 mr-3 ">
-	                			<input type="button" value="삭제" class="btn btn-primary py-3 px-5 ml-3 " onclick="del();">
-	              			</p>
-	              		</div>
-            		</form>
-          		</div>
-          </div>
+<!------------------ 대여일시, 반납일시--------------------------->
+<form action="rsv_car.html" class="p-2 contact-form" method="post">
+<div class="row d-flex justify-content-center">
+	<div class="col-md-7 ">
+		<div class="form-group">
+			<h2> 📆 언제 필요하세요?</h2>
+			<p class="d-flex justify-content-center mt-3 mb-0 d-block">
+				<span style="width: 20%;">대여일시</span>
+				<input type="datetime-local" class="form-control" placeholder="2000. 01. 01" name="start_datetime">
+			</p>
+		</div>
+		<div class="form-group">
+			<p class="d-flex justify-content-center mt-3 mb-0 d-block">
+				<span style="width: 20%;">반납일시</span>
+				<input type="datetime-local" class="form-control" placeholder="2000. 01. 01" name="end_datetime">
+			</p>
+		</div>
+	</div>
+</div>
+
+<!------------------ 위치 선택 --------------------------->          
+<div class="row d-flex justify-content-center">
+	<div class="col-md-7">
+		<div class="form-group">
+			<h2> 🧭 어디에서 이용하세요?</h2>
+	    	<p class="d-flex justify-content-center mt-3 mb-0 d-block">
+	    	<div id="map" style="width:625px;height:400px;"></div>
+			<input type="text" class="form-control" placeholder="City, Station, etc">
+	        </p>
+		</div>
+	</div>
+</div>
+
+<!------------------ 차량 종류 선택 ---------------------------> 
+<div class="row d-flex justify-content-center">
+	<div class="col-md-7 ">
+		<div class="form-group">
+			<h2> 🚘 어떤 차량을 원하세요?</h2>
+			<p class="d-flex justify-content-center mt-3 mb-0 d-block">
+				<span style="width: 20%;">차량 선택</span> 
+				<select name="questType" id="select1" onchange="chnQnaType(this.value)">
+					<option value="small">소형</option>
+					<option value="medium">중형</option>
+					<option value="large">대형</option>
+				</select>
+				<select id="schQnaType" name="schQnaType"   style="width:120px; display:none;">
+				</select>
+			</p>
+		</div>
+		<div class="form-group text-center">
+			<input type="submit" value="예약하기" class="btn btn-primary py-3 px-5">
+		</div>
+	</div>
+</div> 
+</form>
+    
           
 <!-- 소제목+본문 섹션 끝 -->
        </div>
     </section>
-
-
-
+<!-- ------------------------------------------- 카카오 지도 시작 ------------------------------------------- -->
+<script type="text/javascript">
+	var container = document.getElementById('map');
+	var options = {
+		center: new kakao.maps.LatLng(33.450701, 126.570667),
+		level: 3
+	};
+	var map = new kakao.maps.Map(container, options);
+</script>
+<!-- ------------------------------------------- 카카오 지도 끝 ------------------------------------------- -->
 <!-- ---------------------- 푸터 -------------------------------- -->
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
@@ -261,7 +235,6 @@
             	<h2 class="ftco-heading-2">도움이 필요하신가요?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">부산광역시<br> 분당구 센텀일로 95</span></li>
 	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+82 777 7777</span></a></li>
 	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourchacachaca.com</span></a></li>
 	              </ul>
@@ -273,7 +246,7 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Eine</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">GH</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
@@ -301,8 +274,7 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-</body>
+    
+  </body>
 </html>

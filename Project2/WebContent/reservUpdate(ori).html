@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>결제정보</title>
+    <title>마이페이지> 예약정보</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -25,37 +25,38 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-<!-- ------------------------------------------------ 스타일 시작 ------------------------------------------------ -->
-<style type="text/css">
-/* ------------------------------------------------ 본문 스타일 시작 ------------------------------------------------ */
-.paymentresult {
-	text-align: center;
-}
-
-.thanks {
-	font-size: 30px;
-}
-
-.button {
-	margin: 50px 50px 100px 50px;
-}
-
-#btn {
-	width: 200px;
-}
-/* ------------------------------------------------- 본문 스타일 끝 -------------------------------------------------- */
-
-
-/* ------------------------------------------------ 푸터 스타일 시작 ------------------------------------------------ */
-footer{
-	clear: left;
-}
-/* ------------------------------------------------- 푸터 스타일 끝 ------------------------------------------------- */
-</style>
-<!-- -------------------------------------------------- 스타일 끝 -------------------------------------------------- -->
-</head>
-<body>
-<!-- ---------------------------------------------- 최상단 메뉴바 시작 --------------------------------------------- -->
+    <!-- 메뉴바 css  -->
+	<style>
+	#nav ul {
+	    list-style-type: none;
+	    margin: 0;
+	    padding: 0;
+	    width: 200px;
+	    background-color: #94B49F;
+	    text-align: center;
+	}
+	#nav li a {
+	    display: block;
+	    color: #FCF8E8;
+	    padding: 8px 16px;
+	    text-decoration: none;
+	    border-bottom: 1px solid #FCF8E8;
+	}
+	#nav li a.active {
+	    background-color: #94B49F;
+	    color: white;
+	}
+	#nav li a:hover:not(.active) {
+	    background-color: #FCF8E8;
+	    color: #CEE5D0;
+	}
+  </style>
+    
+    <!-- 메뉴바 css  -->
+  </head>
+  <body>
+    
+<!-- ---------------------- 최상단 메뉴바 -------------------------------- -->
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.html">CHACA<span>CHACA</span></a>
@@ -65,12 +66,12 @@ footer{
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.jsp" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="info.jsp" class="nav-link">이용안내</a></li>
-	          <li class="nav-item"><a href="services.jsp" class="nav-link">요금안내</a></li>
-	          <li class="nav-item active"><a href="pricing.jsp" class="nav-link">예약하기</a></li>
-	          <li class="nav-item"><a href="reviewIndex.jsp" class="nav-link">고객센터</a></li>
-	          <li class="nav-item"><a href="joinUpdate.jsp" class="nav-link">마이페이지</a></li>
+	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">이용안내</a></li>
+	          <li class="nav-item"><a href="services.html" class="nav-link">요금안내</a></li>
+	          <li class="nav-item"><a href="pricing.html" class="nav-link">예약하기</a></li>
+	          <li class="nav-item"><a href="review.jsp" class="nav-link">고객센터</a></li>
+	          <li class="nav-item active"><a href="login.html" class="nav-link">마이페이지</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -83,35 +84,115 @@ footer{
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
           	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-          							<span>예약하기 <i class="ion-ios-arrow-forward"></i></span></p>
-            						<h1 class="mb-3 bread">예약하기</h1>
+          							<span>마이페이지 <i class="ion-ios-arrow-forward"></i></span></p>
+            						<h1 class="mb-3 bread">예약정보</h1>
           </div>
         </div>
       </div>
     </section>
 
 
-<!-- 소제목+본문 섹션1 시작 -->
+<!-- 소제목+본문 섹션 시작 -->
     <section class="ftco-section">
 		<div class="container">
-<!-- ---------------------- 소제목1 -------------------------------- -->
+<!-- ---------------------- 소제목 -------------------------------- -->
 			<div class="row justify-content-center mb-3">
      			<div class="col-md-7 text-center heading-section ftco-animate">
           			<span class="subheading">차카차카</span>
-           				<h2 class="mb-3">예약완료</h2>
+           				<h2 class="mb-3">예약 정보</h2>
           		</div>
        		</div>
-       	</div>
-	</section>
-<!-- -------------------------------------------- 본문 (할인/결제) 시작 -------------------------------------------- -->
-<section class="paymentresult">
-	<div class="thanks">예약이 완료되었습니다.<br>
-						좋은 서비스로 보답하겠습니다.<br>
-						감사합니다.</div>
-	<div class="button"><input type="button" value="예약정보조회" id="btn" class="btn btn-primary py-3 px-5 mr-3" onclick="location.href='reservUpdate.html';">
-						<input type="button" value="홈으로" id="btn" class="btn btn-primary py-3 px-5 mr-3" onclick="location.href='index.html';"></div>
-</section>
-<!-- ---------------------------------------------- 본문 (할인/결제) 끝 ---------------------------------------------- -->
+
+<!--좌측 메뉴바  -->
+
+<nav id="nav">
+            <ul>
+                <li><a href="#" onclick="location.href='joinUpdate.html'">회원정보</a></li>
+                <li><a href="#" onclick="location.href='reservUpdate.html'">예약내역</a></li>
+            </ul>
+    </nav>
+
+
+<!--좌측 메뉴바 -->
+
+       		
+<!-- ---------------------- 본문 -------------------------------- -->
+       		<div class="row d-flex justify-content-center">
+       			<div class="col-md-5 ">
+            		<form action="#" class="p-2 contact-form">
+	              		<div class="form-group">
+	                		지 역: <input type="email" class="form-control" >
+	              		</div>
+	              		<div class="form-group">
+	                		날 짜: <input type="password" class="form-control" >
+	              		</div>
+	              		<div class="form-group">
+	                		차 종: <input type="text" class="form-control" >
+	              		</div>
+	              		<div class="form-group">
+	                		위 치: <input type="date" class="form-control" >
+	              		</div>
+	              		<div class="form-group">
+	                		시 간: <input type="number" class="form-control" >
+	              		</div>
+	              		<div class="form-group">
+	                		가 격: <input type="text" class="form-control" >
+	              		</div>
+	              	
+            		</form>
+          		</div>
+          </div>
+          
+<!-- 소제목+본문 섹션 끝 -->
+       </div>
+    </section>
+    
+<!--  -->
+        <section class="ftco-section">
+		<div class="container">
+<!-- ---------------------- 소제목 -------------------------------- -->
+			<div class="row justify-content-center mb-3">
+     			<div class="col-md-7 text-center heading-section ftco-animate">
+          			<span class="subheading">차카차카</span>
+           				<h2 class="mb-3">이전 예약 내역 조회</h2>
+          		</div>
+       		</div>
+           				<h3>기간별 조회</h3>
+       		
+       		<table class="table">
+						    <thead class="text-center">
+						      <tr class="text-center">
+						        <th class="bg-primary heading">No.</th>
+						        <th class="bg-primary heading">예약번호</th>
+						        <th class="bg-primary heading">상태</th>
+						        <th class="bg-primary heading">이용후기</th>
+						        
+						      </tr>
+						    </thead>
+						    <tbody>
+						      <tr class="text-center">
+						        <td class="bg-primary">1</td>
+						        <td><a href="reservUpdate.html">이전 내역1</a></td>
+						        <td>사용 완료</td>
+						        <td><a href="reviewIndex.jsp">이용후기 쓰기</a></td>
+						        
+						      </tr>
+						      <tr class="text-center">
+						        <td class="bg-primary">2</td>
+						        <td><a href="reservUpdate.html">이전 내역2</a></td>
+						        <td>사용 완료</td>
+						        <td><a href="reviewIndex.jsp">이용후기 쓰기</a></td>
+						   
+						      </tr>
+						    </tbody>
+						  </table>
+       		</div>
+       		</section>
+       		
+       		
+<!--  -->
+
+
 
 <!-- ---------------------- 푸터 -------------------------------- -->
     <footer class="ftco-footer ftco-bg-dark ftco-section">
@@ -132,7 +213,7 @@ footer{
             <div class="ftco-footer-widget mb-4 ml-md-5">
               <h2 class="ftco-heading-2">Information</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">이용안내</a></li>
+                <li><a href="info.html" class="py-2 d-block">이용안내</a></li>
                 <li><a href="#" class="py-2 d-block">요금안내</a></li>
                 <li><a href="#" class="py-2 d-block">예약하기</a></li>
               </ul>
@@ -169,6 +250,7 @@ footer{
         </div>
       </div>
     </footer>
+<!-- ---------------------- 푸터 끝-------------------------------- -->
     
   
 
@@ -193,7 +275,6 @@ footer{
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
     
   </body>
 </html>
