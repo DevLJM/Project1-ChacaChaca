@@ -1,6 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>문의하기</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,8 +57,7 @@
     
     <!-- 메뉴바 css  -->
   </head>
-  <body>
-    
+<body>
 <!-- ---------------------- 최상단 메뉴바 -------------------------------- -->
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
@@ -116,68 +117,93 @@
 
 <!--좌측 메뉴바 -->
 
-       		
-<!-- ---------------------- 본문 -------------------------------- -->
-     <section class="ftco-section contact-section">
-      <div class="container">
-        <div class="row d-flex mb-5 contact-info">
-        	<div class="col-md-4">
-        		<div class="row mb-5">
-		          <div class="col-md-12">
-		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
-			          	<div class="icon mr-3">
-			          		<span class="icon-map-o"></span>
-			          	</div>
-			            <p><span>Address :</span> 부산광역시 <br> 아이티윌 1조 </p>
-			          </div>
-		          </div>
-		          <div class="col-md-12">
-		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
-			          	<div class="icon mr-3">
-			          		<span class="icon-mobile-phone"></span>
-			          	</div>
-			            <p><span>Phone :</span> <a href="tel://1234567920">+82 777 7777</a></p>
-			          </div>
-		          </div>
-		          <div class="col-md-12">
-		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
-			          	<div class="icon mr-3">
-			          		<span class="icon-envelope-o"></span>
-			          	</div>
-			            <p><span>Email :</span> <a href="mailto:info@yoursite.com">info@yourchaca.com</a></p>
-			          </div>
-		          </div>
-		        </div>
-          </div>
-          <div class="col-md-8 block-9 mb-md-5">
-            <form action="#" class="bg-light p-5 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="아이디(이메일)">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="전화번호">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="제목">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="문의내용"></textarea>
-              </div>
-              <div class="form-group text-center">
-                <input type="submit" value="제  출" class="btn btn-primary py-3 px-5" onclick="location.href='문의 제출 페이지 이름';">
-              </div>
-            </form>
-          
-          </div>
-        </div>
- 
-<!-- 소제목+본문 섹션 끝 -->
-       </div>
-    </section>
-    
+<!-- 본문  -->
+	<h1>boardListAll.jsp</h1>
+	
+	<h2>게시판 목록</h2>
+	 <%
+	 //request.setAttribute("boardList", boardList);
+     
+     List<BoardDTO> boardList = (List<BoardDTO>)request.getAttribute("boardList");
+     
+//      	request.setAttribute("pageNum", pageNum);
+// 		request.setAttribute("cnt", cnt);
+// 		request.setAttribute("pageCount", pageCount);
+// 		request.setAttribute("pageBlock", pageBlock);
+// 		request.setAttribute("startPage", startPage);
+// 		request.setAttribute("endPage", endPage);
 
 
-<!-- ---------------------- 푸터 -------------------------------- -->
+		String pageNum =(String) request.getAttribute("pageNum");
+		int cnt = (int) request.getAttribute("cnt");
+		int pageCount = (int) request.getAttribute("pageCount");
+		int pageBlock = (int) request.getAttribute("pageBlock");
+		int startPage = (int) request.getAttribute("startPage");
+		int endPage = (int) request.getAttribute("endPage");
+     
+
+   %>
+   
+   <h3><a href="./ContactWrite.cot">글 쓰기(new)</a></h3>
+   
+   
+   <table border="1">
+      <tr>
+        <td>번호</td>
+        <td>제목</td>
+        <td>글쓴이</td>
+        <td>조회수</td>
+        <td>작성일</td>
+        <td>IP</td>
+      </tr>
+      
+      <% for(int i=0;i<boardList.size();i++){ 
+           // DB -> DTO -> List
+          BoardDTO dto = boardList.get(i);
+      %>
+	       <tr>
+	        <td><%=dto.getBno() %></td>
+	        <td><%=dto.getSubject() %></td>
+	        <td><%=dto.getName() %></td>
+	        <td><%=dto.getReadcount() %></td>
+	        <td><%=dto.getDate() %></td>
+	        <td><%=dto.getIp() %></td>
+	      </tr>
+     <%} %>
+   
+   </table>
+   
+   <%
+		// 하단 페이징처리
+		if(cnt != 0){
+		   
+			// 이전 : 직전 페이지블럭의 첫번째 페이지 호출
+			if(startPage > pageBlock){
+				%>
+				   <a href="./ContactList.cot?pageNum=<%=startPage-pageBlock%>">[이전]</a>
+				<%
+			}
+			
+			// 1,2,3,4,5,....
+			for(int i=startPage;i<=endPage;i++){
+				%>
+				  <a href="./ContactList.cot?pageNum=<%=i%>">[<%=i %>]</a> 
+				<%
+			}
+			
+			// 다음 
+			if(endPage < pageCount){
+				%>
+				   <a href="./ContactList.cot?pageNum=<%=startPage+pageBlock%>">[다음]</a>
+				<%
+			}
+			
+		} 
+   
+   %>
+<!-- 본문  -->
+
+  <!-- ---------------------- 푸터 -------------------------------- -->
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">

@@ -1,6 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>문의하기</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,8 +57,7 @@
     
     <!-- 메뉴바 css  -->
   </head>
-  <body>
-    
+<body>
 <!-- ---------------------- 최상단 메뉴바 -------------------------------- -->
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
@@ -115,69 +116,44 @@
 
 
 <!--좌측 메뉴바 -->
-
-       		
-<!-- ---------------------- 본문 -------------------------------- -->
-     <section class="ftco-section contact-section">
-      <div class="container">
-        <div class="row d-flex mb-5 contact-info">
-        	<div class="col-md-4">
-        		<div class="row mb-5">
-		          <div class="col-md-12">
-		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
-			          	<div class="icon mr-3">
-			          		<span class="icon-map-o"></span>
-			          	</div>
-			            <p><span>Address :</span> 부산광역시 <br> 아이티윌 1조 </p>
-			          </div>
-		          </div>
-		          <div class="col-md-12">
-		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
-			          	<div class="icon mr-3">
-			          		<span class="icon-mobile-phone"></span>
-			          	</div>
-			            <p><span>Phone :</span> <a href="tel://1234567920">+82 777 7777</a></p>
-			          </div>
-		          </div>
-		          <div class="col-md-12">
-		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
-			          	<div class="icon mr-3">
-			          		<span class="icon-envelope-o"></span>
-			          	</div>
-			            <p><span>Email :</span> <a href="mailto:info@yoursite.com">info@yourchaca.com</a></p>
-			          </div>
-		          </div>
-		        </div>
-          </div>
-          <div class="col-md-8 block-9 mb-md-5">
-            <form action="#" class="bg-light p-5 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="아이디(이메일)">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="전화번호">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="제목">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="문의내용"></textarea>
-              </div>
-              <div class="form-group text-center">
-                <input type="submit" value="제  출" class="btn btn-primary py-3 px-5" onclick="location.href='문의 제출 페이지 이름';">
-              </div>
-            </form>
-          
-          </div>
-        </div>
- 
-<!-- 소제목+본문 섹션 끝 -->
-       </div>
-    </section>
-    
-
-
-<!-- ---------------------- 푸터 -------------------------------- -->
+	<h1>contactContent.jsp</h1>
+  	<table border="1">
+      <tr>
+        <td>글번호</td>
+        <td>${dto.bno }</td>
+        <td>조회수</td>
+        <td>${dto.readcount }</td>
+      </tr>
+      <tr>
+        <td>작성자</td>
+        <td>${dto.name }</td>
+        <td>작성일</td>
+        <td>${dto.date }</td>
+      </tr>
+      <tr>
+      	<td>제목</td>
+      	<td colspan="3">${dto.subject }</td>
+      </tr>
+      <tr>
+      	<td>내용</td>
+      	<td colspan="3">${dto.content }</td>
+      </tr>
+      <tr>
+      	<td>첨부파일</td>
+      	<td colspan="3">${dto.file }</td>
+      </tr>
+      <tr>
+      	<td><input type="button" value="수정" onclick="location.href='./ContactUpdate.cot?bno=${dto.bno}&pageNum=${pageNum}';"></td>
+      	<td><input type="submit" value="삭제"></td>
+      	<td><input type="submit" value="답글"></td>
+      	<td>
+      		<input type="submit" value="목록" 
+      		onclick="location.href='./ContactList.cot?pageNum=${pageNum}';">
+      				<!-- 게시글 클릭 후 게시글 정보 뜨면 bno와 pageNum를 가지고 이동 (주소창에) -->
+      	</td>
+      </tr>
+     </table>
+     <!-- ---------------------- 푸터 -------------------------------- -->
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">

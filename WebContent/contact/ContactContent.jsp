@@ -1,6 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>문의하기</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,8 +57,7 @@
     
     <!-- 메뉴바 css  -->
   </head>
-  <body>
-    
+<body>
 <!-- ---------------------- 최상단 메뉴바 -------------------------------- -->
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
@@ -115,69 +116,82 @@
 
 
 <!--좌측 메뉴바 -->
-
-       		
-<!-- ---------------------- 본문 -------------------------------- -->
-     <section class="ftco-section contact-section">
-      <div class="container">
-        <div class="row d-flex mb-5 contact-info">
-        	<div class="col-md-4">
-        		<div class="row mb-5">
-		          <div class="col-md-12">
-		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
-			          	<div class="icon mr-3">
-			          		<span class="icon-map-o"></span>
-			          	</div>
-			            <p><span>Address :</span> 부산광역시 <br> 아이티윌 1조 </p>
+				<!-- ---------------------- 본문 -------------------------------- -->
+			<section class="ftco-section" style="padding-bottom: 0em;">
+		      <div class="container">
+		        <hr>
+			        <div class="row d-flex justify-content-center">
+			          <div class="col-md-12 text-center d-flex ftco-animate fadeInUp ftco-animated">
+			          	<div class="blog-entry justify-content-end mb-md-5">
+			              <div class="text px-md-5 pt-4">
+			              	<div class="meta mb-3">
+			                  <div>글번호: ${dto.bno } &nbsp</div> 
+			                  <div>작성자: ${dto.name } (${dto.id }) &nbsp</div>
+			                  <div>${dto.date }</div>
+			                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
+			                </div>
+			                <h3 class="heading mt-2">
+				                <div class="star"> 
+									<c:choose>
+										<c:when test="${dto.rate eq 1 }">
+											<i class="ion-ios-star"></i> 
+											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
+											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
+											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
+											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
+										</c:when>
+										<c:when test="${dto.rate eq 2 }">
+											<i class="ion-ios-star"></i> 
+											<i class="ion-ios-star"></i> 
+											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
+											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
+											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
+										</c:when>
+										<c:when test="${dto.rate eq 3 }">
+											<i class="ion-ios-star"></i> 
+											<i class="ion-ios-star"></i> 
+											<i class="ion-ios-star"></i> 
+											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
+											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
+										</c:when>
+										<c:when test="${dto.rate eq 4 }">
+											<i class="ion-ios-star"></i> 
+											<i class="ion-ios-star"></i> 
+											<i class="ion-ios-star"></i> 
+											<i class="ion-ios-star"></i> 
+											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i> 
+										</c:when>
+										<c:when test="${dto.rate eq 5}">
+											<i class="ion-ios-star"></i>
+											<i class="ion-ios-star"></i>
+											<i class="ion-ios-star"></i>
+											<i class="ion-ios-star"></i>
+											<i class="ion-ios-star"></i>
+										</c:when>
+									</c:choose>
+								</div>
+			                </h3>
+			                <p>${dto.content }</p>
+			              	<a href="#" class="block-20 img" style="background-image: url('images/image_1.jpg');">${dto.file }</a>
+<!-- 			                <p><a href="blog-single.html" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p> -->
+			              	<br>
+			              	<input type="button" value="수정">
+							<input type="button" value="삭제">
+							<input type="button" value="답글">
+							<input type="button" value="목록" onclick="location.href='./BoardList.bo?pageNum=${pageNum}';">
+			              
+			              </div>
+			            </div>
 			          </div>
-		          </div>
-		          <div class="col-md-12">
-		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
-			          	<div class="icon mr-3">
-			          		<span class="icon-mobile-phone"></span>
-			          	</div>
-			            <p><span>Phone :</span> <a href="tel://1234567920">+82 777 7777</a></p>
-			          </div>
-		          </div>
-		          <div class="col-md-12">
-		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
-			          	<div class="icon mr-3">
-			          		<span class="icon-envelope-o"></span>
-			          	</div>
-			            <p><span>Email :</span> <a href="mailto:info@yoursite.com">info@yourchaca.com</a></p>
-			          </div>
-		          </div>
-		        </div>
-          </div>
-          <div class="col-md-8 block-9 mb-md-5">
-            <form action="#" class="bg-light p-5 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="아이디(이메일)">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="전화번호">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="제목">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="문의내용"></textarea>
-              </div>
-              <div class="form-group text-center">
-                <input type="submit" value="제  출" class="btn btn-primary py-3 px-5" onclick="location.href='문의 제출 페이지 이름';">
-              </div>
-            </form>
-          
-          </div>
-        </div>
- 
-<!-- 소제목+본문 섹션 끝 -->
-       </div>
-    </section>
-    
+		       	</div> <!-- class="row -->
+		      </div> <!-- class="container" -->
+		    </section>
 
 
-<!-- ---------------------- 푸터 -------------------------------- -->
+		</div>
+	</section>
+
+     <!-- ---------------------- 푸터 -------------------------------- -->
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">

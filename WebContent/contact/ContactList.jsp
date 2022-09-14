@@ -1,6 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>문의하기</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,13 +52,99 @@
 	    background-color: #FCF8E8;
 	    color: #CEE5D0;
 	}
+	
+	/* 본문 스타일  ==================================== */
+	body {
+  padding:1.5em;
+  background: #f5f5f5
+}
+
+table {
+  border: 1px #a39485 solid;
+  font-size: .9em;
+  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+th {
+  text-align: left;
+}
+  
+thead {
+  font-weight: bold;
+  color: #fff;
+  background: #73685d;
+}
+  
+ td, th {
+  padding: 1em .5em;
+  vertical-align: middle;
+}
+  
+ td {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  background: #fff;
+}
+
+a {
+  color: #73685d;
+}
+  
+ @media all and (max-width: 768px) {
+    
+  table, td, tr {
+    display: block;
+  }
+  
+/*   th {
+    text-align: right;
+  } */
+  
+  table {
+    position: relative; 
+    padding-bottom: 0;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+  }
+/*   
+  thead {
+    float: left;
+    white-space: nowrap;
+  }
+  
+  tbody {
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    white-space: nowrap;
+  }
+   */
+  tr {
+    display: inline-block;
+    vertical-align: top;
+  }
+/*   
+  th {
+    border-bottom: 1px solid #a39485;
+  } */
+  
+  td {
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  
+  }
+	
+	/* 본문 스타일  ==================================== */
   </style>
     
     
     <!-- 메뉴바 css  -->
   </head>
-  <body>
-    
+<body>
 <!-- ---------------------- 최상단 메뉴바 -------------------------------- -->
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
@@ -116,68 +204,68 @@
 
 <!--좌측 메뉴바 -->
 
-       		
-<!-- ---------------------- 본문 -------------------------------- -->
-     <section class="ftco-section contact-section">
-      <div class="container">
-        <div class="row d-flex mb-5 contact-info">
-        	<div class="col-md-4">
-        		<div class="row mb-5">
-		          <div class="col-md-12">
-		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
-			          	<div class="icon mr-3">
-			          		<span class="icon-map-o"></span>
-			          	</div>
-			            <p><span>Address :</span> 부산광역시 <br> 아이티윌 1조 </p>
-			          </div>
-		          </div>
-		          <div class="col-md-12">
-		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
-			          	<div class="icon mr-3">
-			          		<span class="icon-mobile-phone"></span>
-			          	</div>
-			            <p><span>Phone :</span> <a href="tel://1234567920">+82 777 7777</a></p>
-			          </div>
-		          </div>
-		          <div class="col-md-12">
-		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
-			          	<div class="icon mr-3">
-			          		<span class="icon-envelope-o"></span>
-			          	</div>
-			            <p><span>Email :</span> <a href="mailto:info@yoursite.com">info@yourchaca.com</a></p>
-			          </div>
-		          </div>
-		        </div>
-          </div>
-          <div class="col-md-8 block-9 mb-md-5">
-            <form action="#" class="bg-light p-5 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="아이디(이메일)">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="전화번호">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="제목">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="문의내용"></textarea>
-              </div>
-              <div class="form-group text-center">
-                <input type="submit" value="제  출" class="btn btn-primary py-3 px-5" onclick="location.href='문의 제출 페이지 이름';">
-              </div>
-            </form>
-          
-          </div>
-        </div>
- 
-<!-- 소제목+본문 섹션 끝 -->
-       </div>
-    </section>
-    
+<!-- 본문  -->
 
+	<!-- EL/JSTL 사용  -->
+	
+	
+	<br>
+	<br>
+   
+   
+   <table border="1" id="mainWrapper">
+      <tr style="text-align: center; font-weight: bold; color:#fff;">
+        <td style="background-color: #CEE5D0;">번호</td>
+        <td style="background-color: #CEE5D0;">제목</td>
+        <td style="background-color: #CEE5D0;">글쓴이</td>
+        <td style="background-color: #CEE5D0;">조회수</td>
+        <td style="background-color: #CEE5D0;">작성일</td>
+        <td style="background-color: #CEE5D0;">IP</td>
+      </tr>
+      
+      <c:forEach var="dto" items="${boardList}" >
+      
+	      <tr>
+	       <!--제목 누를 시 해당 주소로 이동 -->
+	        <td>${dto.bno}</td>
+	        <td>
+	       <a href="./ContactContent.cot?bno=${dto.bno}&pageNum=${requestScope.pageNum}">${dto.subject }</a>
+	       <!-- 전체 글 번호와 페이지번호 주소창에 표시 -->
+	       </td>
+	        <td>${dto.name }</td>
+	        <td>${dto.readcount }</td>
+	        <td>$[dto.date}]</td>
+	        <td>${dto.ip }</td>
+	      </tr>
+      </c:forEach>
+      
+   
+   </table>
+		
+		
+		<br>
+		<c:if test="${cnt!=0}">
+		
+			<c:if test="${startPage > pageBlock }">
+				   <a href="./ContactList.cot?pageNum=${startPage-pageBlock}">[이전]</a>			
+			</c:if>
+			
+			<c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
+					  <a href="./ContactList.cot?pageNum=${ i}">[${i }]</a> 
+			</c:forEach>
+			
+			<c:if test="${endPage <pageCount }">
+					   <a href="./ContactList.cot?pageNum=${startPage+pageBlock}">[다음]</a>
+			</c:if>
+		
+		</c:if>
+		
+		<br>
+		<br>
 
-<!-- ---------------------- 푸터 -------------------------------- -->
+<!-- 본문  -->
+
+  <!-- ---------------------- 푸터 -------------------------------- -->
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
