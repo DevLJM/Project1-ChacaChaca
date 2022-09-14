@@ -29,7 +29,7 @@ public class BoardUpdateProAction implements Action {
 		dto.setRate(Integer.parseInt(request.getParameter("rate")));
 		dto.setContent(request.getParameter("content"));
 		
-		// 2. 수정할 데이터를 DB로 보내서 정보 수정하기 (update)
+		// 2. 수정할 데이터를 DB로 보내서 정보 수정하기 (6. updateBoard 메서드)
 		BoardDAO dao = new BoardDAO();
 
 		int result = dao.updateBoard(dto);

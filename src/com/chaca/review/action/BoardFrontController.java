@@ -141,17 +141,19 @@ public class BoardFrontController extends HttpServlet {
 				dis.forward(request, response);
 			}
 		}
-		System.out.println("3. 가상 주소 이동 끝---------------------------------\n\n");
+		System.out.println("3. 가상 주소 이동 끝---------------------------------\n\n\n\n");
 	} // doProcess 끝 //////////////////////////////////////////////////////////////////////
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("------------------------------------------------------------------------------------------------");
 		System.out.println("(from BoardFrontController_doGet) C: doGet() 실행 -> doProcess 호출하겠슴다");
 		doProcess(request, response);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("------------------------------------------------------------------------------------------------");
 		System.out.println("(from BoardFrontController_doPost) C: doPost() 실행 -> doProcess 호출하겠슴다");
 		doProcess(request, response);
 	}

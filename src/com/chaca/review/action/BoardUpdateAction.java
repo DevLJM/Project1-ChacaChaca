@@ -13,8 +13,8 @@ public class BoardUpdateAction implements Action {
 		System.out.println("(from BoardUpdateAction) M: execute 메서드 호출됨");
 
 		// 1. 전달된 정보 저장
-//		int num = Integer.parseInt(request.getParameter("bno")); // 여기 왜 오류??? 왜 null???????
-		int num = (request.getParameter("bno") == null) ? 0 : Integer.parseInt(request.getParameter("bno"));
+		int num = Integer.parseInt(request.getParameter("bno")); // 여기 왜 오류??? 왜 null???????
+//		int num = (request.getParameter("bno") == null) ? 0 : Integer.parseInt(request.getParameter("bno"));
 		String pageNum = request.getParameter("pageNum");
 
 		// 2. DB 쓸거니까 BoardDAO 객체 생성

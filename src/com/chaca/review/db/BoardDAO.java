@@ -59,7 +59,7 @@ public class BoardDAO {
 	
 	// 1. boardWrite --- 글쓰기 메서드
 	public void boardWrite(BoardDTO dto){
-		System.out.println("\n (from BoardDAO_1.boardWrite) C: boardWrite() 호출");
+		System.out.println("\n(from BoardDAO_1.boardWrite) C: boardWrite() 호출");
 		
 		int bno = 0;
 		
@@ -281,7 +281,7 @@ public class BoardDAO {
 			// 4. sql 실행
 			pstmt.executeUpdate();
 			
-			System.out.println("(from BoardDAO_4.updateReadcount) C: 게시판 글 조회수 +1 완");
+			System.out.println("(from BoardDAO_4.updateReadcount) C: 글번호 " + bno + " 조회수 +1 완");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -370,14 +370,15 @@ public class BoardDAO {
 				if(dto.getPassword().equals(rs.getString("password"))){
 					// 3. sql & pstmt & ?
 					sql = "update review "
-							+ "set name=?, content=? "
+							+ "set name=?, content=?, rate=? "
 							+ "where bno=? ";
 					
 					pstmt = con.prepareStatement(sql);
 					
 					pstmt.setString(1, dto.getName());
 					pstmt.setString(2, dto.getContent());
-					pstmt.setInt(3, dto.getBno());
+					pstmt.setInt(3, dto.getRate());
+					pstmt.setInt(4, dto.getBno());
 					
 					// 4. sql 실행
 					result = pstmt.executeUpdate(); 
@@ -391,7 +392,8 @@ public class BoardDAO {
 			} else {
 				result = -1;
 			}
-			System.out.println("(from BoardDAO_6.updateBoard) 글 수정 완 result: " + result);
+			System.out.println("(from BoardDAO_6.updateBoard) bno: " + dto.getBno() + "번 글 수정 완 result: " + result);
+			System.out.println("(from BoardDAO_6.updateBoard) 수정 내용: " + dto);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

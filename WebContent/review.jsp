@@ -144,7 +144,7 @@
 										style="background-image: url(images/person_1.jpg)"></div>
 									<div class="desc">
 										<h4>
-											<span class="text-left">${dto.name }</span> 
+											<span class="text-left">bno: ${dto.bno } / ${dto.name }</span> 
 											<span class="text-right">${dto.date }</span>
 										</h4>
 										

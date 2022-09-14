@@ -130,7 +130,7 @@
 			                  <div>글번호: ${dto.bno } &nbsp</div> 
 			                  <div>작성자: ${dto.name } (${dto.id }) &nbsp</div>
 			                  <div>${dto.date }</div>
-			                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
+			                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div> <!-- 댓글 표시 아이콘 -->
 			                </div>
 			                <h3 class="heading mt-2">
 				                <div class="star"> 
@@ -177,7 +177,8 @@
 			              	<a href="#" class="block-20 img" style="background-image: url('images/image_1.jpg');">${dto.file }</a>
 <!-- 			                <p><a href="blog-single.html" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p> -->
 			              	<br>
-			              	<input type="button" value="수정" onclick="location.href='./BoardUpdate.bo';">
+			              	<input type="button" value="수정" onclick="location.href='./BoardUpdate.bo?bno=${dto.bno}&pageNum=${pageNum}';"> 
+			              																			<!-- 잠만,, 여기 안 해서???? -->
 							<input type="button" value="삭제">
 							<input type="button" value="답글">
 							<input type="button" value="목록" onclick="location.href='./BoardList.bo?pageNum=${pageNum}';">
