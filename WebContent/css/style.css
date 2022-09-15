@@ -9586,17 +9586,15 @@ textarea.form-control {
       border: 1px solid #e6e6e6;
       
        }
-/*        페이징 번호 테스트 */
       .block-27 a:hover {
-       background-color: #fcf5d9;
+       background-color: red;
       
       }
        
 /*        테스트 */
-
     .block-27 ul li.active a, .block-27 ul li.active span {
       background: #1089ff;
-      color: #94B49F;
+      color: #fff;
       border: 1px solid transparent; 
       color: #000000 !important;
       }

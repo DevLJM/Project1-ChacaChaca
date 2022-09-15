@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
 public class BoardFrontController extends HttpServlet {
 			// Controller == 서블릿
 	
@@ -95,8 +96,38 @@ public class BoardFrontController extends HttpServlet {
 			
 		}// else if --- 패턴3 끝 --- /BoardContent.bo 
 		
+		else if(command.equals("/BoardUpdate.bo")){
+			System.out.println("(from BoardFrontController_doProcess) C: /BoardUpdate.bo 호출");
+			System.out.println("(from BoardFrontController_doProcess) C: DB 정보 필요 O, 해당 정보 view 페이지에 출력");
+			
+			action = new BoardUpdateAction();
+			
+			try {
+				forward = action.execute(request, response);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}// else if ---  /BoardUpdate.bo 
+		
+		else if(command.equals("/BoardUpdatePro.bo")){
+			System.out.println("(from BoardFrontController_doProcess) C: /BoardUpdatePro.bo 호출");
+			System.out.println("(from BoardFrontController_doProcess) C: DB 사용 O, 페이지 이동 O");
+			
+			action = new BoardUpdateProAction();
+			
+			try {
+				forward = action.execute(request, response);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}// else if ---  /BoardUpdatePro.bo	
 		System.out.println("2. 가상 주소 매핑 끝---------------------------------\n");
 
+		
 		System.out.println("\n3. 가상 주소 이동 시작---------------------------------");
 		if(forward != null){
 			if(forward.isRedirect()){
@@ -110,17 +141,19 @@ public class BoardFrontController extends HttpServlet {
 				dis.forward(request, response);
 			}
 		}
-		System.out.println("3. 가상 주소 이동 끝---------------------------------\n\n");
+		System.out.println("3. 가상 주소 이동 끝---------------------------------\n\n\n\n");
 	} // doProcess 끝 //////////////////////////////////////////////////////////////////////
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("------------------------------------------------------------------------------------------------");
 		System.out.println("(from BoardFrontController_doGet) C: doGet() 실행 -> doProcess 호출하겠슴다");
 		doProcess(request, response);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("------------------------------------------------------------------------------------------------");
 		System.out.println("(from BoardFrontController_doPost) C: doPost() 실행 -> doProcess 호출하겠슴다");
 		doProcess(request, response);
 	}

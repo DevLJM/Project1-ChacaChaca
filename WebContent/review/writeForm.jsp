@@ -14,8 +14,8 @@
 	<fieldset>
 		<form action="./BoardWriteAction.bo" method="post">
 			
-			아디: <input type="email" name="id"> <br>
 			이름: <input type="text" name="name"> <br>
+			아디: <input type="email" name="id"> <br>
 			비번: <input type="password" name="password"> <br>
 			내용: <textarea rows="10" cols="20" name="content"></textarea> <br>
 			별점: <input type="number" max="5" min="1">

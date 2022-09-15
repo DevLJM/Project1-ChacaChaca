@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>로그인</title>
+    <title>마이페이지> 예약정보</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -55,7 +55,7 @@
     
     <!-- 메뉴바 css  -->
     
-<!-- 슬라이딩메뉴 CSS -->
+<!-- 플로팅메뉴 CSS -->
     <style type="text/css">
 	.dmenu li {
 	    list-style-type: none;
@@ -69,48 +69,40 @@
 	    color: #91bd95;
 	}
     </style>
-<!-- 슬라이딩메뉴 CSS -->
+<!-- 플로팅메뉴 CSS -->
 
 
-<!-- 슬라이딩메뉴 jQuery -->
+<!-- 플로팅메뉴 jQuery -->
 <script type="text/javascript" src="jquery-3.6.0.js"></script>
 <script type="text/javascript">
-// 	$(document).on('mouseover', '.slidingMenu', function() {
-// 		$('.dmenu').slideDown(600);
-// 	});
-// 	$(document).on('mouseout', '.slidingMenu', function() {
-// 		if (!$(this).hasClass('dmenu')) {
-// 			$('.dmenu').slideUp(800);
-// 		}
-// 	});
-	
-	$(document).on('mouseover', '.nav-link', function() {
-		$('.dmenu').slideDown(800);
+	$(document).on('mouseover', '.floatingMenu', function() {
+		$('.dmenu').slideDown(600);
 	});
-	$(document).on('mouseleave', '.slidingMenu', function() {
-		if (!$(this).hasClass('.slidingMenu')) {
+
+	$(document).on('mouseleave', '.floatingMenu', function() {
+		if (!$(this).hasClass('dmenu')) {
 			$('.dmenu').slideUp(800);
 		}
 	});
 </script>
-<!-- 슬라이딩메뉴 jQuery -->
+<!-- 플로팅메뉴 jQuery -->
 
 
 </head>
   <body>
     
 <!-- ---------------------- 최상단 메뉴바 -------------------------------- -->
-<!-- ---------------////// 슬라이딩 메뉴 적용 //////------------------------ -->
+<!-- ---------------////// 플로팅 메뉴 적용 //////------------------------ -->
 
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html" style="position: relative;">CHACA<span>CHACA</span></a>
+	      <a class="navbar-brand" href="index.html">CHACA<span>CHACA</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 			<div class="topMenu navbar-collapse" id="ftco-nav">
-				<ul class="slidingMenu navbar-nav ml-auto">
+				<ul class="floatingMenu navbar-nav ml-auto">
 					<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
 					<li class="nav-item"><a href="about.html" class="nav-link">이용안내</a>
 						<ul class="dmenu">
@@ -138,7 +130,7 @@
 			</div>
 		</div>
 	</nav>
-<!-- ---------------////// 슬라이딩 메뉴 적용 //////------------------------ -->
+<!-- ---------------////// 플로팅 메뉴 적용 //////------------------------ -->
 
 <!-- ---------------------- 경로 -------------------------------- -->
     <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/autocar2.jpg');" data-stellar-background-ratio="0.5">

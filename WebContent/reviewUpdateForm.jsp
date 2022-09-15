@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>이용후기</title>
+    <title>이용후기 수정</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -54,11 +53,43 @@
 	    color: #CEE5D0;
 	}
   </style>
-    
     <!-- 메뉴바 css  -->
+
+
+    <!-- 별표 css  -->
+
+<style type="text/css">
+.star{
+    display: inline-block;
+    direction: rtl;
+    border:0;
+}
+.star input[type=radio]{
+    display: none;
+}
+.star label{
+    font-size: 3em;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
+}
+.star label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.star label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.star input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+</style>
+
+    <!-- 별표 css  -->
+
+
+
   </head>
   <body>
-    
+
 <!-- ---------------------- 최상단 메뉴바 -------------------------------- -->
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
@@ -109,88 +140,79 @@
 			</div>
 
 			<!--좌측 메뉴바  -->
+
 			<nav id="nav">
 				<ul>
-					<li><a href="./BoardList.bo" onclick="location.href='review.jsp'">이용후기</a></li>
+					<li><a href="#" onclick="location.href='review.jsp'">이용후기</a></li>
 					<li><a href="#" onclick="location.href='contact.html'">문의하기</a></li>
 				</ul>
 			</nav>
+
+
 			<!--좌측 메뉴바 -->
 
 
 			<!-- ---------------------- 본문 -------------------------------- -->
-			<section class="ftco-section" style="padding-bottom: 0em;">
-		      <div class="container">
-		        <hr>
-			        <div class="row d-flex justify-content-center">
-			          <div class="col-md-12 text-center d-flex ftco-animate fadeInUp ftco-animated">
-			          	<div class="blog-entry justify-content-end mb-md-5">
-			              <div class="text px-md-5 pt-4">
-			              	<div class="meta mb-3">
-			                  <div>글번호: ${dto.bno } &nbsp</div> 
-			                  <div>작성자: ${dto.name } (${dto.id }) &nbsp</div>
-			                  <div>${dto.date }</div>
-			                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div> <!-- 댓글 표시 아이콘 -->
-			                </div>
-			                <h3 class="heading mt-2">
-				                <div class="star"> 
-									<c:choose>
-										<c:when test="${dto.rate eq 1 }">
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-										</c:when>
-										<c:when test="${dto.rate eq 2 }">
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-										</c:when>
-										<c:when test="${dto.rate eq 3 }">
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-										</c:when>
-										<c:when test="${dto.rate eq 4 }">
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i> 
-										</c:when>
-										<c:when test="${dto.rate eq 5}">
-											<i class="ion-ios-star"></i>
-											<i class="ion-ios-star"></i>
-											<i class="ion-ios-star"></i>
-											<i class="ion-ios-star"></i>
-											<i class="ion-ios-star"></i>
-										</c:when>
-									</c:choose>
-								</div>
-			                </h3>
-			                <p>${dto.content }</p>
-			              	<a href="#" class="block-20 img" style="background-image: url('images/image_1.jpg');">${dto.file }</a>
-<!-- 			                <p><a href="blog-single.html" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p> -->
-			              	<br>
-			              	<input type="button" value="수정" onclick="location.href='./BoardUpdate.bo?bno=${dto.bno}&pageNum=${pageNum}';"> 
-			              																			<!-- 잠만,, 여기 안 해서???? -->
-							<input type="button" value="삭제">
-							<input type="button" value="답글">
-							<input type="button" value="목록" onclick="location.href='./BoardList.bo?pageNum=${pageNum}';">
-			              
-			              </div>
-			            </div>
-			          </div>
-		       	</div> <!-- class="row -->
-		      </div> <!-- class="container" -->
-		    </section>
+
+			<hr>
+			<!-- 소제목+본문 섹션2 시작 -->
+			<section class="ftco-section">
+				<div class="container">
+					<!------------------ 	이용후기 쓰기 -------------------------------->
+					<div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated justify-content-center">
+						<div class="col-md-30 ">
+							<fieldset>
+								<legend style="text-align: center; ">후기 수정하기</legend><br>
+								<form action="./BoardUpdatePro.bo?pageNum=${pageNum }" class="bg-light p-5 contact-form" method="post">
+										<input type="hidden" name="bno" value="${dto.bno }">  <!-- bno가 없었네!!! -->
+									<div class="form-group">
+										<span style="width: 80%;">아이디</span> 
+										<input type="email" class="form-control" name="id" value="${dto.id }" placeholder="아이디(이메일)" readonly="readonly" style="width:50%">
+									</div>
+									<div class="form-group">
+										<span style="width: 80%;">이름</span>
+										<input type="text" class="form-control" name="name" value="${dto.name }" placeholder="예약자 성함" readonly="readonly"  style="width:50%">
+									</div>
+									<div class="form-group">
+										<span style="width: 80%;">비밀번호</span> 
+										<input type="password" class="form-control" name="password" placeholder="비밀번호" style="width:50%">
+									</div>
+									<div class="form-group">
+										<span style="width: 80%;">내용</span>
+										<textarea rows="10" cols="80" class="form-control" name="content" placeholder="내용입력">${dto.content }</textarea>
+									</div>
+									<div class="form-group">
+										<span style="width: 60%;">별표</span> 
+										
+								<!-- ////////////////별표////////////// -->
+
+							<div class="star">
+								<span class="text-bold">${dto.rate }</span>
+								<input type="radio" name="rate" value="5" id="rate1"><label for="rate1">★</label>
+								<input type="radio" name="rate" value="4" id="rate2"><label for="rate2">★</label>
+								<input type="radio" name="rate" value="3" id="rate3"><label for="rate3">★</label>
+								<input type="radio" name="rate" value="2" id="rate4"><label for="rate4">★</label>
+								<input type="radio" name="rate" value="1" id="rate5"><label for="rate5">★</label>
+							</div>
+								<!-- ///////////////별표/////////////// -->
+										
+									</div>
+									
+									
+									<input type="submit" value="제출하기" >
+									<div class="form-group"></div>
+								</form>
+							</fieldset>
+						</div>
+					</div>
+					<div>
 
 
+
+						<!-- 소제목+본문 섹션 끝 -->
+					</div>
+				</div>
+			</section>
 		</div>
 	</section>
 

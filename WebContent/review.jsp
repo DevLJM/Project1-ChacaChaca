@@ -123,7 +123,8 @@
 
 			<!-- ---------------------- 본문 -------------------------------- -->
 
-			<br><hr>
+						<hr>
+						<br> <br>
 
 			<div class="row">
 				<div class="col-md-12 pills">
@@ -131,7 +132,7 @@
 						<div class="d-flex justify-content-center"></div>
 
 
-						<div class="row" style="width: 100%">
+						<div class="row">
 							<div class="col-md-12" style="padding-left: 70px;">
 								<h3 class="head">최근 작성된 이용후기</h3>
 								
@@ -143,7 +144,7 @@
 										style="background-image: url(images/Chacalogo.jpg)"></div>
 									<div class="desc">
 										<h4>
-											<span class="text-left">${dto.name }</span> 
+											<span class="text-left">bno: ${dto.bno } / ${dto.name }</span> 
 											<span class="text-right">${dto.date }</span>
 										</h4>
 										
@@ -206,7 +207,6 @@
 								</div>
 								<br>
 								</c:forEach>
-								<input type="button" value="이용후기 작성" onclick="location.href='reviewIndex.jsp'" style="margin: 0px 800px;"> 
 								
 						</div>
 
@@ -235,7 +235,8 @@
 															</c:if></li>
 													</ul>
 												</c:if>
-
+												<input type="button" value="나도 리뷰 작성^^"
+													onclick="location.href='reviewIndex.jsp'">
 											</div>
 										</div>
 									</div>

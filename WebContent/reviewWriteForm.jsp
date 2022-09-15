@@ -154,7 +154,7 @@
 
 			<!-- ---------------------- 본문 -------------------------------- -->
 
-			<br><hr>
+			<hr>
 			<!-- 소제목+본문 섹션2 시작 -->
 			<section class="ftco-section">
 				<div class="container">
@@ -165,12 +165,12 @@
 								<legend style="text-align: center; ">이용후기 작성</legend><br>
 								<form action="./BoardWriteAction.bo" class="bg-light p-5 contact-form" method="post">
 									<div class="form-group">
-										<span style="width: 80%;">아이디</span> 
-										<input type="email" class="form-control" name="id" placeholder="아이디(이메일)" style="width:50%">
-									</div>
-									<div class="form-group">
 										<span style="width: 80%;">이름</span>
 										<input type="text" class="form-control" name="name" placeholder="예약자 성함" style="width:50%">
+									</div>
+									<div class="form-group">
+										<span style="width: 80%;">아이디</span> 
+										<input type="email" class="form-control" name="id" placeholder="아이디(이메일)" style="width:50%">
 									</div>
 									<div class="form-group">
 										<span style="width: 80%;">비밀번호</span> 

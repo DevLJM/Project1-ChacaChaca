@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 
+
 public class BoardDAO {
 	// Data Access Object 데이터 처리 객체!!  DB 쓰는 작업들 여기서 다
 	
@@ -58,7 +59,7 @@ public class BoardDAO {
 	
 	// 1. boardWrite --- 글쓰기 메서드
 	public void boardWrite(BoardDTO dto){
-		System.out.println("\n (from BoardDAO_1.boardWrite) C: boardWrite() 호출");
+		System.out.println("\n(from BoardDAO_1.boardWrite) C: boardWrite() 호출");
 		
 		int bno = 0;
 		
@@ -280,7 +281,7 @@ public class BoardDAO {
 			// 4. sql 실행
 			pstmt.executeUpdate();
 			
-			System.out.println("(from BoardDAO_4.updateReadcount) C: 게시판 글 조회수 +1 완");
+			System.out.println("(from BoardDAO_4.updateReadcount) C: 글번호 " + bno + " 조회수 +1 완");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -344,5 +345,67 @@ public class BoardDAO {
 		return dto;
 	}
 	// 5. getBoard(bno) --- 특정 글 1개의 정보 조회 끝 
+	
+	
+	// 6. updateBoard(dto) --- 글 정보 수정 메서드
+	public int updateBoard(BoardDTO dto){
+		int result = -1;
+		
+		try {
+			// 1. 2. DB 연결   + 6. closeDB
+			con = getConnect();
+			
+			// 3. sql 작성 & pstmt & ?
+			sql = "select password from review where bno=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, dto.getBno());
+			
+			// 4. sql 실행 & rs에 담기
+			rs = pstmt.executeQuery();
+			
+			// 5. rs에 담긴 데이터 처리
+			if(rs.next()){
+				// 데이터 있을 때~ 
+				// 비번 다시 확인
+				if(dto.getPassword().equals(rs.getString("password"))){
+					// 3. sql & pstmt & ?
+					sql = "update review "
+							+ "set name=?, content=?, rate=? "
+							+ "where bno=? ";
+					
+					pstmt = con.prepareStatement(sql);
+					
+					pstmt.setString(1, dto.getName());
+					pstmt.setString(2, dto.getContent());
+					pstmt.setInt(3, dto.getRate());
+					pstmt.setInt(4, dto.getBno());
+					
+					// 4. sql 실행
+					result = pstmt.executeUpdate(); 
+					
+				} else {
+					// 비번 다름
+					result = 0;
+					
+				}// 안에 if-else
+
+			} else {
+				result = -1;
+			}
+			System.out.println("(from BoardDAO_6.updateBoard) bno: " + dto.getBno() + "번 글 수정 완 result: " + result);
+			System.out.println("(from BoardDAO_6.updateBoard) 수정 내용: " + dto);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			closeDB();
+		}
+		
+		return result;
+		
+	} // 6. updateBoard(dto) --- 글 정보 수정 메서드 끝
+	
+	
 	
 }// BoardDAO class
