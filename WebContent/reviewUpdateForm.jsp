@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -181,22 +182,76 @@
 										<span style="width: 80%;">내용</span>
 										<textarea rows="10" cols="80" class="form-control" name="content" placeholder="내용입력">${dto.content }</textarea>
 									</div>
-									<div class="form-group">
-										<span style="width: 60%;">별표</span> 
-										
+									
 								<!-- ////////////////별표////////////// -->
+									<div class="form-group">
+										<span style="width: 60%;">평점</span> 
 
-							<div class="star">
-								<span class="text-bold"></span>
-								<input type="radio" name="rate" value="5" id="rate1"><label for="rate1">★</label>
-								<input type="radio" name="rate" value="4" id="rate2"><label for="rate2">★</label>
-								<input type="radio" name="rate" value="3" id="rate3"><label for="rate3">★</label>
-								<input type="radio" name="rate" value="2" id="rate4"><label for="rate4">★</label>
-								<input type="radio" name="rate" value="1" id="rate5"><label for="rate5">★</label>
-							</div>
-								<!-- ///////////////별표/////////////// -->
+										<div class="star">
+											<span class="text-bold">${dto.rate }</span>
+											
+											<c:choose>
+												<c:when test="${dto.rate eq 5 }">
+													<input type="radio" name="rate" value="5" id="rate1" checked="checked"><label for="rate1">★</label>
+													<input type="radio" name="rate" value="4" id="rate2"><label for="rate2">★</label>
+													<input type="radio" name="rate" value="3" id="rate3"><label for="rate3">★</label>
+													<input type="radio" name="rate" value="2" id="rate4"><label for="rate4">★</label>
+													<input type="radio" name="rate" value="1" id="rate5"><label for="rate5">★</label>
+												</c:when>
+												<c:when test="${dto.rate eq 4 }">
+													<input type="radio" name="rate" value="5" id="rate1"><label for="rate1">★</label>
+													<input type="radio" name="rate" value="4" id="rate2" checked="checked"><label for="rate2">★</label>
+													<input type="radio" name="rate" value="3" id="rate3"><label for="rate3">★</label>
+													<input type="radio" name="rate" value="2" id="rate4"><label for="rate4">★</label>
+													<input type="radio" name="rate" value="1" id="rate5"><label for="rate5">★</label>
+												</c:when>
+												<c:when test="${dto.rate eq 3 }">
+													<input type="radio" name="rate" value="5" id="rate1"><label for="rate1">★</label>
+													<input type="radio" name="rate" value="4" id="rate2"><label for="rate2">★</label>
+													<input type="radio" name="rate" value="3" id="rate3" checked="checked"><label for="rate3">★</label>
+													<input type="radio" name="rate" value="2" id="rate4"><label for="rate4">★</label>
+													<input type="radio" name="rate" value="1" id="rate5"><label for="rate5">★</label>
+												</c:when>
+												<c:when test="${dto.rate eq 2 }">
+													<input type="radio" name="rate" value="5" id="rate1"><label for="rate1">★</label>
+													<input type="radio" name="rate" value="4" id="rate2"><label for="rate2">★</label>
+													<input type="radio" name="rate" value="3" id="rate3"><label for="rate3">★</label>
+													<input type="radio" name="rate" value="2" id="rate4" checked="checked"><label for="rate4">★</label>
+													<input type="radio" name="rate" value="1" id="rate5"><label for="rate5">★</label>
+												</c:when>
+												<c:when test="${dto.rate eq 1 }">
+													<input type="radio" name="rate" value="5" id="rate1"><label for="rate1">★</label>
+													<input type="radio" name="rate" value="4" id="rate2"><label for="rate2">★</label>
+													<input type="radio" name="rate" value="3" id="rate3"><label for="rate3">★</label>
+													<input type="radio" name="rate" value="2" id="rate4"><label for="rate4">★</label>
+													<input type="radio" name="rate" value="1" id="rate5" checked="checked"><label for="rate5">★</label>
+												</c:when>
+											</c:choose>
+											
+										</div>
 										
 									</div>
+								<!-- ///////////////별표/////////////// -->
+								
+								
+								
+								
+								
+								<!-- ////////////////별표////////////// -->
+<!-- 									<div class="form-group">
+										<span style="width: 60%;">별표</span> 
+			
+										<div class="star">
+											<span class="text-bold"></span>
+											<input type="radio" name="rate" value="5" id="rate1"><label for="rate1">★</label>
+											<input type="radio" name="rate" value="4" id="rate2"><label for="rate2">★</label>
+											<input type="radio" name="rate" value="3" id="rate3"><label for="rate3">★</label>
+											<input type="radio" name="rate" value="2" id="rate4"><label for="rate4">★</label>
+											<input type="radio" name="rate" value="1" id="rate5"><label for="rate5">★</label>
+										</div>
+										
+									</div> -->
+								<!-- ///////////////별표/////////////// -->
 									
 									
 									<input type="submit" value="제출하기" >

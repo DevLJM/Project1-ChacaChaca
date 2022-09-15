@@ -25,7 +25,7 @@ public class BoardListAction implements Action {
 		// 한 페이지에 보여줄 글의 개수 설정
 		String urlpageSize = request.getParameter("pageSize");
 			if(urlpageSize == null) {
-				urlpageSize = "1"; 
+				urlpageSize = "5"; 
 			}
 		
 		int pageSize = Integer.parseInt(urlpageSize);
