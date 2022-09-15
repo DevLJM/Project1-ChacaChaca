@@ -167,11 +167,11 @@
 										<input type="hidden" name="bno" value="${dto.bno }">  <!-- bno가 없었네!!! -->
 									<div class="form-group">
 										<span style="width: 80%;">아이디</span> 
-										<input type="email" class="form-control" name="id" value="${dto.id }" placeholder="아이디(이메일)" style="width:50%">
+										<input type="email" class="form-control" name="id" value="${dto.id }" readonly="readonly"   placeholder="아이디(이메일)" style="width:50%">
 									</div>
 									<div class="form-group">
 										<span style="width: 80%;">이름</span>
-										<input type="text" class="form-control" name="name" value="${dto.name }" placeholder="예약자 성함" style="width:50%">
+										<input type="text" class="form-control" name="name" value="${dto.name }" readonly="readonly"  placeholder="예약자 성함" style="width:50%">
 									</div>
 									<div class="form-group">
 										<span style="width: 80%;">비밀번호</span> 
@@ -179,7 +179,7 @@
 									</div>
 									<div class="form-group">
 										<span style="width: 80%;">내용</span>
-										<textarea rows="10" cols="80" class="form-control" name="content" value="${dto.content }" placeholder="내용입력"></textarea>
+										<textarea rows="10" cols="80" class="form-control" name="content" placeholder="내용입력">${dto.content }</textarea>
 									</div>
 									<div class="form-group">
 										<span style="width: 60%;">별표</span> 

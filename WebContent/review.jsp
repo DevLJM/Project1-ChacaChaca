@@ -140,8 +140,7 @@
 								<c:forEach var="dto" items="${requestScope.boardList }">
 								<br>
 								<div class="review d-flex" style="width: 95%;">
-									<div class="user-img"
-										style="background-image: url(images/person_1.jpg)"></div>
+									<div class="user-img" style="background-image: url(images/Chacalogo.jpg)"></div>
 									<div class="desc">
 										<h4>
 											<span class="text-left">bno: ${dto.bno } / ${dto.name }</span> 
