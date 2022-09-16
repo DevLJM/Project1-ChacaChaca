@@ -1,7 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>요금안내</title>
+<head>
+    <title>문의하기</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -25,9 +28,124 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
+    <!-- 메뉴바 css  -->
+	<style>
+	#nav ul {
+	    list-style-type: none;
+	    margin: 0;
+	    padding: 0;
+	    width: 200px;
+	    background-color: #94B49F;
+	    text-align: center;
+	}
+	#nav li a {
+	    display: block;
+	    color: #FCF8E8;
+	    padding: 8px 16px;
+	    text-decoration: none;
+	    border-bottom: 1px solid #FCF8E8;
+	}
+	#nav li a.active {
+	    background-color: #94B49F;
+	    color: white;
+	}
+	#nav li a:hover:not(.active) {
+	    background-color: #FCF8E8;
+	    color: #CEE5D0;
+	}
+	
+	/* 본문 스타일  ==================================== */
+	body {
+  padding:1.5em;
+  background: #f5f5f5
+}
+
+table {
+  border: 1px #a39485 solid;
+  font-size: .9em;
+  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+th {
+  text-align: left;
+}
+  
+thead {
+  font-weight: bold;
+  color: #fff;
+  background: #73685d;
+}
+  
+ td, th {
+  padding: 1em .5em;
+  vertical-align: middle;
+}
+  
+ td {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  background: #fff;
+}
+
+a {
+  color: #73685d;
+}
+  
+ @media all and (max-width: 768px) {
     
+  table, td, tr {
+    display: block;
+  }
+  
+/*   th {
+    text-align: right;
+  } */
+  
+  table {
+    position: relative; 
+    padding-bottom: 0;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+  }
+/*   
+  thead {
+    float: left;
+    white-space: nowrap;
+  }
+  
+  tbody {
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    white-space: nowrap;
+  }
+   */
+  tr {
+    display: inline-block;
+    vertical-align: top;
+  }
+/*   
+  th {
+    border-bottom: 1px solid #a39485;
+  } */
+  
+  td {
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  
+  }
+	
+	/* 본문 스타일  ==================================== */
+  </style>
+    
+    
+    <!-- 메뉴바 css  -->
+  </head>
+<body>
 <!-- ---------------------- 최상단 메뉴바 -------------------------------- -->
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
@@ -39,11 +157,11 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="info.html" class="nav-link">이용안내</a></li>
-	          <li class="nav-item active"><a href="services.html" class="nav-link">요금안내</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">이용안내</a></li>
+	          <li class="nav-item"><a href="services.html" class="nav-link">요금안내</a></li>
 	          <li class="nav-item"><a href="pricing.html" class="nav-link">예약하기</a></li>
-	          <li class="nav-item"><a href="review.html" class="nav-link">고객센터</a></li>
-	          <li class="nav-item"><a href="joinUpdate.html" class="nav-link">마이페이지</a></li>
+	          <li class="nav-item active"><a href="car.html" class="nav-link">고객센터</a></li>
+	          <li class="nav-item"><a href="login.html" class="nav-link">마이페이지</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -56,170 +174,128 @@
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
           	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-          							<span>요금안내 <i class="ion-ios-arrow-forward"></i></span></p>
-            						<h1 class="mb-3 bread">요금 안내</h1>
+          							<span>고객센터 <i class="ion-ios-arrow-forward"></i></span></p>
+            						<h1 class="mb-3 bread">문의하기</h1>
           </div>
         </div>
       </div>
     </section>
 
 
-<!-- 소제목+본문 섹션1 시작 -->
+<!-- 소제목+본문 섹션 시작 -->
     <section class="ftco-section">
 		<div class="container">
-<!-- ---------------------- 소제목1 -------------------------------- -->
+<!-- ---------------------- 소제목 -------------------------------- -->
 			<div class="row justify-content-center mb-3">
      			<div class="col-md-7 text-center heading-section ftco-animate">
           			<span class="subheading">차카차카</span>
-           				<h2 class="mb-3">대여 기간별 일일요금 </h2>
+           				<h2 class="mb-3">문의하기</h2>
           		</div>
        		</div>
-       		
-<!-- ---------------------- 본문1 -------------------------------- -->
-			<div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated justify-content-center">
-    				<div class="car-list">
-	    				<table class="table">
-						    <thead class="text-center">
-						      <tr class="text-center">
-						        <th class="bg-primary heading">차종명</th>
-						        <th class="bg-primary heading">1~2일</th>
-						        <th class="bg-primary heading">2~3일</th>
-						        <th class="bg-primary heading">3~4일</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-						      <tr class="text-center">
-						        <td class="bg-primary">차종1</td>
-						        <td>가격1</td>
-						        <td>가격2</td>
-						        <td>가격3</td>
-						      </tr>
-						      <tr class="text-center">
-						        <td class="bg-primary">차종2</td>
-						        <td>가격1</td>
-						        <td>가격2</td>
-						        <td>가격3</td>
-						      </tr>
-						    </tbody>
-						  </table>
-					  </div>
-    			</div>
-       </div>
-    </section>
-<!-- 소제목+본문 섹션1 끝 -->
 
-<!-- 소제목+본문 섹션2 시작 -->
-    <section class="ftco-section">
-		<div class="container">
-<!-- ---------------------- 소제목2 -------------------------------- -->
-			<div class="row justify-content-center mb-3">
-     			<div class="col-md-7 text-center heading-section ftco-animate">
-          			<span class="subheading">차카차카</span>
-           				<h2 class="mb-3">대여 시간별 일일요금 </h2>
-          		</div>
-       		</div>
-       		
-<!-- ---------------------- 본문2 -------------------------------- -->
-			<div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated justify-content-center">
-    				<div class="car-list">
-	    				<table class="table">
-						    <thead class="text-center">
-						      <tr class="text-center">
-						        <th class="bg-primary heading">차종명</th>
-						        <th class="bg-primary heading">6시간</th>
-						        <th class="bg-primary heading">10시간</th>
-						        <th class="bg-primary heading">12시간</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-						      <tr class="text-center">
-						        <td class="bg-primary">차종1</td>
-						        <td>가격1</td>
-						        <td>가격2</td>
-						        <td>가격3</td>
-						      </tr>
-						      <tr class="text-center">
-						        <td class="bg-primary">차종2</td>
-						        <td>가격1</td>
-						        <td>가격2</td>
-						        <td>가격3</td>
-						      </tr>
-						    </tbody>
-						  </table>
-					  </div>
-    			</div>
-       </div>
-    </section>
-<!-- 소제목+본문 섹션2 끝 -->
+<!--좌측 메뉴바  -->
+
+<nav id="nav">
+            <ul>
+                <li><a href="#" onclick="location.href='review.html'">이용후기</a></li>
+                <li><a href="#" onclick="location.href='contact.html'">문의하기</a></li>
+            </ul>
+    </nav>
 
 
+<!--좌측 메뉴바 -->
 
+<!-- 본문  -->
 
-<!-- 소제목+본문 섹션3 -->
-     <section class="ftco-section">
-			<div class="container">
-<!-- ---------------------- 소제목3 -------------------------------- -->
-			<div class="row justify-content-center mb-3">
-     			<div class="col-md-7 text-center heading-section ftco-animate">
-          			<span class="subheading">차카차카</span>
-           				<h2 class="mb-3">추가 요금</h2>
-          		</div>
-       		</div>
-<!-- ---------------------- 본문3 -------------------------------- -->
-				<div class="row">
-						<div class="services services-2 w-100 text-center">
-            				<div class="icon d-flex align-items-center justify-content-center">
-            					<span class="compensation fee"></span>
-            				</div>
-            				<div class="text w-100">
-                				<h3 class="heading mb-2">휴차 보상료</h3>
-                					<p>세부설명</p>
-              				</div>
-            			</div>
+	<!-- EL/JSTL 사용  -->
+	
+<br>
+<br>
+   <table border="1" id="mainWrapper" >
+      <tr style="text-align: center; font-weight: bold; color:#fff;">
+        <td style="background-color: #CEE5D0;">번호</td>
+        <td style="background-color: #CEE5D0;">제목</td>
+        <td style="background-color: #CEE5D0;">글쓴이</td>
+        <td style="background-color: #CEE5D0;">조회수</td>
+        <td style="background-color: #CEE5D0;">작성일</td>
+        <td style="background-color: #CEE5D0;">IP</td>
+      </tr>
+      
+      <c:forEach var="dto" items="${boardList}" >
+      
+	      <tr>
+	       <!--제목 누를 시 해당 주소로 이동 -->
+	        <td>${dto.bno}</td>
+	        <td>
+	       <a href="./ContactContent.bo?bno=${dto.bno}&pageNum=${requestScope.pageNum}">${dto.subject }</a>
+	       <!-- 전체 글 번호와 페이지번호 주소창에 표시 -->
+	       </td>
+	        <td>${dto.name }</td>
+	        <td>${dto.readcount }</td>
+	        <td>${dto.date}</td>
+	        <td>${dto.ip }</td>
+	      </tr>
+      </c:forEach>
+      
+   
+   </table>
+		
+		
+		<%-- <br>
+		<c:if test="${cnt!=0}">
+		
+			<c:if test="${startPage > pageBlock }">
+				   <a href="./ContactList.bo?pageNum=${startPage-pageBlock}">[이전]</a>			
+			</c:if>
 			
-					
-						<div class="services services-2 w-100 text-center">
-            				<div class="icon d-flex align-items-center justify-content-center">
-            					<span class="fix fee"></span>
-            				</div>
-            				<div class="text w-100">
-                				<h3 class="heading mb-2">차량 수리비</h3>
-                					<p>세부설명</p>
-              				</div>
-            			</div>
-					
+			<c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
+					  <a href="./ContactList.bo?pageNum=${ i}">[${i }]</a> 
+			</c:forEach>
+			
+			<c:if test="${endPage <pageCount }">
+					   <a href="./ContactList.bo?pageNum=${startPage+pageBlock}">[다음]</a>
+			</c:if>
+		
+		</c:if>
+		
+		<br>
+		<br> --%>
+<!-- ===========================페이징 넣어보기 ======================= -->
+<br>
+			<div class="row" style="width: 100%;  " >
+				<div class="col-md-12">
+					<div class="row mt-5">
+						<div class="col text-center" style="width: 1000px">
+							<div class="block-27">
+								<c:if test="${cnt != 0 }">
+									<ul>
+										<li><c:if test="${startPage > pageBlock }">
+												<a href="./ContactList.bo?pageNum=${startPage-pageBlock}">&lt;</a>
+											</c:if></li>
 
-					
-						<div class="services services-2 w-100 text-center">
-            				<div class="icon d-flex align-items-center justify-content-center">
-            					<span class="penalty"></span>
-            				</div>
-            				<div class="text w-100">
-                				<h3 class="heading mb-2">교통법규 위반 범칙금</h3>
-                					<p>세부설명</p>
-              				</div>
-            			</div>
-					
+										<li class=""><c:forEach var="i" begin="${startPage }"
+												end="${endPage }" step="1">
+												<a href="./ContactList.bo?pageNum=${i }">${i }</a>
+											</c:forEach></li>
 
-					
-						<div class="services services-2 w-100 text-center">
-            				<div class="icon d-flex align-items-center justify-content-center">
-            					<span class="fuel costs"></span>
-            				</div>
-            				<div class="text w-100">
-                				<h3 class="heading mb-2">차량 유류비</h3>
-                					<p>세부설명</p>
-              				</div>
-            			</div>
+										<li><c:if test="${endPage < pageCount }">
+												<a href="./ContactList.bo?pageNum=${startPage+pageBlock }">&gt;</a>
+											</c:if></li>
+									</ul>
+								</c:if>
+							</div>
+						</div>
 					</div>
-       		
-    </section>
-<!-- 소제목+본문 섹션3 끝 -->
-    			          
+				</div>
+			</div>
 
+			<!-------------- 페이징 처리 -------------- -->
 
+			<br>
+<!-- ===========================페이징 넣어보기 ======================= -->
+<!-- 본문  -->
 
-<!-- ---------------------- 푸터 -------------------------------- -->
+  <!-- ---------------------- 푸터 -------------------------------- -->
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
@@ -269,7 +345,7 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">GH</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Eine</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>

@@ -1,7 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>로그인</title>
+    <title>문의하기</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -52,6 +54,7 @@
 	}
   </style>
     
+    
     <!-- 메뉴바 css  -->
   </head>
   <body>
@@ -70,8 +73,8 @@
 	          <li class="nav-item"><a href="about.html" class="nav-link">이용안내</a></li>
 	          <li class="nav-item"><a href="services.html" class="nav-link">요금안내</a></li>
 	          <li class="nav-item"><a href="pricing.html" class="nav-link">예약하기</a></li>
-	          <li class="nav-item"><a href="review.html" class="nav-link">고객센터</a></li>
-	          <li class="nav-item active"><a href="joinUpdate.html" class="nav-link">마이페이지</a></li>
+	          <li class="nav-item active"><a href="car.html" class="nav-link">고객센터</a></li>
+	          <li class="nav-item"><a href="login.html" class="nav-link">마이페이지</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -84,8 +87,8 @@
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
           	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-          							<span>마이페이지 <i class="ion-ios-arrow-forward"></i></span></p>
-            						<h1 class="mb-3 bread">회원정보수정</h1>
+          							<span>고객센터 <i class="ion-ios-arrow-forward"></i></span></p>
+            						<h1 class="mb-3 bread">문의하기</h1>
           </div>
         </div>
       </div>
@@ -99,7 +102,7 @@
 			<div class="row justify-content-center mb-3">
      			<div class="col-md-7 text-center heading-section ftco-animate">
           			<span class="subheading">차카차카</span>
-           				<h2 class="mb-3">이전 예약 내역</h2>
+           				<h2 class="mb-3">문의하기</h2>
           		</div>
        		</div>
 
@@ -107,49 +110,77 @@
 
 <nav id="nav">
             <ul>
-                <li><a href="#" onclick="location.href='joinUpdate.html'">회원정보</a></li>
-                <li><a href="#" onclick="location.href='reservUpdate.html'">예약내역</a></li>
+                <li><a href="#" onclick="location.href='review.html'">이용후기</a></li>
+                <li><a href="#" onclick="location.href='contact.html'">문의하기</a></li>
             </ul>
     </nav>
+
 
 <!--좌측 메뉴바 -->
 
        		
 <!-- ---------------------- 본문 -------------------------------- -->
-       		<div class="row d-flex justify-content-center">
-       			<div class="col-md-5 ">
-            		<form action="#" class="p-2 contact-form">
-	              		<div class="form-group">
-	                		지 역: <input type="email" class="form-control" >
-	              		</div>
-	              		<div class="form-group">
-	                		날 짜: <input type="password" class="form-control" >
-	              		</div>
-	              		<div class="form-group">
-	                		차 종: <input type="text" class="form-control" >
-	              		</div>
-	              		<div class="form-group">
-	                		위 치: <input type="text" class="form-control" >
-	              		</div>
-	              		<div class="form-group">
-	                		시 간: <input type="time" class="form-control" >
-	              		</div>
-	              		<div class="form-group">
-	                		가 격: <input type="text" class="form-control" >
-	              		</div>
-	              		<div class="form-group">
-	             			<p class="d-flex justify-content-center mt-5 mb-0 d-block">
-	                			<input type="submit" value="이전" class="btn btn-primary py-3 px-5 mr-3 " onclick="location.href='reservUpdate.html'">
-	        			  	</p>
-	              		</div>
-            		</form>
-          		</div>
+     <section class="ftco-section contact-section">
+      <div class="container">
+        <div class="row d-flex mb-5 contact-info">
+        	<div class="col-md-4">
+        		<div class="row mb-5">
+		          <div class="col-md-12">
+		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
+			          	<div class="icon mr-3">
+			          		<span class="icon-map-o"></span>
+			          	</div>
+			            <p><span>Address :</span> 부산광역시 <br> 아이티윌 1조 </p>
+			          </div>
+		          </div>
+		          <div class="col-md-12">
+		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
+			          	<div class="icon mr-3">
+			          		<span class="icon-mobile-phone"></span>
+			          	</div>
+			            <p><span>Phone :</span> <a href="tel://1234567920">+82 777 7777</a></p>
+			          </div>
+		          </div>
+		          <div class="col-md-12">
+		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
+			          	<div class="icon mr-3">
+			          		<span class="icon-envelope-o"></span>
+			          	</div>
+			            <p><span>Email :</span> <a href="mailto:info@yoursite.com">info@yourchaca.com</a></p>
+			          </div>
+		          </div>
+		        </div>
           </div>
+          <div class="col-md-8 block-9 mb-md-5">
+            <form action="./ContactUpdatePro.bo?pageNum=${pageNum }" method="post" class="bg-light p-5 contact-form">
+            <input type="hidden" name="bno" value="${dto.bno }"> <!-- 보이면 안되는 정보는 hidden으로 추가!!!!!!!!!!!!!!!!!!!!!! 필수정보는 꼭~~~~~!!!!! -->
+              <div class="form-group">
+                 <input type="text" class="form-control" placeholder="아이디" name="id">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" value="${dto.name }" name="name">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" value="${dto.password }" name="pass">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" value="${dto.subject }" name="subject">
+              </div>
+              <div class="form-group">
+                <textarea id="" cols="30" rows="7" class="form-control"  name="content">${dto.content }</textarea>
+              </div>
+              <div class="form-group text-center">
+                <input type="submit" value="제  출" class="btn btn-primary py-3 px-5">
+              </div>
+            </form>
           
+          </div>
+        </div>
+ 
 <!-- 소제목+본문 섹션 끝 -->
        </div>
     </section>
-
+    
 
 
 <!-- ---------------------- 푸터 -------------------------------- -->

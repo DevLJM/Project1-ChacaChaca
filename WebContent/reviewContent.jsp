@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -70,7 +73,7 @@
 	          <li class="nav-item"><a href="info.html" class="nav-link">이용안내</a></li>
 	          <li class="nav-item"><a href="services.html" class="nav-link">요금안내</a></li>
 	          <li class="nav-item"><a href="pricing.html" class="nav-link">예약하기</a></li>
-	          <li class="nav-item active"><a href="review.html" class="nav-link">고객센터</a></li>
+	          <li class="nav-item active"><a href="review.jsp" class="nav-link">고객센터</a></li>
 	          <li class="nav-item"><a href="joinUpdate.html" class="nav-link">마이페이지</a></li>
 	        </ul>
 	      </div>
@@ -106,133 +109,49 @@
 			</div>
 
 			<!--좌측 메뉴바  -->
-
 			<nav id="nav">
 				<ul>
-					<li><a href="#" onclick="location.href='review.html'">이용후기</a></li>
+					<li><a href="./BoardList.bo" onclick="location.href='review.jsp'">이용후기</a></li>
 					<li><a href="#" onclick="location.href='contact.html'">문의하기</a></li>
 				</ul>
 			</nav>
-
-
 			<!--좌측 메뉴바 -->
 
 
 			<!-- ---------------------- 본문 -------------------------------- -->
+			<section class="ftco-section" style="padding-bottom: 0em;">
+		      <div class="container">
+		      
+			        <div class="row d-flex justify-content-center">
+			          <div class="col-md-12 text-center d-flex ftco-animate fadeInUp ftco-animated">
+			          	<div class="blog-entry justify-content-end mb-md-5">
+			              <div class="text px-md-5 pt-4">
+			              	<div class="meta mb-3">
+			                  <div>글번호: ${dto.bno } &nbsp</div> 
+			                  <div>작성자: ${dto.name } (${dto.id }) &nbsp</div>
+			                  <div>${dto.date }</div>
+			                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
+			                </div>
+			                <h3 class="heading mt-2">
+				               
+			                </h3>
+			                <p>${dto.content }</p>
+			              	<a href="#" class="block-20 img" style="background-image: url('images/image_1.jpg');">${dto.file }</a>
+<!-- 			                <p><a href="blog-single.html" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p> -->
+			              	<br>
+			              	<input type="button" value="수정">
+							<input type="button" value="삭제">
+							<!-- //<input type="button" value="답글"> -->
+							<input type="button" value="목록" onclick="location.href='./BoardList.bo?pageNum=${pageNum}';">
+			              
+			              </div>
+			            </div>
+			          </div>
+		       	</div> <!-- class="row -->
+		      </div> <!-- class="container" -->
+		    </section>
 
 
-			<div class="row">
-				<div class="col-md-12 pills">
-					<div class="bd-example bd-example-tabs">
-						<div class="d-flex justify-content-center"></div>
-
-
-						<hr>
-						<br> <br>
-						<div class="row">
-							<div class="col-md-7">
-								<h3 class="head">최근 작성된 이용후기</h3>
-								<div class="review d-flex">
-									<div class="user-img"
-										style="background-image: url(images/person_1.jpg)"></div>
-									<div class="desc">
-										<h4>
-											<span class="text-left">정지윤</span> <span class="text-right">2022년
-												5월 26일</span>
-										</h4>
-										<p class="star">
-											<span> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i>
-											</span> <span class="text-right"><a href="#" class="reply"><i
-													class="icon-reply"></i></a></span>
-										</p>
-										<p>원래 다른 카쉐어링 서비스를 이용했엇는데 차카차카가 한 번 써보고 완전 여기에 정착했어요!! 서비스
-											사용 가능한 지점도 여러 곳에 있고 쿠폰이랑 포인트 적립 제도도 잘 되어 있어서 타 서비스 대비 훨씬 더
-											저렴하게 이용가능해서 만족스러워요 +) 차카차카 이름도 귀여워요❤</p>
-									</div>
-								</div>
-								<div class="review d-flex">
-									<div class="user-img"
-										style="background-image: url(images/person_2.jpg)"></div>
-									<div class="desc">
-										<h4>
-											<span class="text-left">정규태</span> <span class="text-right">2022년
-												5월 23일</span>
-										</h4>
-										<p class="star">
-											<span> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i>
-											</span> <span class="text-right"><a href="#" class="reply"><i
-													class="icon-reply"></i></a></span>
-										</p>
-										<p>신규회원 쿠폰 이벤트가 있어서 이번에 처음 이용해봤는데 사이트가 사용하기 편리해서 첫 방문이었지만
-											수월하게 예약과 결제를 할 수 있었습니다. 추천합니다~</p>
-									</div>
-								</div>
-								<div class="review d-flex">
-									<div class="user-img"
-										style="background-image: url(images/person_3.jpg)"></div>
-									<div class="desc">
-										<h4>
-											<span class="text-left">윤주영</span> <span class="text-right">2022년
-												5월 21일</span>
-										</h4>
-										<p class="star">
-											<span> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i>
-											</span> <span class="text-right"><a href="#" class="reply"><i
-													class="icon-reply"></i></a></span>
-										</p>
-										<p>이번에 ChacaChaca에서 렌트한 차로 여행 다녀오고 후기 남겨요 급하게 렌트가 필요해서
-											찾아보다가 ChacaChaca가 신규 업체지만 이용후기가 좋아서 사용해봤는데 정말 잘 사용하고 즐겁게 여행하고
-											왔어요 사이트에서 예약 하기도 쉽고 결제도 간편결제로 빠르게 할 수 있어서 좋았어요</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-5">
-								<div class="rating-wrap">
-									<h3 class="head">이용후기 총 40건</h3>
-									<div class="wrap">
-										<p class="star">
-											<span> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i> (98%)
-											</span> <span>후기 38건</span>
-										</p>
-										<p class="star">
-											<span> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i> (02%)
-											</span> <span>후기 02건</span>
-										</p>
-										<p class="star">
-											<span> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i> (00%)
-											</span> <span>후기 00건</span>
-										</p>
-										<p class="star">
-											<span> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i> (00%)
-											</span> <span>후기 00건</span>
-										</p>
-										<p class="star">
-											<span> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i> <i
-												class="ion-ios-star"></i> <i class="ion-ios-star"></i> (00%)
-											</span> <span>후기 00건</span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</section>
 

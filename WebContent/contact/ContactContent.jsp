@@ -1,7 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>회원가입</title>
+<head>
+    <title>문의하기</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -25,9 +27,37 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
+    <!-- 메뉴바 css  -->
+	<style>
+	#nav ul {
+	    list-style-type: none;
+	    margin: 0;
+	    padding: 0;
+	    width: 200px;
+	    background-color: #94B49F;
+	    text-align: center;
+	}
+	#nav li a {
+	    display: block;
+	    color: #FCF8E8;
+	    padding: 8px 16px;
+	    text-decoration: none;
+	    border-bottom: 1px solid #FCF8E8;
+	}
+	#nav li a.active {
+	    background-color: #94B49F;
+	    color: white;
+	}
+	#nav li a:hover:not(.active) {
+	    background-color: #FCF8E8;
+	    color: #CEE5D0;
+	}
+  </style>
     
+    
+    <!-- 메뉴바 css  -->
+  </head>
+<body>
 <!-- ---------------------- 최상단 메뉴바 -------------------------------- -->
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
@@ -39,11 +69,11 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="info.html" class="nav-link">이용안내</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">이용안내</a></li>
 	          <li class="nav-item"><a href="services.html" class="nav-link">요금안내</a></li>
 	          <li class="nav-item"><a href="pricing.html" class="nav-link">예약하기</a></li>
-	          <li class="nav-item"><a href="review.html" class="nav-link">고객센터</a></li>
-	          <li class="nav-item active"><a href="joinUpdate.html" class="nav-link">마이페이지</a></li>
+	          <li class="nav-item active"><a href="car.html" class="nav-link">고객센터</a></li>
+	          <li class="nav-item"><a href="login.html" class="nav-link">마이페이지</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -56,12 +86,13 @@
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
           	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-          							<span>마이페이지 <i class="ion-ios-arrow-forward"></i></span></p>
-            						<h1 class="mb-3 bread">회원가입</h1>
+          							<span>고객센터 <i class="ion-ios-arrow-forward"></i></span></p>
+            						<h1 class="mb-3 bread">문의하기</h1>
           </div>
         </div>
       </div>
     </section>
+
 
 <!-- 소제목+본문 섹션 시작 -->
     <section class="ftco-section">
@@ -70,71 +101,108 @@
 			<div class="row justify-content-center mb-3">
      			<div class="col-md-7 text-center heading-section ftco-animate">
           			<span class="subheading">차카차카</span>
-           				<h2 class="mb-3">회원가입</h2>
+           				<h2 class="mb-3">문의하기</h2>
           		</div>
        		</div>
-       		
-       		
+
+<!--좌측 메뉴바  -->
+
+<nav id="nav">
+            <ul>
+                <li><a href="#" onclick="location.href='review.html'">이용후기</a></li>
+                <li><a href="#" onclick="location.href='contact.html'">문의하기</a></li>
+            </ul>
+    </nav>
+
+
+<!--좌측 메뉴바 -->
+	<!-- <h1>contactContent.jsp</h1> -->
 <!-- ---------------------- 본문 -------------------------------- -->
-       		<div class="row d-flex justify-content-center">
-       			<div class="col-md-7 ">
-            		<form action="#" class="p-2 contact-form">
-	              		<div class="form-group">
-	              			<p class="d-flex justify-content-center mt-3 mb-0 d-block">
-	                			<span style="width: 20%;">이메일</span>
-	                			<input type="email" class="form-control" placeholder="abc@abc.com">
-	                		</p>
-	              		</div>
-	              		<div class="form-group">
-	              			<p class="d-flex justify-content-center mt-3 mb-0 d-block">
-	                			<span style="width: 20%;">비밀번호</span>
-	                			<input type="password" class="form-control" placeholder="8자 이상">
-	                		</p>
-	              		</div>
-	              		<div class="form-group">
-	              			<p class="d-flex justify-content-center mt-3 mb-0 d-block">
-	                			<span style="width: 20%;">비밀번호 <br>확인</span>
-	                			<input type="password" class="form-control" placeholder="비밀번호를 한 번 더 입력해주세요">
-	                		</p>
-	              		</div>
-	              		<div class="form-group">
-	              			<p class="d-flex justify-content-center mt-3 mb-0 d-block">
-	                			<span style="width: 20%;">이름</span>
-	                			<input type="text" class="form-control" placeholder="홍길동">
-	                		</p>
-	              		</div>
-	              		<div class="form-group">
-	              			<p class="d-flex justify-content-center mt-3 mb-0 d-block">
-	                			<span style="width: 20%;">생년월일</span>
-	                			<input type="date" class="form-control" placeholder="2000. 01. 01">
-	                		</p>
-	              		</div>
-	              		<div class="form-group">
-	              			<p class="d-flex justify-content-center mt-3 mb-0 d-block">
-	                			<span style="width: 20%;">전화번호</span>
-	                			<input type="text" class="form-control" placeholder="010-0000-0000">
-	                		</p>
-	              		</div>
-	              		<div class="form-group">
-	              			<p class="d-flex justify-content-center mt-3 mb-0 d-block">
-	                			<span style="width: 20%;">주소</span>
-	                			<input type="text" class="form-control" placeholder="부산시 ㅇㅇ구 ㅇㅇ동..">
-	                		</p>
-	              		</div>
-	              		<div class="form-group text-center">
-	                		<input type="submit" value="회원가입" class="btn btn-primary py-3 px-5">
-	              		</div>
-            		</form>
-          		</div>
-          </div>
-          
-<!-- 소제목+본문 섹션 끝 -->
-       </div>
-    </section>
+			<section class="ftco-section" style="padding-bottom: 0em;">
+		      <div class="container">
+		      <!-- <hr style="padding: 0;"> -->
+		      <div style="text-align: center; font-weight: bold; font-size: 20px; background-color:#CEE5D0; height: 60px; line-height:60px; padding: 0;">${dto.subject }</div>
+		        <!-- <hr style="padding: 0;"> -->
+			        <div class="row d-flex justify-content-center">
+			          <div class="col-md-12 text-center d-flex ftco-animate fadeInUp ftco-animated">
+			          	<div class="blog-entry justify-content-end mb-md-5">
+			              <div class="text px-md-5 pt-4">
+			              	<div class="meta mb-3">
+			              	<input type="hidden" value=${dto.password }>
+			                  <div>글번호: ${dto.bno } &nbsp</div> 
+			                  <div>작성자: ${dto.name } &nbsp</div>
+			                  <div>${dto.date }</div>
+			                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
+			                </div>
+			                <h3 class="heading mt-2">
+				               
+			                </h3>
+			                <p>${dto.content }</p>
+			              	<a href="#" class="block-20 img" style="background-image: url('images/image_1.jpg');">${dto.file }</a>
+<!-- 			                <p><a href="blog-single.html" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p> -->
+			              	<br>
+			              	<input type="button" value="수정" onclick="location.href='./ContactUpdate.bo?bno=${dto.bno}&pageNum=${pageNum}';">
+							<input type="button" value="삭제" onclick="location.href='./ContactDelete.bo?bno=${dto.bno}&pageNum=${pageNum}';">
+							<!-- //<input type="button" value="답글"> -->
+							<input type="button" value="목록" onclick="location.href='./ContactList.bo?pageNum=${pageNum}';">
+			              
+			              </div>
+			            </div>
+			          </div>
+		       	</div> <!-- class="row -->
+		      </div> <!-- class="container" -->
+		    </section>
+
+
+		</div>
+	</section>
 
 
 
-<!-- ---------------------- 푸터 -------------------------------- -->
+
+
+
+<%-- 
+			<table border="1">
+      <tr>
+        <td>글번호</td>
+        <td>${dto.bno }</td>
+        <td>조회수</td>
+        <td>${dto.readcount }</td>
+      </tr>
+      <tr>
+        <td>작성자</td>
+        <td>${dto.name }</td>
+        <td>작성일</td>
+        <td>${dto.date }</td>
+      </tr>
+      <tr>
+      	<td>제목</td>
+      	<td colspan="3">${dto.subject }</td>
+      </tr>
+      <tr>
+      	<td>내용</td>
+      	<td colspan="3">${dto.content }</td>
+      </tr>
+      <tr>
+      	<td>첨부파일</td>
+      	<td colspan="3">${dto.file }</td>
+      </tr>
+      <tr>
+      	<td><input type="button" value="수정" onclick="location.href='./ContactUpdate.cot?bno=${dto.bno}&pageNum=${pageNum}';"></td>
+      	<td><input type="submit" value="삭제"></td>
+<!--       	<td><input type="submit" value="답글"></td> -->
+      	<td>
+      		<input type="submit" value="목록" 
+      		onclick="location.href='./ContactList.cot?pageNum=${pageNum}';">
+      				<!-- 게시글 클릭 후 게시글 정보 뜨면 bno와 pageNum를 가지고 이동 (주소창에) -->
+      	</td>
+      </tr>
+     </table>
+     --%>
+     <!-- ---------------------- 본문 -------------------------------- -->
+     
+     <!-- ---------------------- 푸터 -------------------------------- -->
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
@@ -184,7 +252,7 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">GH</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Eine</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>

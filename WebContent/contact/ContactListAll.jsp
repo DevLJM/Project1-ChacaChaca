@@ -1,7 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>로그인</title>
+<head>
+    <title>문의하기</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -51,18 +54,11 @@
 	    color: #CEE5D0;
 	}
   </style>
-  <script type="text/javascript">
-  	function del() {
-  		alert("이용해 주셔서 감사합니다.");
-  		location.href="index.html";
-  		
-  	}
-  </script>
+    
     
     <!-- 메뉴바 css  -->
   </head>
-  <body>
-    
+<body>
 <!-- ---------------------- 최상단 메뉴바 -------------------------------- -->
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
@@ -74,11 +70,11 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="info.html" class="nav-link">이용안내</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">이용안내</a></li>
 	          <li class="nav-item"><a href="services.html" class="nav-link">요금안내</a></li>
 	          <li class="nav-item"><a href="pricing.html" class="nav-link">예약하기</a></li>
-	          <li class="nav-item"><a href="review.html" class="nav-link">고객센터</a></li>
-	          <li class="nav-item active"><a href="joinUpdate.html" class="nav-link">마이페이지</a></li>
+	          <li class="nav-item active"><a href="car.html" class="nav-link">고객센터</a></li>
+	          <li class="nav-item"><a href="login.html" class="nav-link">마이페이지</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -91,8 +87,8 @@
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
           	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-          							<span>마이페이지 <i class="ion-ios-arrow-forward"></i></span></p>
-            						<h1 class="mb-3 bread">회원정보</h1>
+          							<span>고객센터 <i class="ion-ios-arrow-forward"></i></span></p>
+            						<h1 class="mb-3 bread">문의하기</h1>
           </div>
         </div>
       </div>
@@ -106,7 +102,7 @@
 			<div class="row justify-content-center mb-3">
      			<div class="col-md-7 text-center heading-section ftco-animate">
           			<span class="subheading">차카차카</span>
-           				<h2 class="mb-3">회원정보</h2>
+           				<h2 class="mb-3">문의하기</h2>
           		</div>
        		</div>
 
@@ -114,54 +110,134 @@
 
 <nav id="nav">
             <ul>
-                <li><a href="#" onclick="location.href='joinUpdate.html'">회원정보</a></li>
-                <li><a href="#" onclick="location.href='reservUpdate.html'">예약내역</a></li>
+                <li><a href="#" onclick="location.href='review.html'">이용후기</a></li>
+                <li><a href="#" onclick="location.href='contact.html'">문의하기</a></li>
             </ul>
     </nav>
 
 
 <!--좌측 메뉴바 -->
 
-       		
-<!-- ---------------------- 본문 -------------------------------- -->
-       		<div class="row d-flex justify-content-center">
-       			<div class="col-md-5 ">
-            		<form action="#" class="p-2 contact-form">
-	              		<div class="form-group">
-	                		아이디(이메일): <input type="email" class="form-control" >
-	              		</div>
-	              		<div class="form-group">
-	                		비밀번호: <input type="password" class="form-control" >
-	              		</div>
-	              		<div class="form-group">
-	                		이 름: <input type="text" class="form-control" >
-	              		</div>
-	              		<div class="form-group">
-	                		생년월일: <input type="date" class="form-control" >
-	              		</div>
-	              		<div class="form-group">
-	                		전화번호: <input type="number" class="form-control" >
-	              		</div>
-	              		<div class="form-group">
-	                		주 소: <input type="text" class="form-control" >
-	              		</div>
-	              		<div class="form-group">
-	             			<p class="d-flex justify-content-center mt-5 mb-0 d-block">
-	                			<input type="submit" value="수정" class="btn btn-primary py-3 px-5 mr-3 " onclick="location.href='joinUpdate.html';">
-	                			<input type="button" value="삭제" class="btn btn-primary py-3 px-5 ml-3 " onclick="del();">
-	              			</p>
-	              		</div>
-            		</form>
-          		</div>
-          </div>
-          
-<!-- 소제목+본문 섹션 끝 -->
-       </div>
-    </section>
+<!-- 본문  -->
+	<h1>boardListAll.jsp</h1>
+	
+	<h2>게시판 목록</h2>
+			<br>
+			<div class="row" style="width: 100%">
+				<div class="col-md-12">
+					<div class="row mt-5">
+						<div class="col text-center" style="width: 1000px">
+							<div class="block-27">
+								<c:if test="${cnt != 0 }">
+									<ul>
+										<li><c:if test="${startPage > pageBlock }">
+												<a href="./ContactList.bo?pageNum=${startPage-pageBlock}">&lt;</a>
+											</c:if></li>
+
+										<li class=""><c:forEach var="i" begin="${startPage }"
+												end="${endPage }" step="1">
+												<a href="./ContactList.bo?pageNum=${i }">${i }</a>
+											</c:forEach></li>
+
+										<li><c:if test="${endPage < pageCount }">
+												<a href="./ContactList.bo?pageNum=${startPage+pageBlock }">&gt;</a>
+											</c:if></li>
+									</ul>
+								</c:if>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-------------- 페이징 처리 -------------- -->
+
+			<br>
 
 
+			<%-- 	 <%
+	 //request.setAttribute("boardList", boardList);
+     
+     List<BoardDTO> boardList = (List<BoardDTO>)request.getAttribute("boardList");
+     
+//      	request.setAttribute("pageNum", pageNum);
+// 		request.setAttribute("cnt", cnt);
+// 		request.setAttribute("pageCount", pageCount);
+// 		request.setAttribute("pageBlock", pageBlock);
+// 		request.setAttribute("startPage", startPage);
+// 		request.setAttribute("endPage", endPage);
 
-<!-- ---------------------- 푸터 -------------------------------- -->
+
+		String pageNum =(String) request.getAttribute("pageNum");
+		int cnt = (int) request.getAttribute("cnt");
+		int pageCount = (int) request.getAttribute("pageCount");
+		int pageBlock = (int) request.getAttribute("pageBlock");
+		int startPage = (int) request.getAttribute("startPage");
+		int endPage = (int) request.getAttribute("endPage");
+     
+
+   %> --%>
+   
+   <h3><a href="./ContactWrite.bo">글 쓰기(new)</a></h3>
+   
+   
+   <table border="1">
+      <tr>
+        <td>번호</td>
+        <td>제목</td>
+        <td>글쓴이</td>
+        <td>조회수</td>
+        <td>작성일</td>
+        <td>IP</td>
+      </tr>
+      
+      <% for(int i=0;i<boardList.size();i++){ 
+           // DB -> DTO -> List
+          BoardDTO dto = boardList.get(i);
+      %>
+	       <tr>
+	        <td><%=dto.getBno() %></td>
+	        <td><%=dto.getSubject() %></td>
+	        <td><%=dto.getName() %></td>
+	        <td><%=dto.getReadcount() %></td>
+	        <td><%=dto.getDate() %></td>
+	        <td><%=dto.getIp() %></td>
+	      </tr>
+     <%} %>
+   
+   </table>
+   
+  <%--  <%
+		// 하단 페이징처리
+		if(cnt != 0){
+		   
+			// 이전 : 직전 페이지블럭의 첫번째 페이지 호출
+			if(startPage > pageBlock){
+				%>
+				   <a href="./ContactList.bo?pageNum=<%=startPage-pageBlock%>">[이전]</a>
+				<%
+			}
+			
+			// 1,2,3,4,5,....
+			for(int i=startPage;i<=endPage;i++){
+				%>
+				  <a href="./ContactList.bo?pageNum=<%=i%>">[<%=i %>]</a> 
+				<%
+			}
+			
+			// 다음 
+			if(endPage < pageCount){
+				%>
+				   <a href="./ContactList.bo?pageNum=<%=startPage+pageBlock%>">[다음]</a>
+				<%
+			}
+			
+		} 
+   
+   %> --%>
+<!-- 본문  -->
+
+  <!-- ---------------------- 푸터 -------------------------------- -->
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
