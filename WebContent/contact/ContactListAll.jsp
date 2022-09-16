@@ -181,7 +181,7 @@
    <h3><a href="./ContactWrite.bo">글 쓰기(new)</a></h3>
    
    
-   <table border="1">
+<%--    <table border="1">
       <tr>
         <td>번호</td>
         <td>제목</td>
@@ -206,7 +206,7 @@
      <%} %>
    
    </table>
-   
+    --%>
   <%--  <%
 		// 하단 페이징처리
 		if(cnt != 0){
