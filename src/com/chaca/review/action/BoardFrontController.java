@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-
 public class BoardFrontController extends HttpServlet {
 			// Controller == 서블릿
 	
@@ -125,6 +124,7 @@ public class BoardFrontController extends HttpServlet {
 			}
 			
 		}// else if ---  /BoardUpdatePro.bo	
+		
 		System.out.println("2. 가상 주소 매핑 끝---------------------------------\n");
 
 		
