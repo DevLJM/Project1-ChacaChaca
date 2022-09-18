@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>결제정보</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+<!-- ------------------------------------------------- 스타일 시작 ------------------------------------------------ -->
+<style type="text/css">
+/* ------------------------------------------------ 본문 스타일 시작 ------------------------------------------------ */
+.hole {
+	width: 1610px;
+	margin: 0 auto;
+}
+.subject {
+	width: 1100px;
+	float: left;
+	margin-bottom: 100px;
+
+}
+
+.coupon {
+	width: 300px; height: 33px;
+}
+
+.points {
+	width: 300px;
+}
+
+.btn2 {
+	background-color: #D0E6D2;
+	border: 1px solid #D0E6D2;
+	color : white;
+}
+
+.radio_insurance input[type=radio]{
+	display: none;
+}
+
+.radio_insurance input[type=radio]+label{
+	display: inline-block;
+	width: 200px; height: 50px;
+	line-height: 50px;
+	margin-left: 10px;
+	margin-right: 10px;
+	text-align: center;
+	font-weight:bold;
+	font-size:13px;
+	cursor: pointer;
+	border-radius: 8px;
+	border: 1px solid rgb(195,189,189);
+	background-color: #fff;
+	color: rgb(195,189,189);
+}
+
+.radio_insurance input[type=radio]:checked+label{
+	border: 1px solid #D0E6D2;
+	background-color: #D0E6D2;
+	color: white;
+}
+
+.radio_payment_method input[type=radio]{
+	display: none;
+}
+
+.radio_payment_method input[type=radio]+label{
+	display: inline-block;
+	width: 200px; height: 50px;
+	line-height: 50px;
+	margin-left: 10px;
+	margin-right: 10px;
+	text-align: center;
+	font-weight:bold;
+	font-size:13px;
+	cursor: pointer;
+	border-radius: 8px;
+	border: 1px solid rgb(195,189,189);
+	background-color: #fff;
+	color: rgb(195,189,189);
+}
+
+.radio_payment_method input[type=radio]:checked+label{
+	border: 1px solid #D0E6D2;
+	background-color: #D0E6D2;
+	color: white;
+}
+/* --------------------------------------------------- 본문 스타일 끝 -------------------------------------------------- */
+
+/* ------------------------------------------------ 퀵메뉴1 스타일 시작 ------------------------------------------------ */
+.quickmenu {
+	width: 500px;
+	float: left;
+	
+}
+
+.quickmenu1 {
+	width: 500px;
+	border: 1px solid rgb(195,189,189);
+	border-radius: 8px;
+	margin-bottom: 20px;
+}
+
+.car_name {
+	background-color:#f9f9f9;
+	height: 50px;
+	line-height: 50px;
+	color: black;
+	text-align: center;
+	margin-bottom: 10px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.car_image {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.caution {
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 15px;
+}
+/* ------------------------------------------------- 퀵메뉴1 스타일 끝 ------------------------------------------------- */
+
+/* ------------------------------------------------ 퀵메뉴2 스타일 시작 ------------------------------------------------ */
+.quickmenu2 {
+	text-align:center;
+	width:500px;
+	z-index: 1;
+	float: left;
+	margin-bottom: 100px;
+	
+}
+
+.rsvt {
+	border:1px solid rgb(195,189,189);
+	border-radius: 8px;
+	text-align: left;
+	margin-bottom: 50px;
+}
+
+.rsvt_info {
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	padding: 20px;
+	background-color:#f9f9f9;
+}
+
+.total_price {
+	margin: 0px;
+	padding: 20px;
+	background-color:black;
+	color: white;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	
+}
+
+#value {
+	float: right;
+}
+
+.btn_back {
+	border: 1px solid rgb(195,189,189);
+	border-radius: 8px;
+	background-color: white;
+	color: black;
+	font-weight: bold;
+	width: 200px; height: 50px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.btn_submit {
+	border: 1px solid #94B49F;
+	border-radius: 8px;
+	background-color: #94B49F;
+	color: white;
+	font-weight: bold;
+	width: 200px; height: 50px;
+	margin-left: 20px;
+	margin-right: 20px;	
+}
+/* ------------------------------------------------ 퀵메뉴2 스타일 끝 ----------------------------------------------- */
+
+/* ------------------------------------------------ 푸터 스타일 시작 ------------------------------------------------ */
+footer{
+	clear: left;
+}
+/* ------------------------------------------------- 푸터 스타일 끝 ------------------------------------------------- */
+</style>
+<!-- -------------------------------------------------- 스타일 끝 -------------------------------------------------- -->
+</head>
+<body>
+<!-- ---------------------------------------------- 최상단 메뉴바 시작 --------------------------------------------- -->
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">CHACA<span>CHACA</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="info.html" class="nav-link">이용안내</a></li>
+	          <li class="nav-item"><a href="services.html" class="nav-link">요금안내</a></li>
+	          <li class="nav-item active"><a href="pricing.html" class="nav-link">예약하기</a></li>
+	          <li class="nav-item"><a href="review.jsp" class="nav-link">고객센터</a></li>
+	          <li class="nav-item"><a href="joinUpdate.html" class="nav-link">마이페이지</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
+<!-- ---------------------- 경로 -------------------------------- -->
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/autocar2.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> 
+          							<span>예약하기 <i class="ion-ios-arrow-forward"></i></span></p>
+            						<h1 class="mb-3 bread">결제 정보</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<!-- 소제목+본문 섹션1 시작 -->
+    <section class="ftco-section">
+		<div class="container">
+<!-- ---------------------- 소제목1 -------------------------------- -->
+			<div class="row justify-content-center mb-3">
+     			<div class="col-md-7 text-center heading-section ftco-animate">
+          			<span class="subheading">차카차카</span>
+           				<h2 class="mb-3">할인/결제</h2>
+          		</div>
+       		</div>
+       	</div>
+	</section>
+<!-- -------------------------------------------- 본문 (할인/결제) 시작 -------------------------------------------- -->
+<div class="hole">
+<form action="paymentresult.html" method="post">
+<section class="a">
+	<div class="subject">
+		<h3>쿠폰</h3><hr>
+			<div><select class="coupon" >
+					<option selected>쿠폰을 적용해주세요</option>
+					<option>${session.coupon1 } 쿠폰1</option>
+					<option>${session.coupon2 } 쿠폰2</option>
+					<option>${session.coupon3 } 쿠폰3</option>
+					<option>${session.coupon4 } 쿠폰4</option>
+			</select> <input type="button" value="적용" class="btn2" onclick="alert('쿠폰이 적용되었습니다.');"></div>
+			<div>사용 가능 쿠폰 선택 > 적용 내역 확인</div><br>
+	
+		<h3>포인트</h3><hr>
+			<div><input type="text" placeholder="사용하실 포인트를 입력해주세요" class="points"> <input type="button" value="입력" class="btn2" onclick="alert('포인트 할인이 적용되었습니다.');"></div>
+			<div>사용하고 싶은 포인트 금액 입력 > 입력 금액만큼 차감</div><br>
+		
+		<h3>차량손해면책제도(보험)</h3><hr>
+			<div class="radio_insurance"><input type="radio" name="a" value="" id="select1"><label for="select1">완전자차 (고객부담금 0원)</label>
+								<input type="radio" name="a" value="" id="select2"><label for="select2">일반자차 (고객부담금 50만원)</label>
+								<input type="radio" name="a" value="" id="select3"><label for="select3">선택안함 (고객부담금 전액)</label></div><br>
+			
+		<h3>결제방법</h3><hr>
+			<div class="radio_payment_method"><input type="radio" name="b" value="신용카드" id="select4"><label for="select4">신용카드</label>
+											  <input type="radio" name="b" value="무통장입금" id="select5"><label for="select5">무통장입금</label>
+											  <input type="radio" name="b" value="SNS 간편결제" id="select6"><label for="select6">SNS 간편결제</label></div><br>
+		<h3>취소 수수료 안내</h3><hr>
+			<div>· 차량 수령 24시간 전 취소 : 전액 환불</div>
+			<div>· 차량 수령 24시간 이내 ~ 수령시간까지 취소 : 취소수수료 발생(3,000원)</div>
+			<div>· 차량 수령시간 이후 : NO SHOW 수수료 발생(차량대여요금의 10%)</div>
+	</div>
+</section>
+<!-- ---------------------------------------------- 본문 (할인/결제) 끝 ---------------------------------------------- -->
+
+<!-- -------------------------------------------- 퀵메뉴1 (차량정보) 시작 -------------------------------------------- -->
+<section class="quickmenu">
+<section class="quickmenu1">
+	<div class="car_name">${session.car_name }</div>
+	<div class="car_image"><img src="images/car-1.jpg" width=400></div>
+	<div class="caution">실제 대여하는 차량과 외관, 색상, 옵션 등 차이가 있을 수 있으며,<br>
+	                     사고 또는 고장 등 부득이한 경우 동급차종으로 변경될 수 있습니다.</div>
+</section>
+<!-- --------------------------------------------- 퀵메뉴1 (차량정보) 끝 --------------------------------------------- -->
+
+<!-- -------------------------------------------- 퀵메뉴2 (예약정보) 시작 -------------------------------------------- -->
+<section class="quickmenu2">
+	<!-- <p><span class="cl-point1">기간·지점·차량</span>은 순서와 관계없이 <span class="cl-point1">선택 예약이 가능</span>합니다.</p> -->
+	<div class="rsvt">
+		<div class="rsvt_info">
+			<!-- 시작 : 날짜, 시간 -->
+			<div>
+				<strong>대여정보</strong>
+				<span class="date-time-area clearfix" id="value">
+					<!-- 날짜 -->
+					<span id="sDateSpan" class="input fl bdr_r_none">
+				   <!-- <input type="text" id="sDate" class="brr0 rentDate" readonly="readonly" placeholder="대여일 선택" name="sDate" value="2022-09-25" disabled="disabled"> -->
+						<input type="date" id="sDate" class="brr0 rentDate" placeholder="대여일 선택" name="sDate" value="2022-09-25">
+					</span>
+					<!-- 시간(시) -->
+					<span class="select-box fl bdr_none">
+						<select name="sHour" id="sHour" class="option01 hour select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+							<option value="07">07시</option>
+							<option value="08">08시</option>
+							<option value="09">09시</option>
+							<option value="10">10시</option>
+							<option value="11">11시</option>
+							<option value="12">12시</option>
+							<option value="13">13시</option>
+							<option value="14">14시</option>
+							<option value="15">15시</option>
+							<option value="16">16시</option>
+							<option value="17">17시</option>
+							<option value="18">18시</option>
+							<option value="19">19시</option>
+							<option value="20">20시</option>
+							<option value="21">21시</option>
+							<option value="22">22시</option>
+						</select>
+					</span>
+					<!-- 시간(분) -->
+					<span class="select-box fl bdr_l_none">
+						<select name="sMinute" id="sMinute" class="option01 timeChange select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+							<option value="00">00분</option>
+							<option value="30">30분</option>
+						</select>
+					</span>
+				</span><hr>
+			</div>
+		
+			<!-- 반납 : 날짜, 시간 -->
+			<div>
+				<strong>반납정보</strong>
+				<span class="date-time-area clearfix" id="value">
+					<!-- 날짜 -->
+					<span id="lDateSpan" class="input fl bdr_r_none">
+				   <!-- <input type="text" class="brr0 rentDate" id="lDate" placeholder="반납일 선택" readonly="readonly" name="lDate" value="2022-09-27" disabled="disabled"> -->
+						<input type="date" class="brr0 rentDate" id="lDate" placeholder="반납일 선택" name="lDate" value="2022-09-27">
+					</span>
+					<!-- 시간(시) -->
+					<span class="select-box fl bdr_none">
+						<select name="lHour" id="lHour" class="option01 hour select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+							<option value="06">06시</option>
+							<option value="07">07시</option>
+							<option value="08">08시</option>
+							<option value="09">09시</option>
+							<option value="10">10시</option>
+							<option value="11">11시</option>
+							<option value="12">12시</option>
+							<option value="13">13시</option>
+							<option value="14">14시</option>
+							<option value="15">15시</option>
+							<option value="16">16시</option>
+							<option value="17">17시</option>
+							<option value="18">18시</option>
+							<option value="19">19시</option>
+							<option value="20">20시</option>
+							<option value="21">21시</option>
+						</select>
+					</span>
+					<!-- 시간(분) -->
+					<span class="select-box fl bdr_l_none">
+						<select name="lMinute" id="lMinute" class="option01 timeChange select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+							<option value="00">00분</option>
+							<option value="30">30분</option>
+						</select>
+					</span>
+				</span>
+			</div><hr>
+		
+			<!-- 지역/지점 -->
+			<div>
+				<div class="store-area clearfix">
+			   <!-- <span class="multiple-select-box fl is-disabled"><strong class="js-multiple-select-text">제주/제주지점</strong></span> -->
+					<strong>지점명</strong>
+					<span class="layer-multiple-select-box" id="value">
+						<select name="location_end" id="location_end" class="location_end" tabindex="-1" aria-hidden="true">
+							<option value="00">지역선택</option>
+							<option value="30">30분</option>
+						</select> / 
+						<select name="store_end" id="store_end" class="store_end" tabindex="-1" aria-hidden="true">
+							<option value="00">지점선택</option>
+							<option value="30">30분</option>
+						</select>
+					</span>
+				</div>
+			</div><hr>
+			
+			<!-- 나머지 -->
+			<div><strong>차량대여요금</strong><span id="value">${session.price }</span></div><hr>
+			<div class="insurance_price"><strong>추가요금</strong><span id="value">${insurance_price }</span></div>
+		</div>
+		<div class="total_price"><strong>총 금액</strong><span id="value">${session.price + insurance_price }</span></div>
+	</div>
+	<input type="button" value="이 전" class="btn_back" onclick="history.back();">
+	<input type="submit" value="결 제" class="btn_submit">
+</section>
+</section>
+<!-- --------------------------------------------- 퀵메뉴2 (예약정보) 끝 --------------------------------------------- -->
+</form>
+</div>
+
+
+<!-- ---------------------- 푸터 -------------------------------- -->
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2"><a href="#" class="logo">CHACA<span>CHACA</span></a></h2>
+              <p>당신의 곁에있는<br>가장 가깝고 착한 플랫폼,<br> 지금 차카차카 하세요!</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Information</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">이용안내</a></li>
+                <li><a href="#" class="py-2 d-block">요금안내</a></li>
+                <li><a href="#" class="py-2 d-block">예약하기</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Customer Support</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">고객센터</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">도움이 필요하신가요?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">부산광역시<br> 분당구 센텀일로 95</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+82 777 7777</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourchacachaca.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Eine</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+    
+    
+  </body>
+</html>
