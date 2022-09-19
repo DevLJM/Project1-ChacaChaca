@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
 public class BoardFrontController extends HttpServlet {
 			// Controller == 서블릿
 	
@@ -125,8 +126,39 @@ public class BoardFrontController extends HttpServlet {
 			
 		}// else if ---  /BoardUpdatePro.bo	
 		
+		// 댓글 구현 시작////////////////////////////////////////
+		else if (command.equals("/CommentWrite.bo")){
+			System.out.println("(from BoardFrontController_doProcess) C: /CommentWrite.bo 호출");
+			
+			action = new CommentWriteAction();
+			
+			try {
+				forward = action.execute(request, response);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		} // CommentWrite.bo 끝
+		
+		else if (command.equals("/CommentUpdate.bo")){
+			System.out.println("(from BoardFrontController_doProcess) C: /CommentUpdate.bo 호출");
+			
+			action = new CommentUpdateAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		} // CommentUpdate.bo 끝
+		
+		
 		System.out.println("2. 가상 주소 매핑 끝---------------------------------\n");
 
+		
+		
 		
 		System.out.println("\n3. 가상 주소 이동 시작---------------------------------");
 		if(forward != null){

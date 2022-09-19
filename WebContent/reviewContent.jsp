@@ -1,6 +1,10 @@
+<%@page import="com.chaca.review.db.CommentDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.chaca.review.db.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -188,6 +192,68 @@
 			          </div>
 		       	</div> <!-- class="row -->
 		      </div> <!-- class="container" -->
+		      
+				<!-- ----------------------- 댓글 작성 구간^^ --------------------------------- -->
+		      	<form action="./CommentWrite.bo" method="post" name="frm" >
+		      		<input type="hidden" name="pageNum" value="${pageNum }"> <!-- 굳이 필요한감? -->
+					<input type="hidden" name="bno" value="${dto.bno }">  <!-- bno : 메인 글의 bno!! (BoardDTO의 bno!!!!) 여기가 중요 ★★★-->
+					
+					<table>
+						<tr>
+							<th colspan="2"> 댓글</th>
+						</tr>
+						<tr>
+							<td width="100"> 이름 </td>
+							<td width="150"> <input type="text" name="name"> </td>
+						</tr>
+						<tr>
+							<td> 내용 </td>
+							<td> <textarea rows="5" cols="60" name="content"></textarea> </td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<input type="submit" value="댓글 작성" name="cmd">
+								<input type="reset" value="리셋">
+							</td>
+						</tr>
+					</table>
+				</form>
+				<!-- ----------------------- 댓글 작성 구간 끝^^ --------------------------------- -->
+				
+				<br>
+				<hr>
+					
+				<!-- ----------------------- 댓글 리스트 구간 --------------------------------- -->
+				<%
+					BoardDAO dao = new BoardDAO();
+					int bno = Integer.parseInt(request.getParameter("bno"));
+					List<CommentDTO> cmtList = dao.getCommentList(bno);
+					request.setAttribute("cmtList", cmtList);
+				%>
+				
+						<input type="hidden" name="c_bno" value="${cdto.c_bno }">
+				<c:forEach var="cdto" items="${cmtList }">
+					<table width="60%" style="border: 1px solid gray">
+						<tr>
+							<td> name: ${cdto.name } </td>
+							<td align="right"> <fmt:formatDate value="${cdto.date }" pattern="yyyy.MM.dd hh:mm"/>
+						</tr>
+						<tr height="60px">
+							<td colspan="2"> content: <br> ${cdto.content } </td>
+						</tr>
+					</table>
+				</c:forEach>
+						<input type="button" value="수정" onclick="location.href='./CommentUpdate.bo?c_bno=${cdto.c_bno}';">
+						<input type="button" value="삭제" onclick="location.href='#';">
+				
+				<!-- ----------------------- 댓글 리스트 구간 끝^^ --------------------------------- -->
+				
+					
+					
+					
+					
+		      
+		      
 		    </section>
 
 
