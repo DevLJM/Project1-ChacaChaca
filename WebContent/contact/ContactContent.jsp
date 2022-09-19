@@ -116,69 +116,35 @@
 
 
 <!--좌측 메뉴바 -->
-				<!-- ---------------------- 본문 -------------------------------- -->
+	<!-- <h1>contactContent.jsp</h1> -->
+<!-- ---------------------- 본문 -------------------------------- -->
 			<section class="ftco-section" style="padding-bottom: 0em;">
 		      <div class="container">
-		        <hr>
+		      <!-- <hr style="padding: 0;"> -->
+		      <div style="text-align: center; font-weight: bold; font-size: 20px; background-color:#CEE5D0; height: 60px; line-height:60px; padding: 0;">${dto.subject }</div>
+		        <!-- <hr style="padding: 0;"> -->
 			        <div class="row d-flex justify-content-center">
 			          <div class="col-md-12 text-center d-flex ftco-animate fadeInUp ftco-animated">
 			          	<div class="blog-entry justify-content-end mb-md-5">
 			              <div class="text px-md-5 pt-4">
 			              	<div class="meta mb-3">
+			              	<input type="hidden" value=${dto.password }>
 			                  <div>글번호: ${dto.bno } &nbsp</div> 
-			                  <div>작성자: ${dto.name } (${dto.id }) &nbsp</div>
+			                  <div>작성자: ${dto.name } &nbsp</div>
 			                  <div>${dto.date }</div>
 			                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
 			                </div>
 			                <h3 class="heading mt-2">
-				                <div class="star"> 
-									<c:choose>
-										<c:when test="${dto.rate eq 1 }">
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-										</c:when>
-										<c:when test="${dto.rate eq 2 }">
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-										</c:when>
-										<c:when test="${dto.rate eq 3 }">
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i>
-										</c:when>
-										<c:when test="${dto.rate eq 4 }">
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star"></i> 
-											<i class="ion-ios-star" style="color: rgba(0, 0, 0, 0.1);"></i> 
-										</c:when>
-										<c:when test="${dto.rate eq 5}">
-											<i class="ion-ios-star"></i>
-											<i class="ion-ios-star"></i>
-											<i class="ion-ios-star"></i>
-											<i class="ion-ios-star"></i>
-											<i class="ion-ios-star"></i>
-										</c:when>
-									</c:choose>
-								</div>
+				               
 			                </h3>
 			                <p>${dto.content }</p>
 			              	<a href="#" class="block-20 img" style="background-image: url('images/image_1.jpg');">${dto.file }</a>
 <!-- 			                <p><a href="blog-single.html" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p> -->
 			              	<br>
-			              	<input type="button" value="수정">
-							<input type="button" value="삭제">
-							<input type="button" value="답글">
-							<input type="button" value="목록" onclick="location.href='./BoardList.bo?pageNum=${pageNum}';">
+			              	<input type="button" value="수정" onclick="location.href='./ContactUpdate.bo?bno=${dto.bno}&pageNum=${pageNum}';">
+							<input type="button" value="삭제" onclick="location.href='./ContactDelete.bo?bno=${dto.bno}&pageNum=${pageNum}';">
+							<!-- //<input type="button" value="답글"> -->
+							<input type="button" value="목록" onclick="location.href='./ContactList.bo?pageNum=${pageNum}';">
 			              
 			              </div>
 			            </div>
@@ -191,6 +157,51 @@
 		</div>
 	</section>
 
+
+
+
+
+
+<%-- 
+			<table border="1">
+      <tr>
+        <td>글번호</td>
+        <td>${dto.bno }</td>
+        <td>조회수</td>
+        <td>${dto.readcount }</td>
+      </tr>
+      <tr>
+        <td>작성자</td>
+        <td>${dto.name }</td>
+        <td>작성일</td>
+        <td>${dto.date }</td>
+      </tr>
+      <tr>
+      	<td>제목</td>
+      	<td colspan="3">${dto.subject }</td>
+      </tr>
+      <tr>
+      	<td>내용</td>
+      	<td colspan="3">${dto.content }</td>
+      </tr>
+      <tr>
+      	<td>첨부파일</td>
+      	<td colspan="3">${dto.file }</td>
+      </tr>
+      <tr>
+      	<td><input type="button" value="수정" onclick="location.href='./ContactUpdate.cot?bno=${dto.bno}&pageNum=${pageNum}';"></td>
+      	<td><input type="submit" value="삭제"></td>
+<!--       	<td><input type="submit" value="답글"></td> -->
+      	<td>
+      		<input type="submit" value="목록" 
+      		onclick="location.href='./ContactList.cot?pageNum=${pageNum}';">
+      				<!-- 게시글 클릭 후 게시글 정보 뜨면 bno와 pageNum를 가지고 이동 (주소창에) -->
+      	</td>
+      </tr>
+     </table>
+     --%>
+     <!-- ---------------------- 본문 -------------------------------- -->
+     
      <!-- ---------------------- 푸터 -------------------------------- -->
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,7 +122,40 @@
 	<h1>boardListAll.jsp</h1>
 	
 	<h2>게시판 목록</h2>
-	 <%
+			<br>
+			<div class="row" style="width: 100%">
+				<div class="col-md-12">
+					<div class="row mt-5">
+						<div class="col text-center" style="width: 1000px">
+							<div class="block-27">
+								<c:if test="${cnt != 0 }">
+									<ul>
+										<li><c:if test="${startPage > pageBlock }">
+												<a href="./ContactList.bo?pageNum=${startPage-pageBlock}">&lt;</a>
+											</c:if></li>
+
+										<li class=""><c:forEach var="i" begin="${startPage }"
+												end="${endPage }" step="1">
+												<a href="./ContactList.bo?pageNum=${i }">${i }</a>
+											</c:forEach></li>
+
+										<li><c:if test="${endPage < pageCount }">
+												<a href="./ContactList.bo?pageNum=${startPage+pageBlock }">&gt;</a>
+											</c:if></li>
+									</ul>
+								</c:if>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-------------- 페이징 처리 -------------- -->
+
+			<br>
+
+
+			<%-- 	 <%
 	 //request.setAttribute("boardList", boardList);
      
      List<BoardDTO> boardList = (List<BoardDTO>)request.getAttribute("boardList");
@@ -142,9 +176,9 @@
 		int endPage = (int) request.getAttribute("endPage");
      
 
-   %>
+   %> --%>
    
-   <h3><a href="./ContactWrite.cot">글 쓰기(new)</a></h3>
+   <h3><a href="./ContactWrite.bo">글 쓰기(new)</a></h3>
    
    
    <table border="1">
@@ -173,34 +207,34 @@
    
    </table>
    
-   <%
+  <%--  <%
 		// 하단 페이징처리
 		if(cnt != 0){
 		   
 			// 이전 : 직전 페이지블럭의 첫번째 페이지 호출
 			if(startPage > pageBlock){
 				%>
-				   <a href="./ContactList.cot?pageNum=<%=startPage-pageBlock%>">[이전]</a>
+				   <a href="./ContactList.bo?pageNum=<%=startPage-pageBlock%>">[이전]</a>
 				<%
 			}
 			
 			// 1,2,3,4,5,....
 			for(int i=startPage;i<=endPage;i++){
 				%>
-				  <a href="./ContactList.cot?pageNum=<%=i%>">[<%=i %>]</a> 
+				  <a href="./ContactList.bo?pageNum=<%=i%>">[<%=i %>]</a> 
 				<%
 			}
 			
 			// 다음 
 			if(endPage < pageCount){
 				%>
-				   <a href="./ContactList.cot?pageNum=<%=startPage+pageBlock%>">[다음]</a>
+				   <a href="./ContactList.bo?pageNum=<%=startPage+pageBlock%>">[다음]</a>
 				<%
 			}
 			
 		} 
    
-   %>
+   %> --%>
 <!-- 본문  -->
 
   <!-- ---------------------- 푸터 -------------------------------- -->

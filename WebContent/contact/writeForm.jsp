@@ -152,24 +152,24 @@
 		        </div>
           </div>
           <div class="col-md-8 block-9 mb-md-5">
-            <form action="./ContactWriteAction.cot" class="bg-light p-5 contact-form">
+            <form action="./ContactWriteAction.bo" class="bg-light p-5 contact-form">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="아이디(이메일)">
+                <input type="text" class="form-control" placeholder="아이디" name="id">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="이름" >
+                <input type="text" class="form-control" placeholder="이름" name="name">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="전화번호">
+                <input type="password" class="form-control" placeholder="비밀번호" name="password">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="제목">
+                <input type="text" class="form-control" placeholder="제목" name="subject">
               </div>
               <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="문의내용"></textarea>
+                <textarea id="" cols="30" rows="7" class="form-control" placeholder="문의내용" name="content"></textarea>
               </div>
               <div class="form-group text-center">
-                <input type="submit" value="제  출" class="btn btn-primary py-3 px-5" onclick="location.href='./ContactWriteAction.cot';">
+                <input type="submit" value="제  출" class="btn btn-primary py-3 px-5">
               </div>
             </form>
           

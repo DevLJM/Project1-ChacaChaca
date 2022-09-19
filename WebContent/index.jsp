@@ -15,7 +15,7 @@
 		//response.sendRedirect("./Test.bo");
 	
 		//글쓰기 페이지 이동
-		response.sendRedirect("./ContactWrite.cot");
+		response.sendRedirect("./ContactWrite.bo");
 		
 		
 	

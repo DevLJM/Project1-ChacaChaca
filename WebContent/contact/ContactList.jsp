@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -208,12 +209,9 @@ a {
 
 	<!-- EL/JSTL 사용  -->
 	
-	
-	<br>
-	<br>
-   
-   
-   <table border="1" id="mainWrapper">
+<br>
+<br>
+   <table border="1" id="mainWrapper" >
       <tr style="text-align: center; font-weight: bold; color:#fff;">
         <td style="background-color: #CEE5D0;">번호</td>
         <td style="background-color: #CEE5D0;">제목</td>
@@ -229,12 +227,12 @@ a {
 	       <!--제목 누를 시 해당 주소로 이동 -->
 	        <td>${dto.bno}</td>
 	        <td>
-	       <a href="./ContactContent.cot?bno=${dto.bno}&pageNum=${requestScope.pageNum}">${dto.subject }</a>
+	       <a href="./ContactContent.bo?bno=${dto.bno}&pageNum=${requestScope.pageNum}">${dto.subject }</a>
 	       <!-- 전체 글 번호와 페이지번호 주소창에 표시 -->
 	       </td>
 	        <td>${dto.name }</td>
 	        <td>${dto.readcount }</td>
-	        <td>$[dto.date}]</td>
+	        <td>${dto.date}</td>
 	        <td>${dto.ip }</td>
 	      </tr>
       </c:forEach>
@@ -243,26 +241,58 @@ a {
    </table>
 		
 		
-		<br>
+		<%-- <br>
 		<c:if test="${cnt!=0}">
 		
 			<c:if test="${startPage > pageBlock }">
-				   <a href="./ContactList.cot?pageNum=${startPage-pageBlock}">[이전]</a>			
+				   <a href="./ContactList.bo?pageNum=${startPage-pageBlock}">[이전]</a>			
 			</c:if>
 			
 			<c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-					  <a href="./ContactList.cot?pageNum=${ i}">[${i }]</a> 
+					  <a href="./ContactList.bo?pageNum=${ i}">[${i }]</a> 
 			</c:forEach>
 			
 			<c:if test="${endPage <pageCount }">
-					   <a href="./ContactList.cot?pageNum=${startPage+pageBlock}">[다음]</a>
+					   <a href="./ContactList.bo?pageNum=${startPage+pageBlock}">[다음]</a>
 			</c:if>
 		
 		</c:if>
 		
 		<br>
-		<br>
+		<br> --%>
+<!-- ===========================페이징 넣어보기 ======================= -->
+<br>
+			<div class="row" style="width: 100%;  " >
+				<div class="col-md-12">
+					<div class="row mt-5">
+						<div class="col text-center" style="width: 1000px">
+							<div class="block-27">
+								<c:if test="${cnt != 0 }">
+									<ul>
+										<li><c:if test="${startPage > pageBlock }">
+												<a href="./ContactList.bo?pageNum=${startPage-pageBlock}">&lt;</a>
+											</c:if></li>
 
+										<li class=""><c:forEach var="i" begin="${startPage }"
+												end="${endPage }" step="1">
+												<a href="./ContactList.bo?pageNum=${i }">${i }</a>
+											</c:forEach></li>
+
+										<li><c:if test="${endPage < pageCount }">
+												<a href="./ContactList.bo?pageNum=${startPage+pageBlock }">&gt;</a>
+											</c:if></li>
+									</ul>
+								</c:if>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-------------- 페이징 처리 -------------- -->
+
+			<br>
+<!-- ===========================페이징 넣어보기 ======================= -->
 <!-- 본문  -->
 
   <!-- ---------------------- 푸터 -------------------------------- -->
