@@ -5,7 +5,7 @@
 <head>
 
 <script>
-	function closePopup() {
+/* 	function closePopup() {
 		//자신을 실행시킨 본 창은 opener 객체로 인식된다
         	//value 초기화
  		//opener.document.[Form 이름].[value이름].value = "";
@@ -22,7 +22,7 @@
 	     //============팝업=====================
 		
 		
-	}
+	} */
 </script>
 
 </head>
@@ -31,17 +31,17 @@
 
 <% String bno  = request.getParameter("bno"); %>
 
-<fieldset>
-	<legend><%=bno %></legend>
+<fieldset style="background-color: #CEE5D0; border-color: #fff; border-radius: 15px;">
+	<legend style="background-color: #FCF8E8; border-color: #fff; font-size: 18px; border-radius: 5px;">게시글 번호: no.<%=bno %></legend>
 	<form action="./ContactDeletePro.bo?pageNum=1" method="post">
 		<input type="hidden" name="bno" value="<%=bno %>">
 <%-- 		${num } --%>
 		비밀번호 : <input type="password" name="password"><br>
-		<input type="submit" value="글삭제하기" class="btn" onclick="openPopUp(${dto.bno})">
-		<input type="button" value="뒤로가기" class="btn" onclick="history.back()">
+		<br>
+		<input style="background: #FCF8E8; border-color: #fff;" type="submit" value="글삭제하기" class="btn">
+		<input style="background: #FCF8E8; border-color: #fff;" type="button" value="뒤로가기" class="btn" onclick="history.back()">
 	</form>
 </fieldset>
-
 
 
 
