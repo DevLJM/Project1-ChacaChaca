@@ -197,7 +197,11 @@
 											        color: rgba(0, 0, 0, 0.1); } -->
 										
 										
-											<span class="text-right"><a href="./BoardContent.bo?bno=${dto.bno }&pageNum=${requestScope.pageNum}"> 상세보기</a></span>
+											<span class="text-right"><a href="./BoardContent.bo?bno=${dto.bno }&pageNum=${requestScope.pageNum}"> 
+												상세보기 <span class="icon-chat" style="margin-left: 0px"></span> 0 	</a>
+												 <!-- 댓글 표시 아이콘 -->
+											</span>
+											
 <!-- 										<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span> -->
 										</p>
 										

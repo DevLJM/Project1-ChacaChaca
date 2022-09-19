@@ -134,7 +134,7 @@
 			                  <div>글번호: ${dto.bno } &nbsp</div> 
 			                  <div>작성자: ${dto.name } (${dto.id }) &nbsp</div>
 			                  <div>${dto.date }</div>
-			                  
+			                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div> <!-- 댓글 표시 아이콘 -->
 			                </div>
 			                <h3 class="heading mt-2">
 				                <div class="star"> 
@@ -247,115 +247,14 @@
 						<input type="button" value="삭제" onclick="location.href='#';">
 				
 				<!-- ----------------------- 댓글 리스트 구간 끝^^ --------------------------------- -->
-
-
-
-				<div class="pt-5 mt-5">
-					<h3 class="mb-5">6 Comments</h3>
-					<ul class="comment-list">
-						<li class="comment">
-							<div class="vcard bio">
-								<img src="images/person_1.jpg" alt="Image placeholder">
-							</div>
-							<div class="comment-body">
-								<h3>John Doe</h3>
-								<div class="meta">Oct. 29, 2019 at 1:21pm</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-									Pariatur quidem laborum necessitatibus, ipsam impedit vitae
-									autem, eum officia, fugiat saepe enim sapiente iste iure! Quam
-									voluptas earum impedit necessitatibus, nihil?</p>
-								<p>
-									<a href="#" class="reply">Reply</a>
-								</p>
-							</div>
-						</li>
-
-						<li class="comment">
-							<div class="vcard bio">
-								<img src="images/person_1.jpg" alt="Image placeholder">
-							</div>
-							<div class="comment-body">
-								<h3>John Doe</h3>
-								<div class="meta">Oct. 29, 2019 at 1:21pm</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-									Pariatur quidem laborum necessitatibus, ipsam impedit vitae
-									autem, eum officia, fugiat saepe enim sapiente iste iure! Quam
-									voluptas earum impedit necessitatibus, nihil?</p>
-								<p>
-									<a href="#" class="reply">Reply</a>
-								</p>
-							</div>
-
-							<ul class="children">
-								<li class="comment">
-									<div class="vcard bio">
-										<img src="images/person_1.jpg" alt="Image placeholder">
-									</div>
-									<div class="comment-body">
-										<h3>John Doe</h3>
-										<div class="meta">Oct. 29, 2019 at 1:21pm</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-											elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-											vitae autem, eum officia, fugiat saepe enim sapiente iste
-											iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-										<p>
-											<a href="#" class="reply">Reply</a>
-										</p>
-									</div>
-								<li class="comment">
-									<div class="vcard bio">
-										<img src="images/person_1.jpg" alt="Image placeholder">
-									</div>
-									<div class="comment-body">
-										<h3>John Doe</h3>
-										<div class="meta">Oct. 29, 2019 at 1:21pm</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-											elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-											vitae autem, eum officia, fugiat saepe enim sapiente iste
-											iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-										<p>
-											<a href="#" class="reply">Reply</a>
-										</p>
-									</div>
-								</li>
-							</ul> <!-- END comment-list -->
-
-							<div class="comment-form-wrap pt-5">
-								<h3 class="mb-5">Leave a comment</h3>
-								<form action="#" class="p-5 bg-light">
-									<div class="form-group">
-										<label for="name">Name *</label> <input type="text"
-											class="form-control" id="name">
-									</div>
-									<div class="form-group">
-										<label for="email">Email *</label> <input type="email"
-											class="form-control" id="email">
-									</div>
-									<div class="form-group">
-										<label for="website">Website</label> <input type="url"
-											class="form-control" id="website">
-									</div>
-
-									<div class="form-group">
-										<label for="message">Message</label>
-										<textarea name="" id="message" cols="30" rows="10"
-											class="form-control"></textarea>
-									</div>
-									<div class="form-group">
-										<input type="submit" value="Post Comment"
-											class="btn py-3 px-4 btn-primary">
-									</div>
-
-								</form>
-							</div>
-				</div>
-
-
-
-
-
-
-			</section>
+				
+					
+					
+					
+					
+		      
+		      
+		    </section>
 
 
 		</div>
