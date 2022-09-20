@@ -132,7 +132,7 @@
 			              <div class="text px-md-5 pt-4">
 			              	<div class="meta mb-3">
 			                  <div>글번호: ${dto.bno } &nbsp</div> 
-			                  <div>작성자: ${dto.name } (${dto.id }) &nbsp</div>
+			                  <div>작성자: ${dto.name } (${dto.id }) &nbsp;</div>
 			                  <div>${dto.date }</div>
 			                  
 			                </div>
@@ -178,7 +178,8 @@
 								</div>
 			                </h3>
 			                <p>${dto.content }</p>
-			              	<a href="#" class="block-20 img" style="background-image: url('images/image_1.jpg');">${dto.file }</a>
+<%-- 			              	<a href="#" class="block-20 img" style="background-image: url('images/image_1.jpg');">${dto.file }</a> --%>
+			              	<a href="#" class="block-20 img" >${dto.file }</a>
 <!-- 			                <p><a href="blog-single.html" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p> -->
 			              	<br>
 			              	<input type="button" value="수정" onclick="location.href='./BoardUpdate.bo?bno=${dto.bno}&pageNum=${pageNum}';"> 
@@ -191,39 +192,9 @@
 			            </div>
 			          </div>
 		       	</div> <!-- class="row -->
-		      </div> <!-- class="container" -->
 		      
-				<!-- ----------------------- 댓글 작성 구간^^ --------------------------------- -->
-		      	<form action="./CommentWrite.bo" method="post" name="frm" >
-		      		<input type="hidden" name="pageNum" value="${pageNum }"> <!-- 굳이 필요한감? -->
-					<input type="hidden" name="bno" value="${dto.bno }">  <!-- bno : 메인 글의 bno!! (BoardDTO의 bno!!!!) 여기가 중요 ★★★-->
-					
-					<table>
-						<tr>
-							<th colspan="2"> 댓글</th>
-						</tr>
-						<tr>
-							<td width="100"> 이름 </td>
-							<td width="150"> <input type="text" name="name"> </td>
-						</tr>
-						<tr>
-							<td> 내용 </td>
-							<td> <textarea rows="5" cols="60" name="content"></textarea> </td>
-						</tr>
-						<tr>
-							<td colspan="2">
-								<input type="submit" value="댓글 작성" name="cmd">
-								<input type="reset" value="리셋">
-							</td>
-						</tr>
-					</table>
-				</form>
-				<!-- ----------------------- 댓글 작성 구간 끝^^ --------------------------------- -->
-				
-				<br>
-				<hr>
-					
-				<!-- ----------------------- 댓글 리스트 구간 --------------------------------- -->
+		      
+		      <!-- ----------------------- 댓글 리스트 구간 --------------------------------- -->
 				<%
 					BoardDAO dao = new BoardDAO();
 					int bno = Integer.parseInt(request.getParameter("bno"));
@@ -232,124 +203,61 @@
 				%>
 				
 						<input type="hidden" name="c_bno" value="${cdto.c_bno }">
-				<c:forEach var="cdto" items="${cmtList }">
-					<table width="60%" style="border: 1px solid gray">
-						<tr>
-							<td> name: ${cdto.name } </td>
-							<td align="right"> <fmt:formatDate value="${cdto.date }" pattern="yyyy.MM.dd hh:mm"/>
-						</tr>
-						<tr height="60px">
-							<td colspan="2"> content: <br> ${cdto.content } </td>
-						</tr>
-					</table>
-				</c:forEach>
-						<input type="button" value="수정" onclick="location.href='./CommentUpdate.bo?c_bno=${cdto.c_bno}';">
-						<input type="button" value="삭제" onclick="location.href='#';">
-				
-				<!-- ----------------------- 댓글 리스트 구간 끝^^ --------------------------------- -->
-
-
 
 				<div class="pt-5 mt-5">
-					<h3 class="mb-5">6 Comments</h3>
+					<h3 class="mb-5">댓글</h3>
 					<ul class="comment-list">
-						<li class="comment">
-							<div class="vcard bio">
-								<img src="images/person_1.jpg" alt="Image placeholder">
-							</div>
-							<div class="comment-body">
-								<h3>John Doe</h3>
-								<div class="meta">Oct. 29, 2019 at 1:21pm</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-									Pariatur quidem laborum necessitatibus, ipsam impedit vitae
-									autem, eum officia, fugiat saepe enim sapiente iste iure! Quam
-									voluptas earum impedit necessitatibus, nihil?</p>
-								<p>
-									<a href="#" class="reply">Reply</a>
-								</p>
-							</div>
-						</li>
-
-						<li class="comment">
-							<div class="vcard bio">
-								<img src="images/person_1.jpg" alt="Image placeholder">
-							</div>
-							<div class="comment-body">
-								<h3>John Doe</h3>
-								<div class="meta">Oct. 29, 2019 at 1:21pm</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-									Pariatur quidem laborum necessitatibus, ipsam impedit vitae
-									autem, eum officia, fugiat saepe enim sapiente iste iure! Quam
-									voluptas earum impedit necessitatibus, nihil?</p>
-								<p>
-									<a href="#" class="reply">Reply</a>
-								</p>
-							</div>
-
-							<ul class="children">
-								<li class="comment">
-									<div class="vcard bio">
-										<img src="images/person_1.jpg" alt="Image placeholder">
+						<c:forEach var="cdto" items="${cmtList }">
+							<li class="comment">
+								<div class="vcard bio">
+									<img src="images/person_1.jpg" alt="Image placeholder">
+								</div>
+								<div class="comment-body">
+									<h3>${cdto.name }</h3>
+									<div class="meta">
+										<fmt:formatDate value="${cdto.date }"
+											pattern="yyyy.MM.dd hh:mm" />
 									</div>
-									<div class="comment-body">
-										<h3>John Doe</h3>
-										<div class="meta">Oct. 29, 2019 at 1:21pm</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-											elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-											vitae autem, eum officia, fugiat saepe enim sapiente iste
-											iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-										<p>
-											<a href="#" class="reply">Reply</a>
-										</p>
-									</div>
-								<li class="comment">
-									<div class="vcard bio">
-										<img src="images/person_1.jpg" alt="Image placeholder">
-									</div>
-									<div class="comment-body">
-										<h3>John Doe</h3>
-										<div class="meta">Oct. 29, 2019 at 1:21pm</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-											elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-											vitae autem, eum officia, fugiat saepe enim sapiente iste
-											iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-										<p>
-											<a href="#" class="reply">Reply</a>
-										</p>
-									</div>
-								</li>
-							</ul> <!-- END comment-list -->
-
-							<div class="comment-form-wrap pt-5">
-								<h3 class="mb-5">Leave a comment</h3>
-								<form action="#" class="p-5 bg-light">
-									<div class="form-group">
-										<label for="name">Name *</label> <input type="text"
-											class="form-control" id="name">
-									</div>
-									<div class="form-group">
-										<label for="email">Email *</label> <input type="email"
-											class="form-control" id="email">
-									</div>
-									<div class="form-group">
-										<label for="website">Website</label> <input type="url"
-											class="form-control" id="website">
-									</div>
-
-									<div class="form-group">
-										<label for="message">Message</label>
-										<textarea name="" id="message" cols="30" rows="10"
-											class="form-control"></textarea>
-									</div>
-									<div class="form-group">
-										<input type="submit" value="Post Comment"
-											class="btn py-3 px-4 btn-primary">
-									</div>
-
-								</form>
-							</div>
+									<p>${cdto.content }</p>
+									<!-- <p> <a href="#" class="reply">Reply</a> </p> -->
+								<%-- 
+								</div> <input type="button" value="수정"
+											onclick="location.href='./CommentUpdate.bo?c_bno=${cdto.c_bno}';">
+								<input type="button" value="삭제" onclick="location.href='#';">
+								 --%>
+							</li>
+						</c:forEach>
+					</ul>
 				</div>
 
+				<!-- ----------------------- 댓글 리스트 구간 끝^^ --------------------------------- -->
+				
+		      
+				<!-- ----------------------- 댓글 작성 구간^^ --------------------------------- -->
+
+				<div class="comment-form-wrap pt-5" style="width: 70%; height: 300px">
+					<h3 class="mb-5">댓글을 남겨주세요</h3>
+					<form action="./CommentWrite.bo" method="post" name="frm" class="p-5 bg-light">
+					      		<input type="hidden" name="pageNum" value="${pageNum }"> <!-- 굳이 필요한감? -->
+								<input type="hidden" name="bno" value="${dto.bno }">  <!-- bno : 메인 글의 bno!! (BoardDTO의 bno!!!!) 여기가 중요 ★★★-->
+						<div class="form-group">
+							<label for="name">이름 *</label> <input type="text"
+								class="form-control" id="name">
+						</div>
+						<div class="form-group">
+							<label for="message">내용</label>
+							<textarea name="content" id="message" cols="30" rows="10"
+								class="form-control"></textarea>
+						</div>
+						<div class="form-group">
+							<input type="submit" value="댓글 달기^^"
+								class="btn py-3 px-4 btn-primary" name="cmd"> <!-- cmd.. 의미가 있나 -->
+						</div>
+					</form>
+				</div>
+				<!-- ----------------------- 댓글 작성 구간 끝^^ --------------------------------- -->
+				
+		      </div> <!-- class="container" -->
 
 
 

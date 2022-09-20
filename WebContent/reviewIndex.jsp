@@ -12,9 +12,13 @@
 		
 		// MVC 프로젝트 실행 시작페이지^^
 // 		response.sendRedirect("./BoardWrite.bo");
-		response.sendRedirect("./BoardList.bo");
+//		response.sendRedirect("./BoardList.bo");
 		
 	%>
-
+	
+	<h1><a href="./BoardList.bo">리뷰 목록</a>    </h1> 
+	<h1><a href="./BoardWrite.bo">리뷰 쓰기</a>   </h1> 
+	<h1><a href="./Main.bo">메인</a>            </h1> 
+                                               
 </body>
 </html>
