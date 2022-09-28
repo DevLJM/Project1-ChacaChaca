@@ -8151,10 +8151,11 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #1089ff; }
+  color: #94b49f; }
   a:hover, a:focus {
     text-decoration: none;
-    color: #1089ff;
+/*     color: #1089ff; */
+    color: #94b49f;
     outline: none !important; }
 
 h1, h2, h3, h4, h5,
@@ -8195,8 +8196,8 @@ h1, h2, h3, h4, h5,
     font-size: 15px;
     padding-top: .9rem;
     padding-bottom: .9rem;
-    padding-left: 40px;
-    padding-right: 20px;
+    padding-left: 30px;   /* top 메뉴 여기 다 있다!!!!! */
+    padding-right: 0px;
     color: #fff;
     font-weight: 400;
     opacity: 1 !important; }
@@ -9576,7 +9577,7 @@ textarea.form-control {
     margin-bottom: 4px;
     font-weight: 400; }
     .block-27 ul li a, .block-27 ul li span {
-      color: #1089ff;
+      color: #808080;
       text-align: center;
       display: inline-block;
       width: 40px;
@@ -9586,14 +9587,13 @@ textarea.form-control {
       border: 1px solid #e6e6e6;
       
        }
-       
-      .block-27 ul li a:hover {
-       background-color: #1089ff;
-       color: white;
+      .block-27 a:hover {
+       background-color: #c0d3c7; /* 여 아닌가?  맞네!!!!! 
+       								우리 색 
+       								94b49f  ->   CEE5D0  ->  FCF8E8  -> ECB390*/
       
       }
-       
-/*        테스트 */
+      
     .block-27 ul li.active a, .block-27 ul li.active span {
       background: #1089ff;
       color: #fff;

@@ -163,7 +163,7 @@
 						<div class="col-md-30 ">
 							<fieldset>
 								<legend style="text-align: center; ">이용후기 작성</legend><br>
-								<form action="./BoardWriteAction.bo" class="bg-light p-5 contact-form" method="post">
+								<form action="./FileBoardWriteAction.bo" class="bg-light p-5 contact-form" enctype="multipart/form-data" method="post">
 									<div class="form-group">
 										<span style="width: 80%;">아이디</span> 
 										<input type="email" class="form-control" name="id" placeholder="아이디(이메일)" style="width:50%">
@@ -179,6 +179,10 @@
 									<div class="form-group">
 										<span style="width: 80%;">내용</span>
 										<textarea rows="10" cols="80" class="form-control" name="content" placeholder="내용입력"></textarea>
+									</div>
+									<div class="form-group">
+										<span style="width: 80%;">사진</span>
+										<input type="file" class="form-control" name="file" style="width:50%">
 									</div>
 									<div class="form-group">
 										<span style="width: 60%;">별점</span> 

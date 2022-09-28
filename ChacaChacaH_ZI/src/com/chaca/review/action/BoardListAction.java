@@ -1,5 +1,6 @@
 package com.chaca.review.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -74,11 +75,24 @@ public class BoardListAction implements Action {
 			endPage = pageCount;
 		}
 		// 페이징 처리2 끝 ------------------------------------------------------------------------------ 
+	      // 댓글 개수
+
+	      List<Integer> cmtList = new ArrayList<>();
+	      
+	      for(int i = 0; i < boardList.size(); i++){
+	         int bno = boardList.get(i).getBno();
+	         System.out.println(bno);
+	         System.out.println(dao.getCommentCount(bno));
+	         cmtList.add(dao.getCommentCount(bno));
+	      }
 		
 		
 		// Model(지금 여기.. Action) -> view 페이지로 boardList 정보 전달을 위해, request 영역에 저장
 		request.setAttribute("boardList", boardList);
 		System.out.println("(from BoardListAction) M: BoardList 정보 request 영역에 저장 완");
+		
+		// 댓글 리스트 cmtList.. request영역에 저장
+	    request.setAttribute("cmtList", cmtList);
 		
 		// + 페이징 처리 정보 전달을 위해 request 영역에 저장
 		request.setAttribute("pageNum", pageNum);

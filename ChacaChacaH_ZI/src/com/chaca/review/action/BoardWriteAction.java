@@ -24,6 +24,7 @@ public class BoardWriteAction implements Action {
 		// rate 우짜지~~~????
 		dto.setRate(Integer.parseInt(request.getParameter("rate")));
 //		dto.setRate(request.getParameter("rate"));
+		dto.setFile(request.getParameter("file")); 
 		dto.setIp(request.getRemoteAddr()); // ip주소 추가
 
 		System.out.println("(from BoardWriteAction) M: " + dto);

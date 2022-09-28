@@ -164,10 +164,10 @@
 						<div class="col-md-30 ">
 							<fieldset>
 								<legend style="text-align: center; ">후기 수정하기</legend><br>
-								<form action="./BoardUpdatePro.bo?pageNum=${pageNum }" class="bg-light p-5 contact-form" method="post">
+								<form action="./FileBoardUpdateActionPro.bo?pageNum=${pageNum }" class="bg-light p-5 contact-form" method="post" enctype="multipart/form-data">
 										<input type="hidden" name="bno" value="${dto.bno }">  <!-- bno가 없었네!!! -->
 									<div class="form-group">
-										<span style="width: 80%;">아이디</span> 
+										<span style="width: 80%;">아이디 ${dto.bno } / ${requestScope.bno }</span> 
 										<input type="email" class="form-control" name="id" readonly value="${dto.id }" placeholder="아이디(이메일)" style="width:50%">
 									</div>
 									<div class="form-group">
@@ -182,6 +182,12 @@
 										<span style="width: 80%;">내용</span>
 										<textarea rows="10" cols="80" class="form-control" name="content" placeholder="내용입력">${dto.content }</textarea>
 									</div>
+									<div class="form-group">
+										<span style="width: 80%;">사진</span>
+										<input type="file" class="form-control" name="file" style="width:50%">${dto.file }
+										<input type="hidden" name="oldfile" value="${dto.file }">
+									</div>
+									
 									
 								<!-- ////////////////별점////////////// -->
 									<div class="form-group">

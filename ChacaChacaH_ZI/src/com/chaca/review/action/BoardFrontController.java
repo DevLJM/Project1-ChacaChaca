@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-
 public class BoardFrontController extends HttpServlet {
 			// Controller == 서블릿
 	
@@ -153,6 +152,84 @@ public class BoardFrontController extends HttpServlet {
 			}
 		}// else if ---  /BoardDeletePro.bo	
 		
+		else if(command.equals("/FileBoardWrite.bo")){
+			System.out.println("(from BoardFrontController_doProcess) C: /FileBoardWrite.bo 호출");
+			System.out.println("(from BoardFrontController_doProcess) C: DB 사용 X, 페이지 이동 O");
+			
+			
+			forward = new ActionForward();
+			forward.setPath("./reviewWriteForm.jsp");
+			forward.setRedirect(false); // forward 방식으로 이동
+
+		}// else if ---  /FileBoardWrite.bo	
+
+		else if(command.equals("/FileBoardWriteAction.bo")){
+			System.out.println("(from BoardFrontController_doProcess) C: /FileBoardWriteAction.bo 호출");
+			System.out.println("(from BoardFrontController_doProcess) C: DB 사용 O, 페이지 이동 O");
+			
+			
+			action = new FileBoardWriteAction();
+			
+			try {
+				forward = action.execute(request, response);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}// else if ---  /FileBoardWrite.bo	
+		
+		else if(command.equals("/FileBoardUpdate.bo")){
+			System.out.println(" C : /FileBoardUpdate.bo 호출 ");
+			System.out.println(" C : DB작업 o, 페이지 이동");
+		
+			// FileBoardUpdateAction() 객체 생성
+			action = new FileBoardUpdateAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}// else if ---  /FileBoardUpdate.bo	
+			
+		else if(command.equals("/FileBoardUpdateActionPro.bo")){
+			System.out.println(" C : /FileBoardUpdateActionPro.bo 호출 ");
+			System.out.println(" C : DB작업 o, 페이지 이동");
+			
+			// FileBoardUpdateActionPro() 객체 생성
+			action = new FileBoardUpdateActionPro();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}// else if ---  /FileBoardUpdate.bo	
+		
+		// 댓글 구현 시작////////////////////////////////////////
+		else if (command.equals("/CommentWrite.bo")){
+			System.out.println("(from BoardFrontController_doProcess) C: /CommentWrite.bo 호출");
+					
+			action = new CommentWriteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+					
+		} // CommentWrite.bo 끝
+				
+		else if (command.equals("/CommentUpdate.bo")){
+			System.out.println("(from BoardFrontController_doProcess) C: /CommentUpdate.bo 호출");
+				
+			action = new CommentUpdateAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		} // CommentUpdate.bo 끝
 		
 		
 		System.out.println("2. 가상 주소 매핑 끝---------------------------------\n");
