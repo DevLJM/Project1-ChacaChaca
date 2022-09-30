@@ -23,7 +23,7 @@ public class ContactDAO {
 	private String sql = ""; //SQL쿼리 구문 저장하는 객체 
 	
 	public ContactDAO(){
-		System.out.println("DAO: DB연결에 관한 모든 정보를 준비 완료!");
+		System.out.println("DAO: DB연결에 관한 모든 '문의하기' 정보를 준비 완료!");
 	}
 	
 	//DB연결 
@@ -36,7 +36,7 @@ public class ContactDAO {
 		Context initCTX = new InitialContext(); //자동형변환 
 		//초기화된 프로젝트 정보 중 데이터 불러오기
 		DataSource ds = 
-				(DataSource)initCTX.lookup("java:comp/env/jdbc/model_c"); 
+				(DataSource)initCTX.lookup("java:comp/env/jdbc/ChacaChaca"); 
 											//java:comp/env여기까지는 고정 그 다음은 이름
 		con = ds.getConnection();
 		
@@ -63,18 +63,18 @@ public class ContactDAO {
 	 }
 	 
 	 //글쓰기 메서드 -boardWrite()=========================================
-	 public void boradWrite(ContactDTO dto){
+	 public void boardWrite(ContactDTO dto){
 		 System.out.println("@@@@@@@@@@@@@@@@@@@@@@@boardWrite메서드 실행"+dto);
-		 //1. 드라이버 로드 
-		 //2. DB연결
-		 int bno=0; // 글번호 저장 변수 지정 
+		 // 1. 드라이버 로드 
+		 // 2. DB연결
+		 int bno = 0; // 글번호 저장 변수 지정 
 		 try {
 			 con = getConnect();
 			 
 			 //3. SQL쿼리구문 작성 & pstmt객체 생성
 			 //insert문 작성  
 			 //게시판 글번호(bno)계산 -> pk키 변수 (작성된 가장 마지막글번호 +1) 
-			 sql = "select max(bno) from itwill_board";
+			 sql = "select max(bno) from contact";
 			 //이 테이블에서 bno(글번호)의 최댓값을 구해달라 
 			 pstmt = con.prepareStatement(sql);
 			 //4. SQL실행 
@@ -99,9 +99,9 @@ public class ContactDAO {
 			 //게시판 글 쓰기 실행 
 			 //3. SQL쿼리구문 작성 & pstmt객체 생성
 			 //insert문 
-			 sql ="insert into itwill_board(bno,name,password,subject,content,"
+			 sql ="insert into contact(bno,name,id,password,subject,content,"
 			 		+ "readcount,re_ref,re_lev,re_seq,date,ip,file) "
-			 		+ "values(?,?,?,?,?,?,?,?,?,now(),?,?)";
+			 		+ "values(?,?,?,?,?,?,?,?,?,?,now(),?,?)";
 			 	//date -> now() 현재 시간 알아서 정해줌 
 			 
 			 pstmt = con.prepareStatement(sql);
@@ -109,18 +109,19 @@ public class ContactDAO {
 			 // ??? 채우기 
 			 pstmt.setInt(1, bno);
 			 pstmt.setString(2, dto.getName());
-			 pstmt.setString(3, dto.getPassword());
-			 pstmt.setString(4, dto.getSubject());
-			 pstmt.setString(5, dto.getContent());
+			 pstmt.setString(3, dto.getId());
+			 pstmt.setString(4, dto.getPassword());
+			 pstmt.setString(5, dto.getSubject());
+			 pstmt.setString(6, dto.getContent());
 			 
-			 pstmt.setInt(6, 0); //조회수는 항상 0
-			 pstmt.setInt(7, bno); //답글 그룹번호 == 글번호
-			 pstmt.setInt(8, 0); //답글 레벨 0(일반글)
-			 pstmt.setInt(9, 0); //답글 순서0(일반글)
+			 pstmt.setInt(7, 0); //조회수는 항상 0
+			 pstmt.setInt(8, bno); //답글 그룹번호 == 글번호
+			 pstmt.setInt(9, 0); //답글 레벨 0(일반글)
+			 pstmt.setInt(10, 0); //답글 순서0(일반글)
 			 
-			 pstmt.setString(10, dto.getIp());
-			 pstmt.setString(11, dto.getFile());
-			
+			 pstmt.setString(11, dto.getIp());
+			 pstmt.setString(12, dto.getFile());
+		
 			 //4. SQL실행
 			 pstmt.executeUpdate();
 			 System.out.println("DAO: 게시판 글 작성 완료!");
@@ -149,7 +150,7 @@ public class ContactDAO {
 		 getConnect();
 		 
 		 //3.sql작성 & pstmt객체 생성
-		 sql="select * from itwill_board";
+		 sql="select * from contact";
 		 pstmt = con.prepareStatement(sql);
 		 
 		 //4.sql실행
@@ -206,12 +207,12 @@ public class ContactDAO {
 		 con = getConnect();
 		 
 		 //3.sql작성 & pstmt객체 생성
-		 //sql = "select * from itwill_board"; (x)
+		 //sql = "select * from contact"; (x)
 		 
 		 //limit시작행 -1, 개수 : 시작지점부터 해당 개수만큼 잘라오기  
 		 //정렬:  re_ref 내림차순, re_seq 오름차순 
 		 //정렬하고 난 뒤 잘라와야 함 (순서)
-		 sql = "select * from itwill_board order by re_ref desc, re_seq asc"
+		 sql = "select * from contact order by re_ref desc, re_seq asc"
 		 		+ " limit ?,?";
 		 //최신글이 가장 위에 올라와있는 형태의 정렬 
 		 
@@ -236,6 +237,7 @@ public class ContactDAO {
 			 dto.setFile(rs.getString("file"));
 			 dto.setIp(rs.getString("ip"));
 			 dto.setName(rs.getString("name"));
+			 dto.setId(rs.getString("id"));
 			 dto.setPassword(rs.getString("password"));
 			 dto.setRe_lev(rs.getInt("re_lev"));
 			 dto.setRe_ref(rs.getInt("re_ref"));
@@ -269,7 +271,7 @@ public class ContactDAO {
 		 try {
 			getConnect();
 			//3.sql쿼리문 작성(select) & pstmt 객체생성 
-			sql = "select count(*) from itwill_board";
+			sql = "select count(*) from contact";
 			pstmt = con.prepareStatement(sql);
 			//4.sql쿼리문 실행
 			rs = pstmt.executeQuery();
@@ -295,7 +297,7 @@ public class ContactDAO {
 		  try {
 			con = getConnect();
 			//3.sql쿼리 & pstmt객체생성 
-			sql = "update itwill_board set readcount = readcount+1 where bno = ?";
+			sql = "update contact set readcount = readcount+1 where bno = ?";
 			pstmt = con.prepareStatement(sql);
 			
 			//??? 채우기
@@ -322,7 +324,7 @@ public class ContactDAO {
 		 try {
 			con = getConnect();
 			//3.sql작성 & pstmt객체생성 
-			sql = "select * from itwill_board where bno=?";
+			sql = "select * from contact where bno=?";
 			pstmt = con.prepareStatement(sql);
 			//?채우기
 			pstmt.setInt(1, bno);
@@ -340,6 +342,7 @@ public class ContactDAO {
 				dto.setFile(rs.getString("file"));
 				dto.setIp(rs.getString("ip"));
 				dto.setName(rs.getString("name"));
+				dto.setId(rs.getString("id"));
 				dto.setPassword(rs.getString("password"));
 				dto.setRe_lev(rs.getInt("re_lev"));
 				dto.setRe_ref(rs.getInt("re_ref"));
@@ -365,7 +368,7 @@ public class ContactDAO {
 			 //1,2.디비연결
 			con = getConnect();
 			//3. sql작성 & pstmt객체 생성
-			sql = "select password from itwill_board where bno=?";
+			sql = "select password from contact where bno=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, dto.getBno());
 			
@@ -378,7 +381,7 @@ public class ContactDAO {
 				if(dto.getPassword().equals(rs.getString("password"))){
 					//비밀번호 비교 -> if 조건문 충족 시 비밀번호 일치하는 것 
 					//3. sql - update & pstmt객체 생성 
-					sql = "update itwill_board set name=?,subject=?,content=? where bno=?";
+					sql = "update contact set name=?,subject=?,content=? where bno=?";
 					pstmt = con.prepareStatement(sql);
 					//?
 					pstmt.setString(1, dto.getName());
@@ -415,14 +418,14 @@ public class ContactDAO {
 			
 			try {
 				con=getConnect();
-				sql = "select password from itwill_board where bno=?";
+				sql = "select password from contact where bno=?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, dto.getBno());
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
 					if(dto.getPassword().equals(rs.getString("password"))){
-						sql = "delete from itwill_board where bno=?";
+						sql = "delete from contact where bno=?";
 						pstmt = con.prepareStatement(sql);
 						pstmt.setInt(1, dto.getBno());
 						result = pstmt.executeUpdate();
@@ -445,6 +448,73 @@ public class ContactDAO {
 			return result;
 		}
 		// 7. deleteBoard(dto) --- 특정 글 1개 삭제 메서드
+		
+		// 답글쓰기 메서드 - reInsertBoard(dto)
+				public void reInsertBoard(ContactDTO dto){
+					int bno = 0;
+					try {
+						con = getConnect();
+						// 1) bno 계산하기
+						sql = "select max(bno) from contact";
+						pstmt = con.prepareStatement(sql);
+						
+						rs = pstmt.executeQuery();
+						if(rs.next()){
+							bno = rs.getInt(1)+1;
+//							bno = rs.getInt("max(bno)")+1;
+						}
+						
+						System.out.println(" DAO : 답글 bno : "+bno );
+						
+						// 2) 답글 순서 재배치(update)
+						//   같은 그룹에 있으면서(re_ref),
+						//   기존의 순서(re_seq)보다 큰값이 있을때만 수정
+						sql = "update contact set re_seq=re_seq+1 "
+								+ "where re_ref=? and re_seq>?";
+						pstmt = con.prepareStatement(sql);
+						
+						pstmt.setInt(1, dto.getRe_ref());
+						pstmt.setInt(2, dto.getRe_seq());
+						
+						int result = pstmt.executeUpdate();
+						
+						if( result > 0 ){
+							System.out.println(" DAO : 답글 순서 재배치 완료! ");
+						}
+						
+						// 3) 답글 쓰기(insert) : ref,lev,seq 계산하기
+						sql = "insert into contact(bno,name,password,subject,content,"
+								+ "readcount,re_ref,re_lev,re_seq,date,ip,file) "
+								+ "values(?,?,?,?,?,?,?,?,?,now(),?,?)";
+						
+						pstmt = con.prepareStatement(sql);
+						
+						pstmt.setInt(1, bno); // 1단계 계산한 bno
+						pstmt.setString(2, dto.getName());
+						pstmt.setString(3, dto.getPassword());
+						pstmt.setString(4, dto.getSubject());
+						pstmt.setString(5, dto.getContent());
+						
+						pstmt.setInt(6, 0); // 조회수 0
+						pstmt.setInt(7, dto.getRe_ref()); // re_ref : 원글의 ref 번호 그대로 사용
+						pstmt.setInt(8, dto.getRe_lev()+1); // re_lev : 원글 lev+1
+						pstmt.setInt(9, dto.getRe_seq()+1); // re_seq : 원글 seq+1
+						
+						pstmt.setString(10, dto.getIp());
+						pstmt.setString(11, dto.getFile());
+						
+						pstmt.executeUpdate();
+						
+						System.out.println(" DAO :  답글 작성 완료! ");
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+					} finally {
+						closeDB();
+					}
+					
+				}
+				// 답글쓰기 메서드 - reInsertBoard(dto)
 
 }
 

@@ -52,6 +52,25 @@
 	    background-color: #FCF8E8;
 	    color: #CEE5D0;
 	}
+/* 폰트============================= */
+
+
+@font-face {
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+ *{
+    font-family: 'RIDIBatang';
+
+}
+
+footer {
+	clear: left;
+}
+
+/* 폰트============================= */
   </style>
     
     
@@ -62,20 +81,53 @@
 <!-- ---------------------- 최상단 메뉴바 -------------------------------- -->
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">CHACA<span>CHACA</span></a>
+	      <a class="navbar-brand" href="./Main.bo">CHACA<span>CHACA</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">이용안내</a></li>
-	          <li class="nav-item"><a href="services.html" class="nav-link">요금안내</a></li>
-	          <li class="nav-item"><a href="pricing.html" class="nav-link">예약하기</a></li>
-	          <li class="nav-item active"><a href="car.html" class="nav-link">고객센터</a></li>
-	          <li class="nav-item"><a href="login.html" class="nav-link">마이페이지</a></li>
+	          <li class="nav-item"><a href="./Main.bo" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="./Information.bo" class="nav-link">이용안내</a></li>
+	          <li class="nav-item"><a href="./Service.bo" class="nav-link">요금안내</a></li>
+	          <li class="nav-item"><a href="./Reservation.bo" class="nav-link">예약하기</a></li>
+	          <li class="nav-item active"><a href="./ReviewList.bo" class="nav-link">리뷰·문의</a></li>
+	          <li class="nav-item"><a href="./UserInfo.bo" class="nav-link">마이페이지</a></li>
 	        </ul>
+	        
+	        <div style="width: 180px; height: 50px; /* border:1px solid black;  */
+							line-height: 50px; margin-left: 30px; font-size: small; 
+							text-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.3); text-align: right; ">
+						<%
+					// 세션 영역에 있는 로그인 아이디 정보를 가져오기
+					String id = (String)session.getAttribute("loginID");
+					
+					if(id == null) {
+						// 로그인 안함
+						response.sendRedirect("./Login.bo");
+					}
+						
+					if(id == null) {
+						%>
+							<a class="nav-item" href="./Join.bo">회원가입</a>&nbsp;&nbsp;
+							<a class="nav-item" href="./Login.bo" id="login">로그인</a>
+					<%
+						} else {
+					%>
+						<span style="font-size: xx-small; color:white;">${sessionScope.name }님</span>&nbsp;&nbsp;
+						<a class="nav-item" href="./Logout.bo" id="logout">로그아웃</a>
+						
+						<%
+						if(id.equals("admin")) {
+							%>
+							&nbsp;&nbsp;<a class="nav-item" href="./Admin.bo" id="admin">관리페이지</a>
+							<%				
+						}
+					}
+					%>
+				</div>
+	        
 	      </div>
 	    </div>
 	  </nav>
@@ -86,7 +138,7 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> 
+          	<p class="breadcrumbs"><span class="mr-2"><a href="./Main.bo">Home <i class="ion-ios-arrow-forward"></i></a></span> 
           							<span>고객센터 <i class="ion-ios-arrow-forward"></i></span></p>
             						<h1 class="mb-3 bread">문의하기</h1>
           </div>
@@ -96,8 +148,8 @@
 
 
 <!-- 소제목+본문 섹션 시작 -->
-    <section class="ftco-section">
-		<div class="container">
+    <section class="ftco-section pt-1"></section>
+		<div class="container"></div>
 <!-- ---------------------- 소제목 -------------------------------- -->
 			<div class="row justify-content-center mb-3">
      			<div class="col-md-7 text-center heading-section ftco-animate">
@@ -107,11 +159,11 @@
        		</div>
 
 <!--좌측 메뉴바  -->
-
-<nav id="nav">
+<div style="width: 1400px; margin: 0px auto;">
+<nav id="nav" style="display: inline-block; float: left;">
             <ul>
-                <li><a href="#" onclick="location.href='review.html'">이용후기</a></li>
-                <li><a href="#" onclick="location.href='contact.html'">문의하기</a></li>
+                <li><a href="./ReviewList.bo">이용후기</a></li>
+                <li><a href="./ContactList.bo">문의하기</a></li>
             </ul>
     </nav>
 
@@ -120,10 +172,10 @@
 
        		
 <!-- ---------------------- 본문 -------------------------------- -->
-     <section class="ftco-section contact-section">
+     <section class="ftco-section contact-section" style="display: inline-block; float: left;">
       <div class="container">
         <div class="row d-flex mb-5 contact-info">
-        	<div class="col-md-4">
+        	<div class="col-md-4" style="padding-right: 0px;">
         		<div class="row mb-5">
 		          <div class="col-md-12">
 		          	<div class="border w-100 p-4 rounded mb-2 d-flex">
@@ -153,11 +205,12 @@
           </div>
           <div class="col-md-8 block-9 mb-md-5">
             <form action="./ContactWriteAction.bo" class="bg-light p-5 contact-form">
-              <div class="form-group">
+   
+     <!--          <div class="form-group">
                 <input type="text" class="form-control" placeholder="아이디" name="id">
-              </div>
+              </div> -->
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="이름" name="name">
+                <input type="text" class="form-control" placeholder="이름" name="name" value="${dto.name }">
               </div>
               <div class="form-group">
                 <input type="password" class="form-control" placeholder="비밀번호" name="password">
@@ -179,16 +232,15 @@
 <!-- 소제목+본문 섹션 끝 -->
        </div>
     </section>
-    
-
+</div>
 
 <!-- ---------------------- 푸터 -------------------------------- -->
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+    <footer class="ftco-footer ftco-bg-dark ftco-section" style="width: 100% !important;">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2"><a href="#" class="logo">CHACA<span>CHACA</span></a></h2>
+              <h2 class="ftco-heading-2"><a href="./Main.bo" class="logo">CHACA<span>CHACA</span></a></h2>
               <p>당신의 곁에있는<br>가장 가깝고 착한 플랫폼,<br> 지금 차카차카 하세요!</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
@@ -201,9 +253,9 @@
             <div class="ftco-footer-widget mb-4 ml-md-5">
               <h2 class="ftco-heading-2">Information</h2>
               <ul class="list-unstyled">
-                <li><a href="info.html" class="py-2 d-block">이용안내</a></li>
-                <li><a href="#" class="py-2 d-block">요금안내</a></li>
-                <li><a href="#" class="py-2 d-block">예약하기</a></li>
+                <li><a href="./Information.bo" class="py-2 d-block">이용안내</a></li>
+                <li><a href="./Service.bo" class="py-2 d-block">요금안내</a></li>
+                <li><a href="./Reservation.bo" class="py-2 d-block">예약하기</a></li>
               </ul>
             </div>
           </div>
@@ -211,7 +263,7 @@
              <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Customer Support</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">고객센터</a></li>
+                <li><a href="./ReviewList.bo" class="py-2 d-block">리뷰·문의</a></li>
               </ul>
             </div>
           </div>
@@ -221,8 +273,8 @@
             	<div class="block-23 mb-3">
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">부산광역시<br> 분당구 센텀일로 95</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+82 777 7777</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourchacachaca.com</span></a></li>
+	                <li><span class="icon icon-phone"></span><span class="text">+82 051 0909</span></li>
+	                <li><span class="icon icon-envelope"></span><span class="text">info@chacachaca.com</span></li>
 	              </ul>
 	            </div>
             </div>
@@ -232,7 +284,7 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Eine</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by Eine
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>

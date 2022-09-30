@@ -2,13 +2,13 @@
 
 <Context>
 	<Resource
-		name="jdbc/model_c" 
-		auth="Container" 
-		type="javax.sql.DataSource" 
-		driverClassName="com.mysql.cj.jdbc.Driver" 
-		username="root" 
-		password="1234" 
-		url="jdbc:mysql://localhost:3306/jspdb" 
+		name="jdbc/ChacaChaca"
+		auth="Container"
+		type="javax.sql.DataSource"
+		driverClassName="com.mysql.cj.jdbc.Driver"
+		username="itwillbs7"
+		password="itwillbs8030909"
+		url="jdbc:mysql://localhost:3306/itwillbs7"
 		maxWait="5000"
 	/>
 </Context>

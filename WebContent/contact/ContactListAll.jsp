@@ -169,7 +169,7 @@
 
 
 		String pageNum =(String) request.getAttribute("pageNum");
-		int cnt = (int) request.getAttribute("cnt");
+		int cnt = (int) request.getAttributef("cnt");
 		int pageCount = (int) request.getAttribute("pageCount");
 		int pageBlock = (int) request.getAttribute("pageBlock");
 		int startPage = (int) request.getAttribute("startPage");

@@ -18,7 +18,7 @@ public class ContactContentAction implements Action{
 		//테이블에 저장이 안되는 값이면 형변환X
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		String pageNum = request.getParameter("pageNum");
-		String password = request.getParameter("password");
+		// String password = request.getParameter("password");
 		
 		//BoardDAO객체 생성
 		ContactDAO dao = new ContactDAO();

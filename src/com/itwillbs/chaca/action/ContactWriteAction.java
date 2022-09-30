@@ -10,13 +10,14 @@ public class ContactWriteAction implements Action{
 	//오버라이딩 단축키 : alt+shift+s+v
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("M(model):BoardWriteAction.execute()호출");
+		System.out.println("M(model) : ContactWriteAction.execute()호출");
 		//한글처리 
 		request.setCharacterEncoding("UTF-8");
 		//전달정보 저장(제목,비밀번호,이름,내용)
 		//BoardDTO 객체 생성 
 		ContactDTO dto = new ContactDTO();
-		dto.setName(request.getParameter("name")); //메서드에 request정의되어 있어 사용 가능 
+		dto.setId(request.getParameter("id")); //메서드에 request정의되어 있어 사용 가능
+		dto.setName(request.getParameter("name")); 
 		dto.setPassword(request.getParameter("password"));
 		dto.setSubject(request.getParameter("subject"));
 		dto.setContent(request.getParameter("content"));
@@ -37,7 +38,7 @@ public class ContactWriteAction implements Action{
 		ContactDAO dao = new ContactDAO();
 		
 		//DB에 글 정보를 저장 
-		dao.boradWrite(dto);
+		dao.boardWrite(dto);
 		System.out.println("4444444444444444444444444444444 ");
 		
 		//페이지 이동 정보 저장(리턴)

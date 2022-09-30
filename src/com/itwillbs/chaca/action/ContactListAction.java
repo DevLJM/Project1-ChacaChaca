@@ -27,7 +27,7 @@ public class ContactListAction implements Action {
 		//int pageSize = 10;
 		String urlPageSize = request.getParameter("pageSize");
 		if(urlPageSize==null){ //한 번에 몇개 보여줄지 정하지 않았을때 = pageSize가 없을때?
-			urlPageSize="5"; //자동으로 10개 보이게 설정 
+			urlPageSize="10"; //자동으로 10개 보이게 설정 
 		}
 		int pageSize = Integer.parseInt(urlPageSize); //페이지 사이즈가 있으면 그대로 urlPageSize에 저장
 		

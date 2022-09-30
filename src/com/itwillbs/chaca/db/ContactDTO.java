@@ -7,6 +7,7 @@ public class ContactDTO {
 	//자바빈 == DTO(Data Transfer Object) : 데이터 전송 객체 
 	private int bno; //게시판 번호
 	private String name;//게시판 글쓴이
+	private String id; //게시판 글 아이디
 	private String password; //게시판 글 비밀번호
 	private String subject; //게시판 제목
 	private String content; //게시판 내용 
@@ -25,7 +26,6 @@ public class ContactDTO {
 	private String file; //첨부파일 
 	          
 	
-	
 	@Override
 	public String toString() {
 		return "BoardDTO [bno=" + bno + ", name=" + name + ", password=" + password + ", subject=" + subject
@@ -43,6 +43,12 @@ public class ContactDTO {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getPassword() {
 		return password;
